@@ -1,6 +1,6 @@
 /**
  * ClassName: LC222
- * Description:
+ * Description: 计算一个完全二叉树的叶子节点个数
  * date: 2020/2/27 14:34
  *
  * @author liyh

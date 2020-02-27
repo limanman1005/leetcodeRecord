@@ -1,6 +1,6 @@
 /**
  * ClassName: LC98
- * Description:
+ * Description: 判断一个树是否是二叉搜索树
  * date: 2020/2/27 15:59
  *
  * @author liyh
