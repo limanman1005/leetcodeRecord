@@ -48,16 +48,16 @@ class Solution98_2 {
     //此方法有点意思，里面暗含了中序遍历，判断了每一个数是不是比后面的一个数小。
     //我为什么一开始想不到这个答案？？？
     public boolean isValidBST(TreeNode root) {
-        if(root == null){
-            return true;
+    if(root == null){
+        return true;
+    }
+    if(isValidBST(root.left)){
+        if(temp < root.val){
+            temp = root.val;
+            return isValidBST(root.right);
         }
-        if(isValidBST(root.left)){
-            if(temp < root.val){
-                temp = root.val;
-                return isValidBST(root.right);
-            }
-        }
-        return false;
+    }
+    return false;
     }
 }
 
