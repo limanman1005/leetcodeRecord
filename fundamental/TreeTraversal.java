@@ -16,8 +16,11 @@ import java.util.LinkedList;
 public class TreeTraversal {
     public static void main(String[] args) {
         TreeNode root = getTreeNode();
-        levelOrder(root);
-        ArrayList<Integer> integers = new ArrayList<>();
+        preOrder(root);
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.forEach(System.out::print);
     }
 
     public static void preOrderRecurrence(TreeNode root) {
@@ -100,12 +103,12 @@ public class TreeTraversal {
     }
 
     public static TreeNode getTreeNode() {
-        TreeNode root = new TreeNode(1);
-        TreeNode left = new TreeNode(2);
-        TreeNode right = new TreeNode(3);
-        root.left = left;
-        root.right = right;
-        return root;
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        node1.right = node2;
+        node2.left = node3;
+        return node1;
     }
 
     public static void levelOrder(TreeNode curNode) {
