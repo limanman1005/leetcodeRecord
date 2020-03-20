@@ -38,7 +38,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3, 2, 6, 4, 1};
+        int[] nums = {3, 2, 6, 4, 1, 0, 90};
         helper = new int[nums.length];
         mergeSort(nums, 0, nums.length - 1);
         for (int i = 0; i < nums.length; i++) {
