@@ -13,20 +13,29 @@ public class QuickSort0319 {
         if(left >= right){
             return;
         }
-        int pivotIndex = partition(nums, left, right);
-        quickSort(nums, left, pivotIndex-1);
-        quickSort(nums, pivotIndex+1, right);
+        int midIndex = partition(nums, left, right);
+        quickSort(nums, left, midIndex- 1);
+        quickSort(nums, midIndex + 1 , right);
     }
 
-    private static int partition(int[] nums, int left, int right) {
+    private static int partition(int[] nums, int left, int right){
+        int midIndex = left + (right - left)/2;
+        int midValueIndex = midIndex;
+        if((nums[left] >= nums[midIndex] && nums[left] <= nums[right]) || (nums[left] <= nums[midIndex] && nums[left] >= nums[right])){
+            midValueIndex = left;
+        }
+        else if((nums[right] >= nums[midIndex] && nums[right] <= nums[left]) || (nums[right] <= nums[midIndex] && nums[right] >= nums[left])){
+            midValueIndex = right;
+        }
+        Util.swap(nums, left, midValueIndex);
         int pivot = nums[left];
         int lp = left + 1;
         int rp = right;
         while(lp <= rp){
-            while(lp <= rp && nums[lp] <= pivot){
+            while(lp <= rp && pivot >= nums[lp]){
                 lp++;
             }
-            while(lp <= rp && nums[rp] > pivot){
+            while(lp <= rp && pivot < nums[rp]){
                 rp--;
             }
             if(lp < rp){
@@ -42,7 +51,6 @@ public class QuickSort0319 {
     public static void main(String[] args) {
         int[] randomArr = Util.getRandomArr(10, -100, 100);
         quickSort(randomArr, 0, randomArr.length-1);
-
         for (int i : randomArr) {
             System.out.println(i);
         }

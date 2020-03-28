@@ -16,7 +16,7 @@ public class MergeSort0319 {
         }
         int mid = left + (right - left)/2;
         mergeSort(nums, left, mid);
-        mergeSort(nums, mid + 1, right);
+        mergeSort(nums, mid+1, right);
         mergeArray(nums, left, mid, right);
     }
 
@@ -25,7 +25,7 @@ public class MergeSort0319 {
         int lp = left;
         int rp = mid + 1;
         int cur = left;
-        while (lp <= mid && rp <= right){
+        while(lp <= mid && rp <= right){
             if(copy[lp] <= copy[rp]){
                 nums[cur++] = copy[lp++];
             }
@@ -33,14 +33,18 @@ public class MergeSort0319 {
                 nums[cur++] = copy[rp++];
             }
         }
-        while(lp <= mid){
+        while (lp <= mid){
             nums[cur++] = copy[lp++];
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = Util.getRandomArr(9, -100, 100);
+        int[] arr = Util.getRandomArr(10, -100, 100);
+        for (int i : arr) {
+            System.out.println(i);
+        }
         mergeSort(arr, 0, arr.length-1);
+        System.out.println("===================================");
         for (int i : arr) {
             System.out.println(i);
         }

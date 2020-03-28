@@ -52,10 +52,10 @@ public class QuickSort0316 {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 2, 5, 4, 1, 0, 9, 8};
-        quicksort(arr, 0, arr.length-1);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
+        int[] randomArr = Util.getRandomArr(15, -100, 100);
+        quicksort(randomArr, 0, randomArr.length-1);
+        for (int i : randomArr) {
+            System.out.println(i);
         }
     }
 }
