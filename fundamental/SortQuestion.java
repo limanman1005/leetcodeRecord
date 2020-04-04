@@ -1,3 +1,9 @@
+import com.sun.deploy.ui.UITextArea;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * ClassName: SortQuestion
  * Description:
@@ -206,8 +212,11 @@ public class SortQuestion {
 //        System.out.println(i);
 //        int[] arr = {1, 2, 2, 3};
 //        System.out.println(halfNum(arr));
-        int[] arr = {1, 3};
-        int min = findMin2(arr);
-        System.out.println(min);
+//        int[] arr = {1, 3};
+//        int min = findMin2(arr);
+//        System.out.println(min);
+//        int[] randomArr = Util.getRandomArr(10, -100, 100);
+//        System.out.println(Util.isOrdered(randomArr));
+//        System.out.println(Util.isOrdered(randomArr));
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Random;
 
 /**
@@ -32,6 +34,21 @@ public class Util {
             arr[i] = (int) (Math.random() * (max + 1 - min) + min);
         }
         return arr;
+    }
+
+    public static boolean isOrdered(int[] nums){
+        int len = nums.length;
+        int inc = 0;
+        int desc = 0;
+        for(int i = 0; i < len-1; ++i){
+            if(nums[i] < nums[i+1]){
+                inc++;
+            }
+            if(nums[i] >= nums[i+1]){
+                desc++;
+            }
+        }
+        return (inc == len -1) || (desc == len - 1);
     }
 
 }

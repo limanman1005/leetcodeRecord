@@ -52,5 +52,6 @@ public class HeapSort0401 {
         System.out.println(Arrays.toString(randomArr));
         heapSort(randomArr);
         System.out.println(Arrays.toString(randomArr));
+        System.out.println(Util.isOrdered(randomArr));
     }
 }
