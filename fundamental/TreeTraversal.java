@@ -1,6 +1,3 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import sun.reflect.generics.tree.Tree;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -16,11 +13,8 @@ import java.util.LinkedList;
 public class TreeTraversal {
     public static void main(String[] args) {
         TreeNode root = getTreeNode();
-        preOrder(root);
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.forEach(System.out::print);
+        postOrder(root);
+        levelOrder(root);
     }
 
     public static void preOrderRecurrence(TreeNode root) {
@@ -107,7 +101,7 @@ public class TreeTraversal {
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
         node1.right = node2;
-        node2.left = node3;
+        node1.left = node3;
         return node1;
     }
 

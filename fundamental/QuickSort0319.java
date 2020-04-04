@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.UUID;
 
 /**
  * ClassName: QuickSort0319
@@ -13,46 +12,43 @@ public class QuickSort0319 {
         if(left >= right){
             return;
         }
-        int midIndex = partition(nums, left, right);
-        quickSort(nums, left, midIndex- 1);
-        quickSort(nums, midIndex + 1 , right);
+        int pivotIndex = partition(nums, left, right);
+        quickSort(nums, left,  pivotIndex - 1);
+        quickSort(nums, pivotIndex + 1, right);
     }
 
     private static int partition(int[] nums, int left, int right){
-        int midIndex = left + (right - left)/2;
-        int midValueIndex = midIndex;
-        if((nums[left] >= nums[midIndex] && nums[left] <= nums[right]) || (nums[left] <= nums[midIndex] && nums[left] >= nums[right])){
-            midValueIndex = left;
+        int pivotIndex = left;
+        int mid = left + (right - left)/2;
+        if((nums[mid] >= nums[left] && nums[mid] < nums[right]) || (nums[mid] >= nums[right] && nums[mid] < nums[right])){
+            pivotIndex = mid;
         }
-        else if((nums[right] >= nums[midIndex] && nums[right] <= nums[left]) || (nums[right] <= nums[midIndex] && nums[right] >= nums[left])){
-            midValueIndex = right;
+        else if((nums[right] >= nums[left] && nums[right] < nums[mid]) || (nums[right] >= nums[mid] && nums[right] < nums[left])){
+            pivotIndex = right;
         }
-        Util.swap(nums, left, midValueIndex);
-        int pivot = nums[left];
+        int pivot = nums[pivotIndex];
+        Util.swap(nums, pivotIndex, left);
         int lp = left + 1;
         int rp = right;
         while(lp <= rp){
-            while(lp <= rp && pivot >= nums[lp]){
+            while (lp <= rp && nums[lp] <= pivot){
                 lp++;
             }
-            while(lp <= rp && pivot < nums[rp]){
+            while(lp <= rp && nums[rp] > pivot){
                 rp--;
             }
             if(lp < rp){
                 Util.swap(nums, lp, rp);
             }
         }
+        //这里交换rp是因为lp可能会超出范围吗？
         Util.swap(nums, left, rp);
         return rp;
     }
 
-
-
     public static void main(String[] args) {
-        int[] randomArr = Util.getRandomArr(10, -100, 100);
+        int[] randomArr = Util.getRandomArr(15, -100, 100);
         quickSort(randomArr, 0, randomArr.length-1);
-        for (int i : randomArr) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(randomArr));
     }
 }
