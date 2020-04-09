@@ -50,5 +50,6 @@ public class QuickSort0319 {
         int[] randomArr = Util.getRandomArr(15, -100, 100);
         quickSort(randomArr, 0, randomArr.length-1);
         System.out.println(Arrays.toString(randomArr));
+        System.out.println(Util.isOrdered(randomArr));
     }
 }

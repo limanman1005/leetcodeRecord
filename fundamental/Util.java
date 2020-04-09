@@ -41,7 +41,7 @@ public class Util {
         int inc = 0;
         int desc = 0;
         for(int i = 0; i < len-1; ++i){
-            if(nums[i] < nums[i+1]){
+            if(nums[i] <= nums[i+1]){
                 inc++;
             }
             if(nums[i] >= nums[i+1]){
