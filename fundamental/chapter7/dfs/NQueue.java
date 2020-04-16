@@ -30,6 +30,7 @@ public class NQueue {
         for(int col = 0; col < n; col++){
             boolean  ok = true;
             //这个循环代表和之前摆放好的皇后判断下冲突不冲突。row是之前已经摆好的皇后数目。
+            //能不能状态转换。提前剪枝。
             for (int i = 0; i < row; i++) {
                 //table数组的下标代表行号，内容代表列号。
                 //table[i] == col 代表在同一列

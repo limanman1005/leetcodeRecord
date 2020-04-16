@@ -20,33 +20,33 @@ public class PrimeRing {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] r = new int[n];
-        r[0] = 1;
-        dfs(n, r, 1);
+        int[] arr = new int[n];
+        arr[0] = 1;
+        dfs(n, arr, 1);
     }
 
     /**
      * 核心dfs。
      * @param n 给的大小
-     * @param r 数组
+     * @param arr 数组
      * @param cur 当前试探的位置
      */
-    private static void dfs(int n, int[] r, int cur) {
+    private static void dfs(int n, int[] arr, int cur) {
         //如果到了cur最后一位，并且和第一位相加还是素数。则满足条件打印输出
-        if(cur == n && isPrime(r[0] + r[n - 1])){
-            printArr(r);
+        if(cur == n && isPrime(arr[0] + arr[n - 1])){
+            printArr(arr);
             return;
         }
         //从2开始试。
         for(int i = 2; i <= n; ++i){
             //检查下能不能放到当前的位置
             //检查就相当于提前剪枝了
-            if(check(r, i, cur)){
-                r[cur] = i;
+            if(check(arr, i, cur)){
+                arr[cur] = i;
                 //放进去之后找下一个位置
-                dfs(n, r, cur + 1);
+                dfs(n, arr, cur + 1);
                 //回溯
-                r[cur] = 0;
+                arr[cur] = 0;
             }
         }
     }
