@@ -30,6 +30,12 @@ public class RotateMatrix {
         int[][] ints = generateMatrix(3);
 
     }
+
+    /**
+     * 螺旋输出矩阵解法1
+     * @param matrix
+     * @return
+     */
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> ans = new ArrayList<>();
         if(matrix.length == 0){
@@ -57,6 +63,11 @@ public class RotateMatrix {
         return ans;
     }
 
+    /**
+     * 螺旋输出矩阵解法2
+     * @param matrix
+     * @return
+     */
     public static List<Integer> spiralOrder2(int[][] matrix){
         ArrayList<Integer> ans = new ArrayList<>();
         if(matrix.length == 0){
@@ -91,6 +102,11 @@ public class RotateMatrix {
 
     }
 
+    /**
+     * 这个方法从1开始生成一个螺旋的方阵
+     * @param n
+     * @return
+     */
     public static int[][] generateMatrix(int n) {
         int l = 0, r = n - 1, t = 0, b = n - 1;
         int[][] mat = new int[n][n];
