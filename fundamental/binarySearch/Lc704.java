@@ -9,6 +9,13 @@ package binarySearch;
  */
 public class Lc704 {
 
+
+    public static void main(String[] args) {
+        int[] arr = {1, 3,  4, 5, 6};
+        System.out.println(new Lc704().search(arr, 2));
+        System.out.println(new Lc704().search2(arr, 2));
+    }
+
     /**
      * 标准的二分查找解法，按照减治区间做的。
      * @param nums
@@ -73,6 +80,6 @@ public class Lc704 {
             }
         }
         //如果返回left代表在左边有多少个元素
-        return -1;
+        return left;
     }
 }

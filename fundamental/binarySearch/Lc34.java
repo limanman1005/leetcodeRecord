@@ -10,19 +10,13 @@ import java.util.Arrays;
  * @author liyh
  */
 public class Lc34 {
-
     public static void main(String[] args) {
-        int[] arr = {5, 7, 7,8, 8,  10};
-//        int[] ans = new Solution34().searchRange(arr, 8);
-//        System.out.println(Arrays.toString(ans));
-        int[] test = {8, 8};
-//        System.out.println(new Solution34().findLowerBound(arr, 8));
-        System.out.println(new Solution34().findUpperBound(arr, 8));
-
+        int[] arr = {1, 2, 2, 2, 3};
+        System.out.println(new Solution34_2().searchLowerBound(arr, 2));
     }
 }
 
-class Solution34 {
+class Solution34{
     public int[] searchRange(int[] nums, int target) {
         int[] ans = new int[]{-1, -1};
         if(nums.length == 0){
@@ -160,5 +154,26 @@ class Solution34 {
             }
         }
         return target == arr[left]? left: -1;
+    }
+}
+class Solution34_2{
+    public int searchLowerBound(int[] nums, int target){
+        int len = nums.length;
+        int left = 0;
+        int right = len - 1;
+        //写等号会不知道什么时候可以跳出循环。这样写是不行的。
+        while(left <= right){
+            int mid = (left + right) >>> 1;
+            if(target == nums[mid]){
+                right = mid;
+            }
+            else if(target > nums[mid]){
+                left = mid + 1;
+            }
+            else{
+                right = mid -1;
+            }
+        }
+        return left;
     }
 }
