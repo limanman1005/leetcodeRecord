@@ -11,7 +11,7 @@ public class Lc704 {
 
 
     public static void main(String[] args) {
-        int[] arr = {1, 3,  4, 5, 6};
+        int[] arr = {1,1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  3,  4, 5, 6};
         System.out.println(new Lc704().search(arr, 2));
         System.out.println(new Lc704().search2(arr, 2));
     }
@@ -46,7 +46,8 @@ public class Lc704 {
             }
         }
         //退出的时候还有一个元素没有判断
-        return nums[left] == target? left: -1;
+        return left;
+//        return nums[left] == target? left: -1;
     }
 
     /**

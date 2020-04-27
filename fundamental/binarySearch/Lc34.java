@@ -129,7 +129,7 @@ class Solution34{
                 right = mid;
             }
             else{
-                right = mid;
+                right = mid -1;
             }
         }
         return  arr[left] == target ? left: -1;

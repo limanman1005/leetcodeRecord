@@ -1,0 +1,78 @@
+package binarySearch;
+
+/**
+ * ClassName: FindDuplicateNum
+ * Description: 二分法的应用
+ * date: 2020/4/26 11:23
+ *
+ * @author liyh
+ */
+public class FindDuplicateNum {
+    public static void main(String[] args) {
+        int[] arr = {1, 3,4 , 2, 2};
+        System.out.println(new Solution287().findDuplicate2(arr));
+    }
+}
+
+class Solution287 {
+    /**
+     * 搜索部分空间的二分法。感觉好用一点。
+     * 有的东西直接记答案比较好
+     * @param nums
+     * @return
+     */
+    public int findDuplicate(int[] nums) {
+        int len = nums.length;
+        int left = 1;
+        int right = len - 1;
+        while(left < right){
+            int mid = (left + right+1) >>> 1;
+            //这里用一个循环来找到一个依据把区间二分。
+            int count = 0;
+            for(int num: nums){
+                if(num < mid){
+                    count++;
+                }
+            }
+            //大于和等于都一样，主要和依据的判定有关系的
+            if(count >= mid){
+                right = mid -1;
+            }
+            else{
+                left = mid;
+            }
+        }
+        return left;
+    }
+
+    /**
+     * 这个是搜索了全部空间的二分法。
+     * @param nums
+     * @return
+     */
+    public int findDuplicate2(int[] nums) {
+        int len = nums.length;
+        int left = 1;
+        int right = len - 1;
+        while(left <= right){
+            int mid = (left + right) >>> 1;
+            int count = 0;
+            for(int num: nums){
+                if(num <= mid){
+                    count++;
+                }
+            }
+            if(count > mid){
+                right = mid -1;
+            }
+            else if(count == mid){
+                left = mid + 1;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        //写小于等于的时候，返回值的意义不好说啊。
+        return left;
+    }
+}

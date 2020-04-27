@@ -24,16 +24,18 @@ class Solution274 {
         //只用开到n。大于n的可以合到n处。
         int[] papers = new int[n+1];
         //按照意义填充数组
+        //超过n的引用次数无意义，归并到n就好
         for(int c : citations){
             papers[Math.min(n, c)]++;
         }
-        //从可能的最高n开始，拿出数组里面的值（即引用为n的文章数）和第n篇文章开始对比
-        int k = n;
-        //paper[k]里面存的是大于等于下标的文章数，所以这里加上这个数即（s += papers[k]）
-        //k表示有几篇文章。
-        for(int s = papers[n]; k > s; s += papers[k]){
-            k--;
+        int count = 0;
+        for(int i = n; i >= 0; i--){
+            count += papers[i];
+            //这个条件就是代表，找到第一个引用次数大于等于i的文章数大于等于i篇文章。
+            if(count >= i){
+                return i;
+            }
         }
-        return k;
+        return 0;
     }
 }
