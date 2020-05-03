@@ -112,7 +112,7 @@ public class TreeTraversal0401 {
         postOrder(root);
         System.out.println("===================================");
         postOrder2(root);
-        System.out.println("=================================");
+        System.out.println("===================================");
         levelOrder(root);
     }
 }
