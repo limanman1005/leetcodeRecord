@@ -108,5 +108,4 @@ class Solution106{
         node.left = helper(l, rootIndex - 1);
         return node;
     }
-
 }
