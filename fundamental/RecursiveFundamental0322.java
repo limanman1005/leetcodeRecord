@@ -156,6 +156,14 @@ public class RecursiveFundamental0322 {
         return ans * quickPow(a, n - e);
     }
 
+    public static void printfArrReverse(char[] arr, int cur){
+        if (cur == arr.length){
+            return;
+        }
+        printfArrReverse(arr, cur + 1);
+        System.out.println(arr[cur]);
+    }
+
 
 
     public static void main(String[] args) {
@@ -175,6 +183,7 @@ public class RecursiveFundamental0322 {
 //        for (int i : arr){
 //            System.out.println(i);
 //        }
-        System.out.println(quickPow(2, 11));
+        char[] arr = new char[]{'1', '2', '3'};
+        printfArrReverse(arr, 0);
     }
 }

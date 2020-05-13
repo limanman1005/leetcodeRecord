@@ -1,3 +1,4 @@
+import java.util.List;
 
 /**
  * ClassName: No206
@@ -26,5 +27,22 @@ class Solution_1 {
         head.next = null;
         //返回反转好的头节点
         return p;
+    }
+
+    /**
+     * 反转链表的迭代版本
+     * @param node
+     * @return
+     */
+    public ListNode reverseNode(ListNode node){
+        ListNode pre = null;
+        ListNode cur = node;
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
 }

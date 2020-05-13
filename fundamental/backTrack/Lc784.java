@@ -12,10 +12,12 @@ import java.util.List;
  */
 public class Lc784 {
     public static void main(String[] args) {
+        List<String> strings = new Solution784().letterCasePermutation2("a");
+        strings.forEach(System.out::println);
 
     }
 }
-class Solution {
+class Solution784 {
     public List<String> letterCasePermutation(String S) {
         List<String> ans = new ArrayList<>();
         if(S.length() == 0){
@@ -25,6 +27,14 @@ class Solution {
         helper(strChar, 0, S.length(), ans);
         return ans;
     }
+
+    /**
+     * 这个回溯不明显
+     * @param str
+     * @param cur
+     * @param end
+     * @param ans
+     */
     public void helper(char[] str, int cur, int end, List<String> ans){
         if(cur == end){
             ans.add(new String(str));

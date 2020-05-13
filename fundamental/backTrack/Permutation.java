@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class Permutation {
     public static void main(String[] args) {
-        new Solution46().permute(new int[]{1, 2, 3});
+        List<List<Integer>> permute = new Solution46().permute(new int[]{1, 2, 3});
+
     }
 }
 class Solution46 {
@@ -21,7 +22,7 @@ class Solution46 {
     public List<List<Integer>> permute(int[] nums) {
         LinkedList<Integer> track = new LinkedList<>();
         boolean[] used = new boolean[nums.length];
-        dfs(nums, 0, track, used);
+        dfs2(nums, 0, track, used);
         return ans;
     }
     public void dfs(int[] nums, int depth, List<Integer> path, boolean[] used){
@@ -41,6 +42,22 @@ class Solution46 {
             //把这个位置的num[i]撤销
             path.remove(path.size() - 1);
             used[i] = false;
+        }
+    }
+
+    public void dfs2(int[] nums, int depth, List<Integer> path, boolean[] used){
+        if(nums.length == depth){
+            ans.add(new ArrayList<>(path));
+            return;
+        }
+        for(int i = 0; i < nums.length; ++i){
+            if(!used[i]){
+                path.add(nums[i]);
+                used[i] = true;
+                dfs2(nums, depth + 1, path, used);
+                path.remove(path.size() - 1);
+                used[i] = false;
+            }
         }
     }
 }

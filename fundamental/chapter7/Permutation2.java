@@ -41,6 +41,7 @@ public class Permutation2 {
             swap(chars, k, i);
             //递归的把下一个位置上的所有可能的元素交换到k+1这个位置上来。
             getPermutationCore(chars, k + 1);
+            //回溯
             swap(chars, k, i);
         }
     }
