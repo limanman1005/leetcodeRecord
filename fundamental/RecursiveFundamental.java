@@ -10,7 +10,7 @@ public class RecursiveFundamental {
 
     /**
      * 求阶乘
-     * @param n
+     * @param n 目标
      * @return
      */
     public static int printFactorial(int n){
@@ -76,8 +76,9 @@ public class RecursiveFundamental {
 
     /**
      * 辗转相除法的递归写法
-     * @param m
-     * @param n
+     * 这个就是尾递归。
+     * @param m 大数
+     * @param n 小数
      * @return
      */
     public static int gcd(int m, int n){

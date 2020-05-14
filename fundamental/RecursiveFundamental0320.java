@@ -23,6 +23,12 @@ public class RecursiveFundamental0320 {
         arrSum1(nums, i+1);
     }
 
+    /**
+     * 这个是有返回值的递归求数组的和
+     * @param nums
+     * @param i
+     * @return
+     */
     public static int arrSum2(int[] nums, int i){
         if(i == nums.length -1 ){
             return nums[i];
@@ -48,6 +54,11 @@ public class RecursiveFundamental0320 {
     }
 
 
+    /**
+     * 这个sb在这方法里毫无作为啊
+     * @param str
+     * @return
+     */
     public static String reverseString3(String str){
         if(str.length() == 1){
             sb.append(str);
@@ -132,7 +143,9 @@ public class RecursiveFundamental0320 {
         if(n == 0){
             return;
         }
+        //这一步是把前面n - 1个数拍好。
         insertSort(arr, n-1);
+        //后面这些步骤是如何把第n个数插入到前面n - 1个数前面
         int value = arr[n];
         int index = n - 1;
         while(index > -1 && value < arr[index]){
@@ -151,6 +164,7 @@ public class RecursiveFundamental0320 {
         if(n > arr.length -1 ){
             return;
         }
+        //首先把第n个数插进前面
         int value = arr[n];
         int index = 0;
         while(index < n && value > arr[index]){
@@ -162,6 +176,7 @@ public class RecursiveFundamental0320 {
             temp--;
         }
         arr[index] = value;
+        //然后递归的插进去第n + 1个数
         insertSort2(arr, n+1);
     }
 
@@ -235,7 +250,7 @@ public class RecursiveFundamental0320 {
      * 数组求和，有返回值，从前往后推
      * @param arr
      * @param k
-     * @return
+     * @return 下标为0到k的数组的和
      */
     public static int arrSum5(int[] arr, int k){
         if(k == arr.length - 1){
@@ -249,7 +264,7 @@ public class RecursiveFundamental0320 {
      * 数组求和，无返回值，从后往前推
      * @param arr
      * @param k
-     * @return
+     * @return 下标为k到arr.length - 1的和
      */
     public static int arrSum6(int[] arr, int k){
         if(k == 0){
@@ -259,11 +274,11 @@ public class RecursiveFundamental0320 {
     }
 
     public static void main(String[] args) {
-        int[] randomArr = Util.getRandomArr(10, -100, 100);
-        insertSort(randomArr, randomArr.length-1);
-        for (int i = 0; i < randomArr.length; i++) {
-            System.out.println(randomArr[i]);
-        }
+//        int[] randomArr = Util.getRandomArr(10, -100, 100);
+//        insertSort(randomArr, randomArr.length-1);
+//        for (int i = 0; i < randomArr.length; i++) {
+//            System.out.println(randomArr[i]);
+//        }
 //        reverseString7("123456");
 //        System.out.println(sb.toString());
 //        System.out.println(reverseString10("123"));

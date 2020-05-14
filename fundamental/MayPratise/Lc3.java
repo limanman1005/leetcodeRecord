@@ -28,7 +28,7 @@ class Solution3 {
             return 0;
         }
         //map记录每个字母最后出现的位置。（截止到访问的时候）
-        HashMap<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> map = new HashMap<>(s.length());
         int max = 0;
         int left = 0;
         for(int i = 0; i < s.length(); ++i){

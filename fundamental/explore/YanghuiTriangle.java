@@ -12,7 +12,9 @@ import java.util.List;
  */
 public class YanghuiTriangle {
     public static void main(String[] args) {
-        List<Integer> row = new Solution118().getRow(4);
+        ArrayList<Integer> cur = new ArrayList<>();
+        cur.add(1);
+        List<Integer> row = new Solution118().getRow2(0, 4, cur);
         for (Integer integer : row) {
             System.out.println(integer);
         }
@@ -20,7 +22,7 @@ public class YanghuiTriangle {
 }
 class Solution118 {
     /**
-     * 递归解法
+     * 循环解法
      * @param numRows
      * @return
      */
@@ -87,5 +89,25 @@ class Solution118 {
         }
         ans.add(1);
         return ans;
+    }
+
+    /**
+     * 从前往后递归有点难啊，从小推向大有点循环的意思。
+     * @param cur
+     * @param target
+     * @param prevRow
+     * @return
+     */
+    public List<Integer> getRow2(int cur, int target, List<Integer> prevRow){
+        if(cur == target){
+            return prevRow;
+        }
+        ArrayList<Integer> curRow = new ArrayList<>();
+        curRow.add(1);
+        for(int i = 1; i < prevRow.size(); ++i){
+            curRow.add(prevRow.get(i - 1) + prevRow.get(i));
+        }
+        curRow.add(1);
+        return getRow2(cur + 1, target, curRow);
     }
 }

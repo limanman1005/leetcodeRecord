@@ -60,6 +60,7 @@ public class RecursiveFundamental0322 {
 
     /**
      * 细节不直观啊，我还是无法理解什么时候可以避免死循环
+     * 这个是错误的，这个对于某些情况可能会陷入四孙环
      * @param num
      * @return
      */
@@ -80,6 +81,7 @@ public class RecursiveFundamental0322 {
 
     /**
      * 二分的细节啊，我并不知道这个应该怎么做啊。
+     * 这个也是错误的会陷入死循环
      * @param arr
      * @param left
      * @param right
@@ -156,6 +158,11 @@ public class RecursiveFundamental0322 {
         return ans * quickPow(a, n - e);
     }
 
+    /**
+     * 这个可以简单理解为使用一个栈
+     * @param arr
+     * @param cur
+     */
     public static void printfArrReverse(char[] arr, int cur){
         if (cur == arr.length){
             return;

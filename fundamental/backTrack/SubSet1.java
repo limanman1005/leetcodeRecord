@@ -72,5 +72,60 @@ class Solution78 {
         helper(nums, cur + 1);
     }
 
+    private List<List<Integer>> output = new ArrayList<>();
+    private int n, k;
 
+    /**
+     * 子集的回溯算法。
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subset3(int[] nums){
+        n = nums.length;
+        //k表示的目前生成的子集的大小，一共要生成[0, k]个子集的大小。
+        for(k = 0; k < n + 1; ++k){
+            backtrack(0, new ArrayList<Integer>(), nums);
+        }
+        return output;
+    }
+
+    private void backtrack(int first, ArrayList<Integer> cur, int[] nums) {
+        if(cur.size() == k){
+            output.add(new ArrayList<>(cur));
+        }
+        for(int i = first; i < n; ++i){
+            cur.add(nums[i]);
+            backtrack(i + 1, cur, nums);
+            cur.remove(cur.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> subsets4(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null) {return result;}
+        dfs(result,nums,new ArrayList<Integer>(),0);
+        return result;
+    }
+
+    /**
+     * 这个回溯写的真的有点意思了
+     * @param result
+     * @param nums
+     * @param list
+     * @param level
+     */
+    private void dfs(List<List<Integer>> result, int[] nums, ArrayList<Integer> list, int level) {
+        // terminal
+        if (level == nums.length){
+            result.add(new ArrayList<Integer>(list));
+            return;
+        }
+        // process current logic 可选择，或者不选择  // drill down
+        dfs(result,nums,list,level+1);
+        list.add(nums[level]);
+        dfs(result,nums,list,level+1);
+        // restore current status;
+        list.remove(list.size()-1);
+    }
 }
+
