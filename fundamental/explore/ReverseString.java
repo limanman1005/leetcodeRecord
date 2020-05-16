@@ -35,6 +35,5 @@ class Solution1 {
         s[left] = s[right];
         s[right] = temp;
         helper(s, ++left, --right);
-
     }
 }

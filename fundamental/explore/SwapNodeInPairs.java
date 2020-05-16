@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * ClassName: SwapNodeInPairs
- * Description: 给一个链表，两两反转
+ * Description: 给一个链表，两两反转，循环写法暂空
  * date: 2020/5/12 14:12
  *
  * @author liyh

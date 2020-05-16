@@ -56,6 +56,8 @@ class Solution779 {
             return 0;
         }
         int parent = kthGrammar2(N - 1, (K + 1)/2);
+        //这个关系可以理解成parent为1或者parent为0的时候（k%2）相加等于1。
+        //(k%2)的结果代表是生成的第几位。需要在每一层维护。在最底层和K没关系，但是在其他层的答案可就和他有关系了
         if(parent == 0){
             return 1 - (K % 2);
         }
