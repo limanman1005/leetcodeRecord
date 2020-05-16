@@ -27,7 +27,7 @@ class Solution257 {
     }
 
     /**
-     * 使用dfs进行遍历
+     * 使用dfs进行遍历还有进行回溯
      * @param root
      * @param path
      */
@@ -38,6 +38,7 @@ class Solution257 {
         //每次的时候都把值加进path里面。
         path.add(root.val);
         //碰到叶子节点说有一条路径到底。把这个数组组装成String
+        //这段代码可以放的位置挺多的。放到后序的位置貌似更好理解
         if(root.left == null && root.right == null){
             StringBuilder sb = new StringBuilder();
             for(int val : path){
@@ -45,6 +46,7 @@ class Solution257 {
             }
             int len = sb.length();
             ans.add(sb.toString().substring(0, len - 2));
+            //这如果要加return。那么需要在这里加上回溯。
         }
         //前往左子树
         dfs(root.left, path);

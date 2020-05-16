@@ -13,10 +13,10 @@ import java.util.List;
 public class SubSet1 {
 
     public static void main(String[] args) {
-        ArrayList<Integer> integers = new ArrayList<>();
-        integers.add(1);
-        integers.remove(1);
-        System.out.println(integers.get(0));
+        int[] arr = new int[]{1, 2, 3};
+        List<List<Integer>> lists = new Solution78().subsets4(arr);
+
+
     }
 }
 
@@ -76,7 +76,7 @@ class Solution78 {
     private int n, k;
 
     /**
-     * 子集的回溯算法。
+     * 子集的回溯算法。这个回溯思路是把不同大小的子集分开来求出，最后汇总。
      * @param nums
      * @return
      */
@@ -92,6 +92,8 @@ class Solution78 {
     private void backtrack(int first, ArrayList<Integer> cur, int[] nums) {
         if(cur.size() == k){
             output.add(new ArrayList<>(cur));
+            //这里还是加上return吧。虽然不return也可以得到正确答案。
+            return ;
         }
         for(int i = first; i < n; ++i){
             cur.add(nums[i]);
@@ -108,7 +110,7 @@ class Solution78 {
     }
 
     /**
-     * 这个回溯写的真的有点意思了
+     * 二叉回溯法。状态树是一个二叉树。
      * @param result
      * @param nums
      * @param list
