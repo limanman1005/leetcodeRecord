@@ -3,6 +3,7 @@ package explore;
 import Dfs.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,10 +15,24 @@ import java.util.List;
  */
 public class GenerateAllBST {
     public static void main(String[] args) {
-        new Solution95().generateTrees(1);
+//        new Solution95().generateTrees(1);
+//        List<List<Integer>> ans = new ArrayList<>(16);
+//        int[] arr = new int[2];
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+        int[] ints = new int[]{1, 2};
+        System.out.println(ints.toString());
+
     }
 }
 class Solution95{
+    /**
+     * 这个算法的确有点难理解。
+     * 从循环和递归的角度来说都难理解。
+     * 使用状态树应该好一点吧
+     * @param n
+     * @return
+     */
     public List<TreeNode> generateTrees(int n) {
         if(n == 0){
             return new ArrayList<TreeNode>();

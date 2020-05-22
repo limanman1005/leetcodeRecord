@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 /**
  * ClassName: BuildTree
- * Description:
+ * Description: 这题和105差不多，就不都写了
  * date: 2020/5/2 20:42
  *
  * @author liyh
  */
 public class BuildTree {
     public static void main(String[] args) {
-        int[] arr1 = {9,3,15,20,7};
+        int[] arr1 = {9, 3, 15, 20, 7};
         int[] arr2 = {9, 15, 7, 20, 3};
         new Solution106().buildTree(arr1, arr2);
         System.out.println("==============================");
