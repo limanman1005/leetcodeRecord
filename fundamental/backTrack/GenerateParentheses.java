@@ -29,6 +29,7 @@ class Solution {
     /**
      * 这个是回溯算法
      * 这里的状态有left（还剩多少个左括号没有用）和right（还剩多少右括号没有用）
+     *
      * @param sb
      * @param left
      * @param right
