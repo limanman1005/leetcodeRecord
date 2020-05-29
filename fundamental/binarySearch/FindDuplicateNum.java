@@ -4,7 +4,8 @@ package binarySearch;
  * ClassName: FindDuplicateNum
  * Description: 二分法的应用
  * date: 2020/4/26 11:23
- *
+ *  本题还有一个快慢指针的解法。
+ *  注意上面两种解法都是有特定的条件的。即数组里面的数字是1-n数组大小是n + 1，
  * @author liyh
  */
 public class FindDuplicateNum {
@@ -74,5 +75,24 @@ class Solution287 {
         }
         //写小于等于的时候，返回值的意义不好说啊。
         return left;
+    }
+
+    /**
+     * 此为双指针法，技巧性很强的，怎么想到环的我还是没想到。
+     * @param nums
+     * @return
+     */
+    public int findDuplicate3(int[] nums) {
+        int slow = 0, fast = 0;
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow != fast);
+        slow = 0;
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
     }
 }
