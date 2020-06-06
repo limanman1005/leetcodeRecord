@@ -8,11 +8,31 @@ import java.util.List;
  * @author liyh
  */
 public class LC206 {
+    public static void main(String[] args) {
+        Solution_1 solution_1 = new Solution_1();
+        ListNode aList = solution_1.getAList();
+        ListNode listNode = solution_1.reverseList2(aList);
+        while(listNode != null){
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+
+    }
 }
 
 
 //递归解法
 class Solution_1 {
+    public ListNode getAList(){
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        return node1;
+    }
     //这个方法返回List的d头节点
     public ListNode reverseList(ListNode head) {
         //递归终止条件，碰到只有一个节点或者只有一个节点就返回，现在的头节点
@@ -27,6 +47,16 @@ class Solution_1 {
         head.next = null;
         //返回反转好的头节点
         return p;
+    }
+
+    public ListNode reverseList2(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode reverseHead = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return  reverseHead;
     }
 
     /**
