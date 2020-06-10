@@ -21,6 +21,7 @@ class Solution26 {
         int q = 1;
         while(q < nums.length){
             if(nums[p] != nums[q]){
+                //注意这里是++p
                 nums[++p] = nums[q];
             }
             q++;
