@@ -16,7 +16,8 @@ public class IntersectionOfTwoArrays2 {
 }
 class Solution350 {
     /**
-     * 此处先排序后使用双指针法。对于已经拍过序的数组特别适合
+     * 此处先排序后使用双指针法。对于已经拍过序的数组特别适合。
+     * 这个真的特别的骚。
      * @param nums1
      * @param nums2
      * @return
