@@ -20,6 +20,8 @@ class Solution50 {
      * @return
      */
     public double myPow(double x, int n) {
+        //这里转成long的意思就是为了测试边界用例INT_MAX
+        //这个转成负数之后会有问题
         long N = n;
         return N >= 0? quickMul(x, N) : 1.0/quickMul(x, -N);
     }

@@ -15,6 +15,11 @@ public class PlusOneInArray {
 }
 
 class Solution66 {
+    /**
+     * 这个思路很直接，直接记住就好
+     * @param digits
+     * @return
+     */
     public int[] plusOne(int[] digits) {
         int len = digits.length;
         //从这里面出来代表就是全是9.

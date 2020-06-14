@@ -2,7 +2,7 @@ package juniorAlgorithm.array;
 
 /**
  * ClassName: CountAndSay
- * Description:
+ * Description: 这个是字符串那一节的题，不小心放错了。
  * date: 2020/6/3 9:47
  *
  * @author liyh

@@ -4,11 +4,17 @@ package MayPratise;
  * ClassName: ValidPalindrome2
  * Description: 给一个字符串，判断是不是回文串，可以删除任意一个字母看下是不是回文串
  * 这里加下提醒，对于回文子串一般都使用双指针法。
+ * 此题的循环和迭代写法都要看看
  * date: 2020/5/19 9:31
  *
  * @author liyh
  */
 public class ValidPalindrome2 {
+    public static void main(String[] args) {
+        Solution680 solution680 = new Solution680();
+        boolean ans = solution680.validPalindrome4("abc");
+        System.out.println(ans);
+    }
 }
 class Solution680 {
     /**
@@ -29,6 +35,7 @@ class Solution680 {
             }
             else{
                 boolean flag1 = true, flag2 = true;
+                //删除左边的试试。
                 for(int i = low, j = high - 1; i < j; i++, j--){
                     char c3 = s.charAt(i);
                     char c4 = s.charAt(j);
@@ -37,6 +44,7 @@ class Solution680 {
                         break;
                     }
                 }
+                //删除右边的试试
                 for(int i = low + 1, j = high; i < j; ++i, --j){
                     char c3 = s.charAt(i);
                     char c4 = s.charAt(j);
@@ -46,6 +54,97 @@ class Solution680 {
                     }
                 }
                 return flag1 || flag2;
+            }
+        }
+        return true;
+    }
+
+
+    private int count = 0;
+
+    /**
+     * 这题的递归解法。可以应对删除几个的情况
+     * @param s
+     * @return
+     */
+    public boolean validPalindrome3(String s) {
+        int i = 0, j = s.length() - 1;
+        while(i < j){
+            if(s.charAt(i) == s.charAt(j)){
+                i++;
+                j--;
+            }
+            else{
+                if(count == 0){
+                    count++;
+                    return validPalindrome3(s.substring(i, j)) || validPalindrome3(s.substring(i + 1, j + 1));
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+    public boolean validPalindromeByMe(String s) {
+        if(s == null){
+            return false;
+        }
+        if(s.length() == 0 || s.length() == 1){
+            return true;
+        }
+        int len = s.length();
+        int left = 0;
+        int right = len - 1;
+        char[] strs = s.toCharArray();
+        while(left < right){
+            if(strs[left] == strs[right]){
+                left++;
+                right--;
+            }
+            else{
+                boolean leftFlag = true;
+                boolean rightFlag = true;
+                for(int i = left + 1, j = right; i < j; ++i, --j){
+                    //这里记得是i和j
+                    if(strs[left] != strs[right]){
+                        leftFlag = false;
+                        break;
+                    }
+                }
+                for(int i = left, j = right - 1; i < j; ++i, --j){
+                    //这里记得是i和j
+                    if(strs[left] != strs[right]){
+                        rightFlag = false;
+                        break;
+                    }
+                }
+                return leftFlag || rightFlag;
+            }
+        }
+        return true;
+    }
+
+
+
+
+    public boolean validPalindrome4(String s) {
+        return helper(s, 0);
+    }
+    public boolean helper(String s, int count){
+        if(count > 1){
+            return false;
+        }
+        int i = 0;
+        int j = s.length() - 1;
+        while(i < j){
+            if(s.charAt(i) == s.charAt(j)){
+                i++;
+                j--;
+            }
+            else{
+                return helper(s.substring(i, j), count+1) || helper(s.substring(i + 1, j + 1), count+1);
             }
         }
         return true;

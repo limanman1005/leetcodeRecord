@@ -3,6 +3,7 @@ package explore;
 /**
  * ClassName: ClimbStairs
  * Description: 爬楼梯那道题
+ * 这道题还应该记住快速幂的算法，和公式法。
  * date: 2020/5/13 9:43
  *
  * @author liyh
@@ -22,4 +23,6 @@ class Solution70 {
         }
         return climbStairs(n - 1) + climbStairs(n - 2);
     }
+
+    //这里预留点其他算法的例子
 }

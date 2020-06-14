@@ -3,7 +3,7 @@ package juniorAlgorithm.array;
 /**
  * ClassName: RemoveDuplicateInSortedArray
  * Description:删除排序数组里面的重复元素，并返回删除后的数组长度
- * 这题使用双指针法即可
+ * 这题使用双指针法即可，这个是同侧的双指针
  * date: 2020/5/25 10:30
  *
  * @author liyh
