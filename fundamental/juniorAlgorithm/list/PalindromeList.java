@@ -12,7 +12,7 @@ import explore.ListNode;
 public class PalindromeList {
 }
 
-class Solution {
+class Solution234 {
     /**
      * 这个是非递归解法
      * @param head
@@ -22,11 +22,13 @@ class Solution {
         if(head == null){
             return true;
         }
+        //找到中间节点并反转
         ListNode halfNode = findMiddleOfList(head);
         ListNode reverseHalfListHead = reverseList(halfNode.next);
         ListNode p1 = head;
         ListNode p2 = reverseHalfListHead;
         boolean ans = true;
+        //然后和反转过后的节点进行比较
         while(ans && p2 != null){
             if(p1.val != p2.val){
                 ans = false;
@@ -62,7 +64,7 @@ class Solution {
     private ListNode frontPointer;
 
     /**
-     * 这个是递归解法
+     * 这个是递归解法， 使用一个全局变量来比较。
      * @param head
      * @return
      */

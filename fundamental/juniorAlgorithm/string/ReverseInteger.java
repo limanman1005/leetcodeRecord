@@ -14,7 +14,7 @@ public class ReverseInteger {
 
 class Solution7 {
     /**
-     * 这种带各种边界条件的还是直接记住这个答案吧，没事干多翻一翻自己以前些的东西
+     * 这种带各种边界条件的还是直接记住这个答案吧，没事干多翻一翻自己以前写的东西
      * @param x
      * @return
      */
