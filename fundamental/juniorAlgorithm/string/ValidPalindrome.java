@@ -9,6 +9,10 @@ package juniorAlgorithm.string;
  * @author liyh
  */
 public class ValidPalindrome {
+    public static void main(String[] args) {
+        Solution125 solution125 = new Solution125();
+        System.out.println(solution125.isPalindrome2("A man, a plan, a canal: Panama"));
+    }
 }
 class Solution125 {
     /**
@@ -34,6 +38,7 @@ class Solution125 {
             while(left <right && !Character.isLetterOrDigit(str[right])){
                 right--;
             }
+            //忽略大小写
             if(Character.toLowerCase(str[left]) != Character.toLowerCase(str[right])){
                 return false;
             }
@@ -41,5 +46,43 @@ class Solution125 {
             right--;
         }
         return true;
+    }
+
+
+    /**
+     * 正则加上stringbuilder法
+     * @param s
+     * @return
+     */
+    public boolean isPalindrome2(String s) {
+        //这个正则匹配有点意思
+        String judge = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        String rjudge = new StringBuilder(judge).reverse().toString();
+        return judge.equals(rjudge);
+    }
+
+
+    /**
+     * 本题递归解法
+     * @param s
+     * @return
+     */
+    public boolean isPalindrome3(String s) {
+        return helper(s, 0, s.length() - 1);
+    }
+    private boolean helper(String s, int left, int right){
+        if(left >= right){
+            return true;
+        }
+        while(left < right && !Character.isLetterOrDigit(s.charAt(left))){
+            left++;
+        }
+        while(left <right && !Character.isLetterOrDigit(s.charAt(right))){
+            right--;
+        }
+        if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))){
+            return false;
+        }
+        return helper(s, ++left, --right);
     }
 }
