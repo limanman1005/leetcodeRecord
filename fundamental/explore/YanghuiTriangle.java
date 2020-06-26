@@ -14,13 +14,13 @@ public class YanghuiTriangle {
     public static void main(String[] args) {
         ArrayList<Integer> cur = new ArrayList<>();
         cur.add(1);
-        List<Integer> row = new Solution118().getRow2(0, 4, cur);
+        List<Integer> row = new Solution118And119().getRow2(0, 4, cur);
         for (Integer integer : row) {
             System.out.println(integer);
         }
     }
 }
-class Solution118 {
+class Solution118And119 {
     /**
      * 循环解法
      * @param numRows
@@ -47,28 +47,30 @@ class Solution118 {
     }
 
     /**
-     * 迭代解法
+     * 递归解法
      * @param numRows
      * @return
      */
     public List<List<Integer>> generate2(int numRows) {
-        List<List<Integer>> triangle = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
         if(numRows == 0){
-            return triangle;
+            return ans;
         }
-        triangle.add(new ArrayList<>());
-        triangle.get(0).add(1);
-        for(int rowNum = 1; rowNum < numRows; rowNum++){
-            List<Integer> row = new ArrayList<>();
-            List<Integer> prevRow = triangle.get(rowNum - 1);
-            row.add(1);
-            for(int j = 1; j < rowNum; j++){
-                row.add(prevRow.get(j-1) + prevRow.get(j));
-            }
-            row.add(1);
-            triangle.add(row);
+        if(numRows == 1){
+            List<Integer> startRow = new ArrayList<>();
+            startRow.add(1);
+            ans.add(startRow);
+            return ans;
         }
-        return triangle;
+        ans = generate2(numRows - 1);
+        List<Integer> row = new ArrayList<>();
+        row.add(1);
+        for(int j = 1; j <numRows - 1; ++j){
+            row.add(ans.get(numRows - 2).get(j - 1) + ans.get(numRows - 2).get(j));
+        }
+        row.add(1);
+        ans.add(row);
+        return ans;
     }
 
     /**
@@ -92,7 +94,7 @@ class Solution118 {
     }
 
     /**
-     * 从前往后递归有点难啊，从小推向大有点循环的意思。
+     * 这边是个尾递归的东西。
      * @param cur
      * @param target
      * @param prevRow
