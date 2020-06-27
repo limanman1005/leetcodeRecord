@@ -2,7 +2,7 @@ package juniorAlgorithm.string;
 
 /**
  * ClassName: ValidAnagram
- * Description: 有效的字符异位词，就是使用hash表统计下字符串的字符出现的次数。
+ * Description: 有效的字符异位词（给两个字符串判断下），就是使用hash表统计下字符串的字符出现的次数。
  * 由于都是小写字母，所以使用了一个固定大小的数组。并且把三次循环压缩成了两次。
  * date: 2020/6/13 16:55
  *
