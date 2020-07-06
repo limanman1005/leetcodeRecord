@@ -9,7 +9,7 @@ package middleAlgorithm.ArrayAndString;
  */
 public class LongestPalindromicSubstring {
 }
-class Solution5 {
+class Solution05 {
     /**
      * 动态规划法。回文串自带状态转移性质。
      * @param s
