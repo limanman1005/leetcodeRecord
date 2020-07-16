@@ -7,16 +7,9 @@ package binarySearch;
  *
  * @author liyh
  */
+@Deprecated
 public class Lc33 {
-
-    public static void main(String[] args) {
-
-    }
-
-
-
 }
-
 class Solution33 {
 
     /**

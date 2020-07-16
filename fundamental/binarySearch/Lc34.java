@@ -9,10 +9,11 @@ import java.util.Arrays;
  *
  * @author liyh
  */
+@Deprecated
 public class Lc34 {
     public static void main(String[] args) {
         int[] arr = {1, 2, 2, 2, 3};
-        System.out.println(new Solution34_2().searchLowerBound(arr, 2));
+        System.out.println(Arrays.toString(new Solution34().searchRange(arr, 2)));
     }
 }
 

@@ -30,6 +30,7 @@ class Solution215 {
      * @param k
      * @return
      */
+    @Deprecated
     public int findKthLargest(int[] nums, int k) {
         //len - k将最大的转变成最小的索引
         return quickSelect(nums, 0, nums.length - 1, nums.length - k);

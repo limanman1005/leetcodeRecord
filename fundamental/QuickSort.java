@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class QuickSort {
     public static void quickSort(int[] nums, int l, int r){
         if( l < r){
-            int q = partition3(nums, l, r);
+            int q = partition(nums, l, r);
             quickSort(nums, l, q - 1);
             quickSort(nums, q + 1, r);
         }
@@ -98,7 +98,7 @@ public class QuickSort {
                 Util.swap(nums, lp, rp);
             }
         }
-        //最后交换也有坑。
+        //最后交换要用rp，为什么呢
         Util.swap(nums, l, rp);
         return rp;
     }
@@ -109,7 +109,7 @@ public class QuickSort {
         int[] nums = {2, 3, 5, 1, 0, 9, 6, 8, 9};
         quickSort(nums, 0, nums.length - 1);
         for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i]);
+            System.out.print(nums[i] + "\t");
         }
     }
 }
