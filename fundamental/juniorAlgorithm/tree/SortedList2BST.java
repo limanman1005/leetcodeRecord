@@ -1,7 +1,7 @@
 package juniorAlgorithm.tree;
 
 import Dfs.TreeNode;
-import explore.ListNode;
+import explore.recursion.ListNode;
 
 /**
  * ClassName: SortedList2BST

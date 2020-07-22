@@ -1,4 +1,4 @@
-package explore;
+package explore.recursion;
 
 import java.util.Arrays;
 
@@ -13,14 +13,14 @@ public class ReverseString {
 
     public static void main(String[] args) {
         char[] arr = new char[]{'a', 'b', 'c'};
-        new Solution1().reverseString(arr);
+        new Solution344().reverseString(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
 
-class Solution1 {
+class Solution344 {
     /**
-     * 这个使用这个
+     * 递归解法
      * @param s
      */
     public void reverseString(char[] s){

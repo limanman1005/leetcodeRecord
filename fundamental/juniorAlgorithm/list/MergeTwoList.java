@@ -1,6 +1,6 @@
 package juniorAlgorithm.list;
 
-import explore.ListNode;
+import explore.recursion.ListNode;
 
 /**
  * ClassName: MergeTwoList

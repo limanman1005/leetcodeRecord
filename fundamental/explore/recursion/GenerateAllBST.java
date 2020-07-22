@@ -1,4 +1,4 @@
-package explore;
+package explore.recursion;
 
 import Dfs.TreeNode;
 
@@ -27,9 +27,9 @@ public class GenerateAllBST {
 }
 class Solution95{
     /**
-     * 这个算法的确有点难理解。
-     * 从循环和递归的角度来说都难理解。
-     * 使用状态树应该好一点吧
+     * 使用递归是最好理解的一种方式了
+     * 就是选取一个节点作为根节点之后，剩下的左右未选的区间就是左右孩子待选的区间
+     * 选取一个节点之后发现左右区间也是同样的问题，问题的规模变小了，于是可以使用递归。
      * @param n
      * @return
      */

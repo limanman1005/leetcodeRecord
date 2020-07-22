@@ -1,4 +1,4 @@
-package explore;
+package explore.recursion;
 
 import java.util.ArrayList;
 import java.util.List;

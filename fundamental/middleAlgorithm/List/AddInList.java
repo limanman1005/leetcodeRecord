@@ -1,6 +1,6 @@
 package middleAlgorithm.List;
 
-import explore.ListNode;
+import explore.recursion.ListNode;
 
 /**
  * ClassName: AddInList

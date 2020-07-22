@@ -1,4 +1,4 @@
-package explore;
+package explore.recursion;
 
 /**
  * ClassName: ClimbStairs
