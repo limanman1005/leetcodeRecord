@@ -1,5 +1,7 @@
+package Recursive;
+
 /**
- * ClassName: RecursiveFundamental
+ * ClassName: Recursive.RecursiveFundamental
  * Description:
  * date: 2020/3/15 0:09
  *
