@@ -40,7 +40,7 @@ class Solution206 {
         head.next.next = head;
         //讲当前节点的下个指针域置零。
         head.next = null;
-        //返回反转好的头节点
+        //返回反转的头节点，这个就从最后一个节点不断的返回到出口
         return p;
     }
 

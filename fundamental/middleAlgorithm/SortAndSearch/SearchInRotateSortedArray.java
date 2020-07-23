@@ -8,12 +8,18 @@ package middleAlgorithm.SortAndSearch;
  * @author liyh
  */
 public class SearchInRotateSortedArray {
+
+    public static void main(String[] args) {
+        Solution33 solution33 = new Solution33();
+        int[] arr = {4,5,6,7,0,1,2};
+        int search = solution33.search(arr, 0);
+    }
 }
 
 class Solution33 {
     /**
      * 对于旋转过后，进行分类讨论下确定怎么样缩小空间
-     * 旋转过后把数组分成两段。每一段都是有序的
+     * 旋转过后把数组分成两段。一段是有序的另一端是缩小版的旋转数组
      * @param nums
      * @param target
      * @return

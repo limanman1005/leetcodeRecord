@@ -53,18 +53,23 @@ class Solution118And119 {
      */
     public List<List<Integer>> generate2(int numRows) {
         List<List<Integer>> ans = new ArrayList<>();
+        //等于0直接返回
         if(numRows == 0){
             return ans;
         }
+        //等于1的时候就把第一行初始化一下就好了
         if(numRows == 1){
             List<Integer> startRow = new ArrayList<>();
             startRow.add(1);
             ans.add(startRow);
             return ans;
         }
+        //这里直接扔给下一层去做就好了
         ans = generate2(numRows - 1);
+        //新的一列
         List<Integer> row = new ArrayList<>();
         row.add(1);
+        //根据上一个列表，求出本列的值
         for(int j = 1; j <numRows - 1; ++j){
             row.add(ans.get(numRows - 2).get(j - 1) + ans.get(numRows - 2).get(j));
         }
