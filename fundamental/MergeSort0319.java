@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 /**
  * ClassName: MergeSort0319
- * Description:
+ * Description: 归并排序另有非递归解法，见大话数据结构
  * date: 2020/3/19 14:21
  *
  * @author liyh
