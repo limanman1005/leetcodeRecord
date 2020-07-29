@@ -43,7 +43,7 @@ public class MergeSort0401 {
     }
 
     public static void main(String[] args) {
-        int[] randomArr = Util.getRandomArr(5, -100, 100);
+        int[] randomArr = {7,5, 6, 4 };
         int[] clone = randomArr.clone();
         System.out.println(Arrays.toString(clone));
         mergeSort(clone, 0, clone.length-1);

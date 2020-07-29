@@ -61,6 +61,9 @@ public class HeapSort0403 {
     public static void main(String[] args) {
         int[] randomArr = Util.getRandomArr(12, -100, 100);
         System.out.println(Arrays.toString(randomArr));
+        int[] clone = randomArr.clone();
+        Arrays.sort(clone);
+        System.out.println(Arrays.toString(clone));
         heapSort(randomArr);
         System.out.println(Arrays.toString(randomArr));
     }

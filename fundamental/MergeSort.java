@@ -4,9 +4,10 @@ import java.awt.*;
  * ClassName: MergeSort
  * Description:
  * date: 2020/3/16 23:19
- * 归并排序
+ * 归并排序,这个好像有错
  * @author liyh
  */
+@Deprecated
 public class MergeSort {
 
     private static int[] helper;

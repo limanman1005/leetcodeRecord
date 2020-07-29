@@ -1,15 +1,14 @@
-package juniorAlgorithm.string;
+package explore.microsoft.arrayAndString;
 
 /**
- * ClassName: MyStringToInteger
- * Description: 这是一道需要细心的题，没事多看看
- * date: 2020/6/13 18:21
+ * ClassName: StringToNum
+ * Description:
+ * date: 2020/7/29 11:32
  *
  * @author liyh
  */
-public class MyStringToInteger {
+public class StringToNum {
 }
-
 class Solution08 {
     /**
      * 甜姨的解法
@@ -57,6 +56,3 @@ class Solution08 {
         return negative? -ans: ans;
     }
 }
-
-
-
