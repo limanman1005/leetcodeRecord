@@ -14,6 +14,15 @@ import java.util.Stack;
  * @author liyh
  */
 public class BuildTreeInPreAndInOrder {
+    public static void main(String[] args) {
+        Solution105 solution105 = new Solution105();
+        int[] pre = {3,9,20,15,7};
+        int[] in = {9,3,15,20,7};
+        TreeNode treeNode = solution105.buildTree(pre, in);
+        Solution105.rootIndex = 0;
+        solution105.buildTree2(pre, in);
+
+    }
 }
 
 class Solution105 {
@@ -24,7 +33,32 @@ class Solution105 {
      * 使用了这个是真的秀，直接利用了递归的顺序，精准找到当前层次的根节点在先序中的下标，不用在计算一个root在后或者前序里面的坐标传过去
      * 当然这时候要注意递归键左右子树的顺序。
      */
-    private int rootIndex;
+    public static int rootIndex;
+
+
+
+    private HashMap<Integer, Integer> map = new HashMap<>();
+
+    public TreeNode buildTree2(int[] preorder, int[] inorder) {
+        this.preorder = preorder;
+        this.inorder = inorder;
+        for(int i = 0; i < inorder.length; ++i){
+            map.put(inorder[i], i);
+        }
+        return helper2(0, inorder.length - 1);
+    }
+    private TreeNode helper2(int start, int end){
+        if(start > end){
+            return null;
+        }
+        System.out.println(preorder[rootIndex]);
+        TreeNode curRoot = new TreeNode(preorder[rootIndex]);
+        int rootIndexInInorder = map.get(preorder[rootIndex]);
+        rootIndex++;
+        curRoot.left = helper2(start, rootIndexInInorder - 1);
+        curRoot.right = helper2(rootIndexInInorder + 1, end);
+        return curRoot;
+    }
 
     /**
      * 递归解法
@@ -49,6 +83,7 @@ class Solution105 {
             return null;
         }
         int val = preorder[rootIndex++];
+        System.out.println(val);
         TreeNode root = new TreeNode(val);
         int rootValIndexInInorder = inVal2Index.get(val);
         root.left = helper(start, rootValIndexInInorder - 1);

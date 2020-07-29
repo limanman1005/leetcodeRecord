@@ -236,7 +236,7 @@ public class RecursiveFundamental0320 {
     }
 
     /**
-     * 数组求和，无返回值，从后往前推
+     * 数组求和，无返回值，从后往前推，做了一个全局变量
      * @param arr
      * @param k
      */

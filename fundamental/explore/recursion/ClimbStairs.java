@@ -21,7 +21,7 @@ class Solution70 {
         if(dp[n] != 0){
             return dp[n];
         }
-        return climbStairs(n - 1) + climbStairs(n - 2);
+        return dp[n] =  climbStairs(n - 1) + climbStairs(n - 2);
     }
 
     //这里预留点其他算法的例子

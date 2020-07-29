@@ -56,6 +56,7 @@ class Solution104 {
                     queue.add(node.right);
                 }
             }
+            //每过一层，level++
             level++;
         }
         return level;

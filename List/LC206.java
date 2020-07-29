@@ -11,7 +11,7 @@ public class LC206 {
     public static void main(String[] args) {
         Solution_1 solution_1 = new Solution_1();
         ListNode aList = solution_1.getAList();
-        ListNode listNode = solution_1.reverseList2(aList);
+        ListNode listNode = solution_1.reverseList3(aList);
         while(listNode != null){
             System.out.println(listNode.val);
             listNode = listNode.next;
@@ -23,6 +23,19 @@ public class LC206 {
 
 //递归解法
 class Solution_1 {
+
+    public ListNode reverseList3(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode listNode = reverseList3(head.next);
+        ListNode next = head.next;
+        next.next = head;
+        head.next = null;
+        return listNode;
+    }
+
+
     public ListNode getAList(){
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -68,9 +81,13 @@ class Solution_1 {
         ListNode pre = null;
         ListNode cur = node;
         while(cur != null){
+            //首先保存下下一个节点引用
             ListNode next = cur.next;
+            //然后当前节点反转
             cur.next = pre;
+            //然后前面的节点移到当前节点上去
             pre = cur;
+            //然后当前节点移到下一个节点上去
             cur = next;
         }
         return pre;

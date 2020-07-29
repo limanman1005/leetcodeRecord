@@ -1,6 +1,7 @@
 package explore.recursion;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,15 +13,31 @@ import java.util.List;
  */
 public class YanghuiTriangle {
     public static void main(String[] args) {
-        ArrayList<Integer> cur = new ArrayList<>();
-        cur.add(1);
-        List<Integer> row = new Solution118And119().getRow2(0, 4, cur);
-        for (Integer integer : row) {
-            System.out.println(integer);
-        }
+        List<Integer> row01 = new Solution118And119().getRow01(4);
+        row01.forEach(System.out::println);
+
     }
 }
 class Solution118And119 {
+
+    public List<Integer> getRow01(int rowIndex) {
+        if(rowIndex == 0){
+            ArrayList<Integer> integers = new ArrayList<>();
+            integers.add(1);
+            return integers;
+        }
+        List<Integer> preRow = getRow01(rowIndex - 1);
+        ArrayList<Integer> curRow = new ArrayList<>();
+        curRow.add(1);
+        for(int i = 1; i < preRow.size(); ++i){
+            curRow.add(preRow.get(i - 1) + preRow.get(i));
+        }
+        curRow.add(1);
+        return curRow;
+    }
+
+
+
     /**
      * 循环解法
      * @param numRows
@@ -115,6 +132,7 @@ class Solution118And119 {
             curRow.add(prevRow.get(i - 1) + prevRow.get(i));
         }
         curRow.add(1);
+        //这里的尾递归通常是从下往上的
         return getRow2(cur + 1, target, curRow);
     }
 }

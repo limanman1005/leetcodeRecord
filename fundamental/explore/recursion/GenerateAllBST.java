@@ -20,8 +20,10 @@ public class GenerateAllBST {
 //        int[] arr = new int[2];
 //        List<Integer> list = new ArrayList<>();
 //        list.add(1);
-        int[] ints = new int[]{1, 2};
-        System.out.println(ints.toString());
+//        int[] ints = new int[]{1, 2};
+//        System.out.println(ints.toString());
+        TreeNode[][] ans = new TreeNode[3][3];
+        ans[1][2] = new TreeNode(-1);
 
     }
 }
@@ -42,12 +44,14 @@ class Solution95{
     public List<TreeNode> helper(int start, int end){
         List<TreeNode> ans = new ArrayList<>();
         if(start > end){
+            //加上这个避免到叶子节点后无法加上null。
             ans.add(null);
             return ans;
         }
         for(int i = start; i <= end; ++i){
             List<TreeNode> leftTree = helper(start, i - 1);
             List<TreeNode> rightTree = helper(i + 1, end);
+            //这里有可能会跳过null
             for(TreeNode left : leftTree){
                 for(TreeNode right : rightTree){
                     TreeNode curTree = new TreeNode(i);
@@ -60,4 +64,3 @@ class Solution95{
         return ans;
     }
 }
-
