@@ -33,7 +33,7 @@ public class MergeSort0401 {
             }
             else{
                 nums[cur++] = copy[rp++];
-                reverseNum += mid - left + 1;
+                reverseNum += mid - lp + 1;
             }
         }
         while(lp <= mid){

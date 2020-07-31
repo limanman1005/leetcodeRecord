@@ -1,5 +1,6 @@
 package JunePractice;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -12,12 +13,9 @@ import java.util.Random;
  */
 public class KthLargestElementInArray {
     public static void main(String[] args) {
-        String s = Integer.toBinaryString(100);
-        System.out.println(s);
-        String s1 = Integer.toBinaryString(100 >>> 2);
-        System.out.println(-1 >>> 2);
-        System.out.println(s1);
-
+        Solution215 solution215 = new Solution215();
+        int[] arr = {4, 1, 7, 5};
+        System.out.println(solution215.findKthLargest2(arr, 1));
     }
 }
 
@@ -112,7 +110,7 @@ class Solution215 {
     }
 
     /**
-     * 这里的k好像有点多余
+     * 这里的partition应成为我的划分模板
      * @param arr
      * @param k
      * @param start
@@ -126,9 +124,10 @@ class Solution215 {
         int tmp = arr[start];
         arr[start] = arr[p];
         arr[p] = tmp;
-        //再把start上的数存到tmp上面
+        //使用tmp存上pivot的值（这时候start存的是start的值）
         tmp = arr[start];
         //然后遍历start和end之间的数字
+        //这里先找左边不满足情况的不能变
         while(start < end){
             //跳过右边小于tmp的数字，找到一个合适的end位置
             while(start < end && arr[end] <= tmp){
