@@ -11,6 +11,9 @@ import java.util.LinkedList;
  * @author liyh
  */
 public class DailyTemperature {
+    public static void main(String[] args) {
+        System.out.println(Double.MIN_VALUE);
+    }
 }
 class Solution739 {
     public int[] dailyTemperatures(int[] T) {
