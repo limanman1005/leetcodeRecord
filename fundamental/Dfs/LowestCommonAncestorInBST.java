@@ -1,5 +1,7 @@
 package Dfs;
 
+import java.util.TreeSet;
+
 /**
  * ClassName: LowestCommonAncestorInBST
  * Description:
@@ -8,6 +10,10 @@ package Dfs;
  * @author liyh
  */
 public class LowestCommonAncestorInBST {
+    public static void main(String[] args) {
+        TreeSet<Object> objects = new TreeSet<>();
+
+    }
 }
 
 class Solution235 {
