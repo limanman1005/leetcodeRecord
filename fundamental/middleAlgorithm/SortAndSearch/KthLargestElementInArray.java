@@ -1,5 +1,6 @@
 package middleAlgorithm.SortAndSearch;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -14,6 +15,7 @@ public class KthLargestElementInArray {
         int[] arr ={3, 2, 1, 5, 6, 4};
         Solution215 solution215 = new Solution215();
         int kthLargest = solution215.findKthLargest(arr, 2);
+        System.out.println(Arrays.toString(arr));
     }
 }
 class Solution215 {
@@ -57,7 +59,7 @@ class Solution215 {
             while(lp <= rp && nums[lp] >= pivot){
                 lp++;
             }
-            while(lp <= rp && nums[rp] <= pivot){
+            while(lp <= rp && nums[rp] < pivot){
                 rp--;
             }
             if(lp < rp){

@@ -33,6 +33,7 @@ class Trie {
             if(cur.childrenMap.get(c) == null){
                 cur.childrenMap.put(c, new TrieNode());
             }
+            //添加了节点之后还需要向下走一步呢
             cur = cur.childrenMap.get(c);
         }
         cur.isWord = true;

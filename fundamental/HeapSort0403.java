@@ -68,3 +68,8 @@ public class HeapSort0403 {
         System.out.println(Arrays.toString(randomArr));
     }
 }
+class HeapSortPractice{
+    public void heapSort(int[] arr){
+
+    }
+}

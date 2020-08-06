@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * ClassName: HeapSort
@@ -59,5 +60,7 @@ public class HeapSort {
         System.out.println(Arrays.toString(randomArr));
         heapSort(randomArr);
         System.out.println(Arrays.toString(randomArr));
+        PriorityQueue<Integer> integers = new PriorityQueue<>(36, (l1, l2) -> l2 - l1);
+
     }
 }
