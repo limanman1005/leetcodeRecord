@@ -1,6 +1,7 @@
 package MayPratise;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * ClassName: DecodeString
@@ -24,6 +25,13 @@ class Solution394 {
     public String decodeString(String s){
         return dfs(s, 0)[0];
     }
+
+    /**
+     * 这个递归有点秀了
+     * @param s
+     * @param i 代表到哪了
+     * @return 返回了一个字符数组，有点意思
+     */
     public String[] dfs(String s, int i){
         StringBuilder ans = new StringBuilder();
         int multi = 0;
