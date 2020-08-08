@@ -8,4 +8,10 @@ package explore.recursion;
  * @author liyh
  */
 public class AllBSTNum {
+    public static void main(String[] args) {
+        StringBuilder stringBuilder = new StringBuilder("...");
+        stringBuilder.setCharAt(1, '2');
+        System.out.println(stringBuilder);
+
+    }
 }

@@ -11,6 +11,18 @@ import java.util.List;
  * @author liyh
  */
 public class PhoneNumString {
+    public static void main(String[] args) {
+//        Solution17 solution17 = new Solution17();
+//        List<String> strings = solution17.letterCombinations("234");
+//        System.out.println(strings);
+        int x = 10;
+        int count = 0;
+        while(x != 0){
+            x = x & (x -1);
+            count++;
+        }
+        System.out.println(count);
+    }
 }
 
 class Solution17 {
@@ -23,6 +35,7 @@ class Solution17 {
         }
         char[] str = digits.toCharArray();
         dfs(str, 0);
+//        System.out.println(sb.toString());
         return ans;
     }
     public void dfs(char[] str, int cur){
@@ -32,6 +45,7 @@ class Solution17 {
         }
         String curString = map[str[cur] - '0'];
         for(int i = 0; i < curString.length(); ++i){
+            System.out.println(sb.toString());
             sb.append(curString.charAt(i));
             dfs(str, cur + 1);
             sb.deleteCharAt(sb.length() - 1);
