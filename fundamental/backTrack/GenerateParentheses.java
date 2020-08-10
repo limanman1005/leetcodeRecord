@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class GenerateParentheses {
 }
-class Solution {
+class Solution22 {
     public List<String> generateParenthesis(int n) {
         List<String> ans = new ArrayList<>();
         if(n == 0){

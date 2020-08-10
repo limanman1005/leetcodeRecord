@@ -18,6 +18,7 @@ class Solution51 {
         if(n < 0 || (n < 4 && n != 1)){
             return ans;
         }
+        //这题这个是关键，使用了这个使得计算机可以判断什么时候冲突了，什么时候没有冲突。
         int[] arr = new int[n];
         List<String> oneResult = new ArrayList<>();
         dfs(arr, 0, n, oneResult);

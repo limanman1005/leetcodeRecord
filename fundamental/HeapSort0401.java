@@ -12,7 +12,7 @@ public class HeapSort0401 {
     public static void makeHeap(int[] nums){
         int len = nums.length;
         for(int i = len/2 - 1; i >= 0; --i){
-            minHeapFix(nums, i, len);
+            minHeapFix(nums, i, len - 1);
         }
     }
 

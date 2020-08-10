@@ -14,6 +14,7 @@ public void dfs(...){
     for(对当前状态的每一个状态都进行遍历){
         //进入下一个状态,做一些操作也可以加到这里来
         dfs(...)
+        //这里加上恢复状态的代码即是回溯的模板
     }
 }
 ```
@@ -89,15 +90,20 @@ public int findTarget(int[] nums, int target){
     dfs(nums, target, 0, 0);
     return ans;
 }
-private void dfs(int[] nums, int target, int i , int curSum){
+private void dfs(int[] nums, int target, int depth, int curSum){
     //一直向后走，走到头了就返回。
-    if(i == nums.length){
+    if(depth == nums.length){
         if(curSum == target){
             ans++;
         }
     }
-    dfs(nums, target, i + 1, curSum + nums[i]);
-    dfs(nums, target, i + 1, curSum - nums[i]);
+    curSum = curSum + 1;
+    //第一中状态
+    dfs(nums, target, depth + 1, curSum);
+    curSum = curSum - 1 - 1;
+    //第二种状态
+    dfs(nums, target, i + 1, curSum);
+    curSum = curSum + 1;
 }
 ```
 
@@ -214,5 +220,65 @@ class Solution51 {
 }
 ```
 
+#### 全排列
 
+>全排列使用递归来遍历所有可能的情况
+>
+>重点使用一个数组来存上数字数组中对应下标的是否已经使用过了。
+
+```java
+public void permute(int[] arr){
+    if(特殊用例){
+        return 结果
+    }
+    dfs(arr, curResult);
+    return ans;
+}
+private void dfs(int[] arr, List<Integer> curResult){
+    if(curResult.size() == arr.length){
+        ans.add(结果);
+        return ;
+    }
+    //遍历每一个可能的下一个状态
+    for(int i = 0; i < arr.length; ++i){
+        if(判断是否用过){
+            used[i] = true;
+            curResult.add(nums[i]);
+            dfs(arr, curResult);
+            curResult.remove(curResult.size() - 1);
+            used[i] = false;
+        }
+    }
+}
+```
+
+#### 子集
+
+> 这个子集也可使用回溯方法做。
+
+```java
+public void subset(int[] arr){
+    if(边界条件){
+        return ;
+	}
+    dfs(arr, ans, curSet, 0);
+    return ans;
+}
+private void dfs(int[] arr, List<List<Integer>> ans, List<Integer> curSet, int depth){
+    if(depth == arr.length){
+        ans.add(新的结果);
+        return;
+    }
+    //分两个情况，当前数字加或者不加。
+    //第一种情况
+    dfs(arr, ans, curSet, depth + 1);
+    //由于不加，无需回溯
+    //第二种情况，加进去
+    curSet.add(arr[depth]);
+    //进入下一层
+    dfs(arr, ans, curSet, depth + 1);
+    //回溯
+    curSet.remove(curSet.size() - 1);
+}
+```
 
