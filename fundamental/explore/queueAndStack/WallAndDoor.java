@@ -11,6 +11,13 @@ import java.util.Queue;
  * @author liyh
  */
 public class WallAndDoor {
+    public static void main(String[] args) {
+        switch ("0"){
+            case "+" :  int val = 1 + 1; break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + "0");
+        }
+    }
 }
 class Solution286 {
     /**
