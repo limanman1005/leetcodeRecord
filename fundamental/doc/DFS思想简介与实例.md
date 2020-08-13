@@ -2,6 +2,8 @@
 
 如果能一致找那就一致向下走。直到达到条件返回。
 
+模板的话可以分成两个一个带返回值，一个不带返回值。
+
 伪代码如下
 
 ```java
@@ -17,9 +19,19 @@ public void dfs(...){
         //这里加上恢复状态的代码即是回溯的模板
     }
 }
+//带返回值的一些操作
+public type dfs(...){
+    do some work;
+    for(traverse every Status){
+        if(符合条件){
+            sometype var = dfs(...);
+            do some work with var;
+        }
+    }
+    do some work with curLevel;
+ 	return curLevelResult;
+}
 ```
-
-
 
 #### 岛屿数量
 
@@ -100,9 +112,11 @@ private void dfs(int[] nums, int target, int depth, int curSum){
     curSum = curSum + 1;
     //第一中状态
     dfs(nums, target, depth + 1, curSum);
+    //回溯
     curSum = curSum - 1 - 1;
     //第二种状态
     dfs(nums, target, i + 1, curSum);
+    //回溯
     curSum = curSum + 1;
 }
 ```

@@ -1,6 +1,9 @@
 package Dfs;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * ClassName: BuildTree
@@ -11,11 +14,15 @@ import java.util.HashMap;
  */
 public class BuildTree {
     public static void main(String[] args) {
-        int[] arr1 = {9, 3, 15, 20, 7};
-        int[] arr2 = {9, 15, 7, 20, 3};
-        new Solution106().buildTree(arr1, arr2);
-        System.out.println("==============================");
-        new Solution106().buildTree2(arr1, arr2);
+//        int[] arr1 = {9, 3, 15, 20, 7};
+//        int[] arr2 = {9, 15, 7, 20, 3};
+//        new Solution106().buildTree(arr1, arr2);
+//        System.out.println("==============================");
+//        new Solution106().buildTree2(arr1, arr2);
+//        List<List<Integer>> test = new ArrayList<>();
+//        Collections.fill(test, new ArrayList<>());
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+
     }
 }
 
