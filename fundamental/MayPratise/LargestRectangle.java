@@ -46,8 +46,6 @@ class Solution84 {
                 int show = testStack.pop();
                 //这里计算面积
                 ans = Math.max(ans, (i - stack.peek() - 1) * myheight[cur]);
-                //最终还是搞明白了，使用了cur就相当于截到这里了，应该要找到后面的
-//                test = Math.max(test, (i - cur) * myheight[cur]);
             }
             stack.push(i);
             testStack.push(myheight[i]);
