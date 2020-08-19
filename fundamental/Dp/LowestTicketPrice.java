@@ -10,7 +10,7 @@ package Dp;
 public class LowestTicketPrice {
 }
 
-class Solution {
+class Solution983 {
     /**
      * dp算法的思维方式没有掌握，暂时留个坑，以后再说
      * @param days

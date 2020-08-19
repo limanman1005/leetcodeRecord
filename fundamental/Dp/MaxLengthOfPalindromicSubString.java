@@ -6,7 +6,7 @@ import java.util.Arrays;
  * ClassName: MaxLengthOfPalindromicSubString
  * Description: 最长的回文子串
  * date: 2020/5/21 23:09
- *
+ * 动态规划法复杂度依然比较的高，是暴力法的优化
  * @author liyh
  */
 public class MaxLengthOfPalindromicSubString {
