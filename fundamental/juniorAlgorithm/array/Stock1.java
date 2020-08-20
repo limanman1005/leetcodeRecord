@@ -1,5 +1,7 @@
 package juniorAlgorithm.array;
 
+import java.util.ArrayList;
+
 /**
  * ClassName: Stock1
  * Description: 买卖股票的第一题。给一个数组是股票的第i天价格。
@@ -9,8 +11,16 @@ package juniorAlgorithm.array;
  * @author liyh
  */
 public class Stock1 {
+    public static void main(String[] args) {
+        System.out.println(-4 >> 1);
+        System.out.println(-4 >>> 1);
+        System.out.println(Integer.toBinaryString(-4));
+        System.out.println(Integer.toBinaryString(- 4 >>> 1));
+        ArrayList<Object> objects = new ArrayList<>();
+
+    }
 }
-class Solution {
+class Solution121 {
     /**
      * 首先这个dp法，dp[i]代表前i天的最大利润。然后维护一个前i天最小的价格。
      * 官方的一次遍历和这个本质上是一样的。只不过使用了常数量级的空间，这个暂搁吧
@@ -35,12 +45,23 @@ class Solution {
     }
 
     /**
-     * 这个暂留一单调栈的解法
+     * 自己想的一个版本，维护一个minPrice。然后每一天和这个减下就好了
      * @param prices
      * @return
      */
-    public int maxProfit2(int[] prices){
-        return 0;
+    public int maxProfit2(int[] prices) {
+        if(prices == null || prices.length == 0){
+            return 0;
+        }
+        int len = prices.length;
+        int[] dp = new int[len];
+        dp[0] = prices[0];
+        int ans = 0;
+        for(int i = 1; i < len; ++i){
+            dp[i] = Math.min(dp[i - 1], prices[i]);
+            ans = Math.max(ans, prices[i] - dp[i - 1]);
+        }
+        return ans;
     }
 
 

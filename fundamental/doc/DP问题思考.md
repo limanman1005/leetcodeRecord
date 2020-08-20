@@ -57,7 +57,7 @@ public void dp(int[] arr){
 
 > 这个问题的思考还是有价值的，
 >
-> **状态表示的是当前天的最小花费**
+> **状态表示的是当前天的最小花费**，然后一步一步推到最后一天。
 
 ```java
 public void dp(int[] days, int[] cost){
@@ -98,7 +98,7 @@ public void dp(int[] days, int[] cost){
 
 > 这个动态规划并不是最优的，但是也有写一些的价值，尤其是这里的填表顺序，值得理清楚的一件事
 >
-> 状态是以i，j结尾的数字是不是回文。需要前一个状态DP\[i + 1]\[j- 1]
+> **状态是以i，j结尾的数字是不是回文。需要前一个状态DP\[i + 1]\[j- 1]**
 
 ```java
 public void dp(String str){
@@ -111,7 +111,7 @@ public void dp(String str){
 
 > 和1277一样。
 >
-> 状态是dp\[i]\[j]代表当前坐标为右下角的矩形的边长是多少（也就可以表示矩阵有多少个），转移就是dp\[i - 1]\[j],dp\[i]\[j - 1], dp\[i - 1]\[j - 1]中的最小值再加上1
+> **状态是dp\[i]\[j]代表当前坐标为右下角的矩形的边长是多少**（也就可以表示矩阵有多少个），转移就是dp\[i - 1]\[j],dp\[i]\[j - 1], dp\[i - 1]\[j - 1]中的最小值再加上1
 >
 > $$dp[i][j] = \begin{cases} 1 & \text{matrix[i][j] == 1 && (i == 0 || j == 0)} \\ min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1 & \text{matrix[i][j] = =1  && !(i == 0 || j == 0)} \\ matrix[i][j] & \text{matrix[i][j] == 0} \end{cases}$$
 >
@@ -183,4 +183,30 @@ public void dp(int[] arr){
     return dp[n - 1];
 }
 ```
+
+####  121 股票1
+
+> 状态就是截止到目前为止当前最小的票价
+
+```java
+public void dp(int[] arr){
+    int[] dp = new int[len];
+    dp[i] = arr[i];
+    for(int i = 1; i < len; ++i){
+        dp[i] = min(dp[i - 1], arr[i]);
+        ans = max(arr[i] - dp[i], ans);
+    }
+    return ans;
+}
+```
+
+#### 122 股票2
+
+#### 123股票3
+
+#### 188 股票4
+
+#### 309 含冷冻器的股票
+
+#### 714 买卖股票含手续费
 

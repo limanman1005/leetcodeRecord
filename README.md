@@ -32,4 +32,9 @@ LC5\
 LC983\
 [最便宜的票价](fundamental/Dp/LowestTicketPrice.java)\
 LC53\
-[MaxSubArray](/fundamental/juniorAlgorithm/dp/MaxSubArray.java)
+[连续子数组中相加最大的和](/fundamental/juniorAlgorithm/dp/MaxSubArray.java)\
+LC121
+[股票1](/fundamental/juniorAlgorithm/array/Stock1.java)
+LC122
+[股票2](/fundamental/juniorAlgorithm/array/Stock2.java)
+### 回溯
