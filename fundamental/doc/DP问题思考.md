@@ -1,10 +1,21 @@
+[toc]
+
 ### DP问题思考
 
+> 遇到DP问题怎么想？
+>
+> 首先要思考的就是能不能**从规模较小的问题能不能解答，规模比较小的问题怎么样才能推出大的问题。**
+>
+> 这一点非常重要
+>
 > DP问题，关键是如何划分出状态，以及找到状态转移方程（其实就是找到小问题如何推成大问题）
 
 ```java
 public void dp(){
-    
+    int[] dp = new int[len];
+    small answer;
+    推导大问题。
+    return;
 }
 ```
 
@@ -21,6 +32,7 @@ public void dp(int[] arr){
     }
     int[] dp = new int[arr.length];
     dp[0] = arr[0]
+    //利用小问题向大问题推导
     for(int i = 1; i < len; ++i){
         dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
         ans = Matn.max(dp[i], ans);
@@ -42,6 +54,7 @@ public void dp(int[] arr){
     int[] minValue = new int[len];
     int[] maxValue = new int[len];
     minValue[0] = maxValue[0] = arr[0];
+    //利用小问题，推导大问题。
     for(int i = 1; i < len; ++i){
         minValue[i] = Min(minValue[i - 1] * arr[i], maxValue[i - 1] * arr[i], arr[i]);
         maxValue[i] = Max(minValue[i - 1] * arr[i], maxValue[i - 1] * arr[i], arr[i]);
@@ -68,6 +81,7 @@ public void dp(int[] days, int[] cost){
         dp[days[i]] = -1;
     }
     int planA, planB, planC;
+    //小问题，一步一步推的大问题
     for(int i = 1; i <= n; ++i){
         //不需要出游，和前一天一样
         if(dp[i] == 0){
@@ -102,7 +116,7 @@ public void dp(int[] days, int[] cost){
 
 ```java
 public void dp(String str){
-    
+	    
 }
 ```
 
@@ -113,15 +127,15 @@ public void dp(String str){
 >
 > **状态是dp\[i]\[j]代表当前坐标为右下角的矩形的边长是多少**（也就可以表示矩阵有多少个），转移就是dp\[i - 1]\[j],dp\[i]\[j - 1], dp\[i - 1]\[j - 1]中的最小值再加上1
 >
-> $$dp[i][j] = \begin{cases} 1 & \text{matrix[i][j] == 1 && (i == 0 || j == 0)} \\ min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1 & \text{matrix[i][j] = =1  && !(i == 0 || j == 0)} \\ matrix[i][j] & \text{matrix[i][j] == 0} \end{cases}$$
+> $$dp[i][j] = \begin{cases} 1 & \text{matrix[i][j] == 1 && (i == 0 || j == 0)} \\ min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1 & \text{matrix[i][j] = =1  && !(i == 0 || j == 0)} \\ 0 & \text{matrix[i][j] == 0} \end{cases}$$
 >
-> 
 
 ```java
 public void dp(int[][] matrix){
     if(boundray condition){
         return special ans;
     }
+    //小问题推导大问题
     int[][] dp = new int[row][col];
     for(int i = 0; i < rows; ++i){
         for(int j = 0; j < cols; ++j){
@@ -177,6 +191,7 @@ public void dp(int[] arr){
     int[] dp = new int[len];
     dp[0] = arr[0];
     dp[1] = max(arr[0], arr[1]);
+    //小问题怎么推导出大问题
     for(int i = 1; i < len; ++i){
         dp[i] = max(dp[i - 1], dp[i - 2] + arr[i])
     }
@@ -186,7 +201,9 @@ public void dp(int[] arr){
 
 ####  121 股票1
 
-> 状态就是截止到目前为止当前最小的票价
+> 状态就是截止到目前为止最小的票价
+>
+> 还有一种就是状态是截止目前为止最大利润。
 
 ```java
 public void dp(int[] arr){
@@ -198,15 +215,81 @@ public void dp(int[] arr){
     }
     return ans;
 }
+
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        if(n == 0){
+            return 0;
+        }
+        int minPrice = prices[0];
+        int[] dp = new int[n];
+        for(int i = 1; i < n; ++i){
+            minPrice = Math.min(minPrice, prices[i]);
+            dp[i] = Math.max(dp[i - 1], prices[i] - minPrice);
+        }
+        return dp[n - 1];
+    }
 ```
 
 #### 122 股票2
 
+> 可以多次交易的时候，多加一个维度来定义卖出还是没有卖出。
+
+```java
+public void dp(int[] arr){
+    int[][] dp = new int[len][2];
+    dp[0][0] = 0;
+    dp[0][1] = -arr[0];
+    for(int i = 1; i < len; ++i){
+        dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + price[i]);
+        dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - price[i]);
+    }
+    return dp[len - 1][0];
+}
+```
+
+
+
 #### 123股票3
 
+> 规定一个交易的次数
+>
+> 需要再次多加一个维度进行表示交易了多少次
+
+```java
+public void dp(int[] arr){
+    int[][][] dp = new int[n][2][2];
+    for(int i = 0; i < len; ++i){
+        for(int k = 2; k >=0; ++j){
+            if(i - 1 == -1){
+                //边界条件
+                dp[0][k][0] = 0;
+                dp[0][k][1] = -prices[i];
+                break;
+            }
+            dp[i][k][0]  = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+            dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
+        }
+    }
+    return dp[n - 1][k][0];
+}
+```
+
 #### 188 股票4
+
+> 再次将交易的次数参数话
 
 #### 309 含冷冻器的股票
 
 #### 714 买卖股票含手续费
+
+#### 332 硬币兑换
+
+> 这道题我做过很多次。状态是总数是i的时候的最小花费即DP\[i]
+>
+> 状态转移就是如果对于每一个硬币来说
+
+#### 410 分割数组最大值
+
+#### 312 戳气球
 
