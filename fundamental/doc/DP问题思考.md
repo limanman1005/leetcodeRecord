@@ -174,7 +174,7 @@ public void dp(int[][] matrix){
                     dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
                 }
             }
-            //this is important point
+            //this is the important point
             ans += dp[i][j];
         }
     }
@@ -265,7 +265,7 @@ public void dp(int[] arr){
                 //边界条件
                 dp[0][k][0] = 0;
                 dp[0][k][1] = -prices[i];
-                break;
+                continue;
             }
             dp[i][k][0]  = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
             dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
@@ -277,7 +277,7 @@ public void dp(int[] arr){
 
 #### 188 股票4
 
-> 再次将交易的次数参数话
+> 再次将交易的次数参数化
 
 #### 309 含冷冻器的股票
 
@@ -291,5 +291,25 @@ public void dp(int[] arr){
 
 #### 410 分割数组最大值
 
+> 这个题状态是
+
 #### 312 戳气球
+
+#### 1025 必赢游戏
+
+#### 343 整数拆分
+
+#### 97 交错字符串
+
+#### 329 最长上升子序列的矩阵版
+
+> 这个有点像从上至下的记忆化（动规）
+
+
+
+#### 17_13字符串找单词
+
+#### 63 唯一路径2
+
+#### 字符串匹配的动态规划另开一个进行分析吧
 

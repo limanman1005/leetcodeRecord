@@ -1,6 +1,8 @@
 package JulyPractice;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * ClassName: SplitArrayLargestSum
@@ -10,6 +12,9 @@ import java.util.Arrays;
  * @author liyh
  */
 public class SplitArrayLargestSum {
+    public static void main(String[] args) {
+        AtomicReference<WildcardMatch> wildcardMatchAtomicReference = new AtomicReference<>();
+    }
 }
 class Solution410 {
     public int splitArray(int[] nums, int m) {
