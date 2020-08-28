@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  *
  * @author liyh
  */
-public class UniqueBST {
+public class BSTNum {
     public static void main(String[] args) {
         HashMap<Integer, Integer> map = new HashMap<>();
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
