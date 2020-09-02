@@ -2,6 +2,8 @@ package juniorAlgorithm.list;
 
 import explore.recursion.ListNode;
 
+import java.util.Scanner;
+
 /**
  * ClassName: PalindromeList
  * Description: 给定一个链表判断下是不是里面的内容是不是回文的
@@ -10,6 +12,13 @@ import explore.recursion.ListNode;
  * @author liyh
  */
 public class PalindromeList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        System.out.println(s);
+        String s1 = scanner.nextLine();
+        System.out.println(s1);
+    }
 }
 
 class Solution234 {

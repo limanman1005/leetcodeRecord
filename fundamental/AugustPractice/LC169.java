@@ -1,5 +1,7 @@
+package AugustPractice;
+
 /**
- * ClassName: LC169
+ * ClassName: AugustPractice.LC169
  * Description:
  * date: 2020/3/13 21:45
  * 此题找到一个数组中出现次数大于【n/2】的元素

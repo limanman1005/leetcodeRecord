@@ -1,5 +1,8 @@
 package AugustPractice;
 
+import java.io.BufferedInputStream;
+import java.util.*;
+
 /**
  * ClassName: LonelyPixel
  * Description:
@@ -9,9 +12,19 @@ package AugustPractice;
  */
 public class LonelyPixel {
     public static void main(String[] args) {
-        Solution531 solution531 = new Solution531();
-        char[][] arr = new char[][]{{'B', 'B', 'B'}};
-        System.out.println(solution531.findLonelyPixel(arr));
+//        Solution531 solution531 = new Solution531();
+//        char[][] arr = new char[][]{{'B', 'B', 'B'}};
+//        System.out.println(solution531.findLonelyPixel(arr));
+//        Scanner scanner = new Scanner(System.in);
+//        String s = scanner.nextLine();
+//        System.out.println(s);
+//        String next = scanner.next();
+//        System.out.println(next);
+        Scanner sc = new Scanner (new BufferedInputStream(System.in));
+        String next = sc.next();
+        String s = sc.nextLine();
+        int i = sc.nextInt();
+        double v = sc.nextDouble();
     }
 }
 

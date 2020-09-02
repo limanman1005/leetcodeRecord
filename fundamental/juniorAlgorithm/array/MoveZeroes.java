@@ -37,7 +37,6 @@ class Solution283 {
             nums[left++] = 0;
         }
         return ;
-
     }
 
     public void moveZeroes2(int[] nums) {
