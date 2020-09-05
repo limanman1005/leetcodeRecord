@@ -41,6 +41,7 @@ class Solution109 {
         TreeNode left = convertList2BST(l, mid - 1);
         TreeNode node = new TreeNode(cur.val);
         node.left = left;
+        //这段代码不好理解，使用快慢指针找到中间节点也行
         cur = cur.next;
         node.right = convertList2BST(mid + 1, r);
         return node;

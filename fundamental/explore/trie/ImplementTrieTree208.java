@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ClassName: ImplementTrieTree
+ * ClassName: ImplementTrieTree208
  * Description: 字典树的实现，还是不难的
  * date: 2020/8/4 18:12
  *
  * @author liyh
  */
-public class ImplementTrieTree {
+public class ImplementTrieTree208 {
 }
 class Trie {
     class TrieNode{

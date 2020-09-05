@@ -11,9 +11,11 @@ import java.util.Arrays;
 public class MergeSort {
     public static void main(String[] args) {
         Solution_j51 solution_j51 = new Solution_j51();
-        int[] arr = {3, 1, 4, 2};
-        solution_j51.reversePairs(arr);
+        int[] arr = {1, 2, 3, 4};
+        int i = solution_j51.reversePairs(arr);
+        System.out.println(i);
         System.out.println(Arrays.toString(arr));
+
     }
 }
 class Solution_j51 {
