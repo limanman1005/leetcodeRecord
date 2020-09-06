@@ -1,7 +1,11 @@
 package Dp;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * ClassName: CoinChange
@@ -13,8 +17,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class CoinChange {
     public static void main(String[] args) {
         Solution322 solution322 = new Solution322();
-        int[] arr = new int[]{ 2};
-        int i = solution322.coinChange(arr, 3);
+        int[] arr = {1, 2,3};
+        List<Integer> collect = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        collect.forEach(System.out::println);
+
+//        Integer[] arr = new Integer[]{2, 3, 5};
+//        Arrays.sort(arr, Collections.reverseOrder());
+//        System.out.println();
+//        int i = solution322.coinChange(arr, 3);
 
     }
 }
@@ -80,7 +90,8 @@ class Solution322 {
     private int ans = Integer.MAX_VALUE;
 
     /**
-     * 暴力搜索
+     * 暴力搜索，这个不带返回值的递归的不能加memo
+     * 因为没有计算出当前钱数的最优值，所以无法保存。
      * @param coins
      * @param amount
      * @return
