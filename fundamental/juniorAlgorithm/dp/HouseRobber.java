@@ -32,4 +32,33 @@ class Solution198 {
         }
         return dp[len - 1];
     }
+
+    Integer[] memo;
+
+    /**
+     * 自己写的一个记忆化递归
+     * @param nums 数组
+     * @return 答案
+     */
+    public int rob2(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        memo = new Integer[nums.length];
+        int ans = dp(nums, nums.length - 1);
+        return ans;
+    }
+    private int dp(int[] nums, int k){
+        if(k == 0){
+            return nums[0];
+        }
+        if(k == 1){
+            return Math.max(nums[0], nums[1]);
+        }
+        if(memo[k] != null){
+            return memo[k];
+        }
+        memo[k] = Math.max(dp(nums, k - 1), dp(nums, k - 2) + nums[k]);
+        return memo[k];
+    }
 }

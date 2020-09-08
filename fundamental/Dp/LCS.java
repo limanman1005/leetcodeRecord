@@ -8,6 +8,11 @@ package Dp;
  * @author liyh
  */
 public class LCS {
+    public static void main(String[] args) {
+        Solution1143 solution1143 = new Solution1143();
+        int i = solution1143.longestCommonSubsequence2("abcde", "ace");
+        System.out.println(i);
+    }
 }
 class Solution1143 {
     /**
@@ -34,5 +39,26 @@ class Solution1143 {
             }
         }
         return dp[len1][len2];
+    }
+
+
+
+    public int longestCommonSubsequence2(String text1, String text2) {
+        if(text1.length() == 0 || text2.length() == 0){
+            return 0;
+        }
+        int ans = dfs(text1, text2, text1.length() - 1, text2.length() - 1);
+        return ans;
+    }
+    private int dfs(String text1, String text2, int len1, int len2){
+        if(len1 == 0 || len2 == 0){
+            return 0;
+        }
+        if(text1.charAt(len1) == text2.charAt(len2)){
+            return dfs(text1, text2, len1 - 1, len2 - 1) + 1;
+        }
+        else{
+            return dfs(text1, text2, len1 - 1, len2 - 1);
+        }
     }
 }

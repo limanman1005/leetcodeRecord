@@ -17,9 +17,7 @@ public class Stock2 {
 class Solution122{
 
     /**
-     * 暴力解法的思路应该有，也应该能写出。
-     * 这个用了回溯的思想。这里暂搁一下
-     * 此题还有dp解法，但是状态转换有点不好想。暂时放一下好了
+     * 这个是dp的思路。多了一个状态不要怕
      * @param prices
      * @return
      */
