@@ -11,7 +11,6 @@ import explore.recursion.ListNode;
  */
 public class MergeNLists {
     public static void main(String[] args) {
-//        System.arraycopy();
     }
 }
 class Solution23 {
