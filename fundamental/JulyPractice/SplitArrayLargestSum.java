@@ -13,7 +13,10 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class SplitArrayLargestSum {
     public static void main(String[] args) {
-        AtomicReference<WildcardMatch> wildcardMatchAtomicReference = new AtomicReference<>();
+        int[][] arr = new int[3][4];
+        for(int i = 0; i < 3; ++i){
+            Arrays.fill(arr[i], 1);
+        }
     }
 }
 class Solution410 {

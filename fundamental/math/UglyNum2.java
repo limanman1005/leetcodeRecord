@@ -16,6 +16,7 @@ public class UglyNum2 {
 class Solution264 {
     /**
      * 这道题是非典型的动态规划，这种思路还是暂时记下来好了
+     * 使用三个指针记录下各个用了多少了
      * @param n
      * @return
      */

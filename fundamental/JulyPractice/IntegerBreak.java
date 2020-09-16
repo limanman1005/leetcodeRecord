@@ -29,4 +29,37 @@ class Solution343 {
         }
         return dp[n];
     }
+
+
+    private Integer[] memo;
+
+    /**
+     * 补充一个记忆化递归
+     * @param n
+     * @return
+     */
+    public int integerBreak2(int n) {
+        if(n == 2){
+            return 1;
+        }
+        memo = new Integer[n + 1];
+        return helper(n);
+    }
+    private int helper(int n){
+        if(n == 2){
+            return 1;
+        }
+        if(memo[n] != null){
+            return memo[n];
+        }
+        int ans = -1;
+        for(int i = 1; i < n; ++i){
+            ans = Math.max(ans, Math.max(i * (n - i) , i * helper(n - i)));
+        }
+        memo[n] = ans;
+        return ans;
+    }
+
+
+
 }

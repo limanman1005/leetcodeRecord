@@ -1,9 +1,7 @@
 package MayPratise;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * ClassName: LargestRectangle
@@ -15,9 +13,12 @@ import java.util.LinkedList;
  */
 public class LargestRectangle {
     public static void main(String[] args) {
-        Solution84 solution84 = new Solution84();
+//        Solution84 solution84 = new Solution84();
         int[] arr = {2, 1, 2};
-        System.out.println(solution84.largestRectangleArea(arr));
+//        System.out.println(solution84.largestRectangleArea(arr));
+      int[] copy = new int[5];
+      System.arraycopy(arr, 0, copy, 1, 3);
+        System.out.println(Arrays.toString(copy));
     }
 }
 class Solution84 {

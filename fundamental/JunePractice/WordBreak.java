@@ -1,5 +1,6 @@
 package JunePractice;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,9 +13,86 @@ import java.util.Set;
  * @author liyh
  */
 public class WordBreak {
+    public static void main(String[] args) {
+        Solution139 solution139 = new Solution139();
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("leet");
+        strings.add("code");
+        boolean ans = solution139.wordBreak4("leetcode", strings);
+        System.out.println(ans);
+//        String test = "123";
+//        System.out.println(test.substring(0, 3));
+    }
 }
 
 class Solution139 {
+
+
+    /**
+     * 从后往前好像不行啊。可能有些问题从后向前做就是比较困难吧，这个暂时放一放
+     * @param s
+     * @param wordDict
+     * @return
+     */
+    public boolean wordBreak4(String s, List<String> wordDict) {
+        if(s == null || s.length() == 0){
+            return true;
+        }
+        else if(wordDict.size() == 0){
+            return false;
+        }
+        //todo 查明这个从后向前为什么不行。
+        return dfs2(s, wordDict, s.length() - 1);
+    }
+
+    private boolean dfs2(String s, List<String> wordDict, int end){
+        if(end == 0){
+            if(wordDict.contains(s.substring(end , end + 1))){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        for(int i = end ; i >= 0; --i){
+            if(wordDict.contains(s.substring(i, end + 1)) && dfs2(s, wordDict, end - i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    /**
+     * 递归写法，递归函数的意思是以这个开头的字符串在不在字典中。
+     * 推向下一个东西就是，从这个开头一直推向结尾的看下可不可以包含字典里面的数组。
+     * @param s
+     * @param wordDict
+     * @return
+     */
+    public boolean wordBreak3(String s, List<String> wordDict) {
+        if(s == null || s.length() == 0){
+            return true;
+        }
+        else if(wordDict.size() == 0){
+            return false;
+        }
+        return dfs(s, wordDict, 0);
+    }
+    private boolean dfs(String s, List<String> wordDict, int start){
+        if(start == s.length()){
+            return true;
+        }
+        for(int end = start + 1; end <= s.length(); ++end){
+            if(wordDict.contains(s.substring(start, end)) && dfs(s, wordDict, end)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 
     /**
