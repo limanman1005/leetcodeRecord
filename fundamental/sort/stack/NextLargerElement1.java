@@ -1,4 +1,4 @@
-package stack;
+package sort.stack;
 
 import java.util.*;
 

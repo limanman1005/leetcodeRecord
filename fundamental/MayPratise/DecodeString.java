@@ -14,6 +14,8 @@ import java.util.Stack;
  */
 public class DecodeString {
     public static void main(String[] args) {
+        Solution394 solution394 = new Solution394();
+        System.out.println(solution394.decodeString3("3[a]2[bc]"));
     }
 }
 class Solution394 {
@@ -91,6 +93,38 @@ class Solution394 {
             }
         }
         return ans.toString();
+    }
+
+    private int index = 0;
+
+    public String decodeString3(String s) {
+        return dfs2(s);
+    }
+    private String dfs2(String s){
+        StringBuilder sb = new StringBuilder();
+        int num = 0;
+        String inside = null;
+        while(index < s.length()){
+            if(s.charAt(index) >= '0' && s.charAt(index) <= '9'){
+                num = num * 10 + s.charAt(index) - '0';
+            }
+            else if(s.charAt(index) == '['){
+                ++index;
+                inside = dfs2(s);
+                while(num-- > 0){
+                    sb.append(inside);
+                }
+                num = 0;
+            }
+            else if(s.charAt(index) == ']'){
+                break;
+            }
+            else{
+                sb.append(s.charAt(index));
+            }
+            index++;
+        }
+        return sb.toString();
     }
 }
 

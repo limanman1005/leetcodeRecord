@@ -1,5 +1,7 @@
+package sort;
+
 /**
- * ClassName: QuickSort0316
+ * ClassName: sort.QuickSort0316
  * Description:
  * date: 2020/3/16 21:31
  * 反复练习达到熟悉的水准

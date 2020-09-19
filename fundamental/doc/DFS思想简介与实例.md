@@ -110,6 +110,7 @@ private void dfs(int[] nums, int target, int depth, int curSum){
         if(curSum == target){
             ans++;
         }
+        return;
     }
     curSum = curSum + 1;
     //第一中状态

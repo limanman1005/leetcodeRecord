@@ -9,6 +9,10 @@ package binarySearch;
  * @author liyh
  */
 public class MySqrt {
+    public static void main(String[] args) {
+        Solution69 solution69 = new Solution69();
+
+    }
 }
 
 class Solution69 {
@@ -32,6 +36,31 @@ class Solution69 {
             }
         }
         return (int) left;
+    }
+
+
+    /**
+     * 补一个牛顿迭代法。
+     * 十分的有意思。不断的使用泰勒一阶公式，迭代出两个值，然后这两个值比较下，如果十分接近了，也代表差不多到0值了
+     * @param x
+     * @return
+     */
+    public int mySqrt2(int x) {
+        if(x < 0){
+            return -1;
+        }
+        if(x == 0){
+            return 0;
+        }
+        //初始值，可以随便选一个
+        double cur = 1;
+        while(true){
+            double pre = cur;
+            cur = (cur + x /cur) /2;
+            if(Math.abs(cur - pre) < 1e-6){
+                return (int) cur;
+            }
+        }
     }
 }
 

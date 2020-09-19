@@ -1,3 +1,7 @@
+package sort;
+
+import Dfs.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -5,7 +9,7 @@ import java.util.Stack;
 
 
 /**
- * ClassName: TreeTraversal
+ * ClassName: sort.TreeTraversal
  * Description: 此类写树的三种遍历，前序，中序，后序，层序。
  * date: 2020/3/8 19:23
  *

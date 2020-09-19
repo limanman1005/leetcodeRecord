@@ -1,3 +1,5 @@
+package sort;
+
 import com.sun.deploy.ui.UITextArea;
 
 import java.util.ArrayList;
@@ -5,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * ClassName: SortQuestion
+ * ClassName: sort.SortQuestion
  * Description:
  * date: 2020/3/31 16:53
  *
