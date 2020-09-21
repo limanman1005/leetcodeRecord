@@ -93,4 +93,31 @@ class Solution234 {
         }
         return true;
     }
+
+    private ListNode frontHead;
+    public boolean isPalindrome3(ListNode head){
+        if(head == null){
+            return true;
+        }
+        frontHead = head;
+        boolean ans = helper(head);
+        return ans;
+    }
+    private boolean helper(ListNode head){
+        //这里要注意到某个地方才能返回。
+        if(head == null){
+            return true;
+        }
+        boolean preAns = helper(head.next);
+        if(!preAns){
+            return false;
+        }
+        if(head.val == frontHead.val){
+            frontHead = frontHead.next;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
