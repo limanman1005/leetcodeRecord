@@ -60,7 +60,6 @@ class Singleton2{
  */
 class Singleton3{
     private Singleton3(){
-
     }
     private static Singleton3 instance = new Singleton3();
     public static Singleton3 getInstance(){

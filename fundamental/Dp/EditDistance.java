@@ -37,8 +37,8 @@ class Solution72 {
             return helper(word1, word2, i - 1, j - 1);
         }
         else{
-            int insert = helper(word1, word2, i - 1, j);
-            int deleted = helper(word1, word2, i , j - 1);
+            int deleted = helper(word1, word2, i - 1, j);
+            int insert = helper(word1, word2, i , j - 1);
             int replaced = helper(word1, word2, i - 1, j - 1);
             memo[i][j] = Math.min(Math.min(insert, deleted), replaced) + 1;
             return memo[i][j];

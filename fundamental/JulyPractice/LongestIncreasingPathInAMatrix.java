@@ -69,14 +69,11 @@ class Solution329 {
         int[] dy = new int[]{0, 0, 1, -1};
         int curAns = 1;
         for(int k = 0; k < 4; ++k){
-            int nx = dx[k];
-            int ny = dy[k];
+            int nx = i + dx[k];
+            int ny = j + dy[k];
             if(check(matrix, nx, ny) && matrix[nx][ny] > matrix[i][j]){
                 int next = dfs2(matrix, nx, ny);
                 curAns = Math.max(curAns, next + 1);
-            }
-            else{
-                return 0;
             }
         }
         return curAns;
