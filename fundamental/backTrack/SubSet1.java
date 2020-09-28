@@ -111,6 +111,7 @@ class Solution78 {
 
     /**
      * 二叉回溯法。状态树是一个二叉树。
+     * 这个方法应该是最好理解的一个方法了。
      * @param result
      * @param nums
      * @param list
@@ -129,5 +130,29 @@ class Solution78 {
         // restore current status;
         list.remove(list.size()-1);
     }
-}
 
+
+
+//    private List<List<Integer>> ans = new ArrayList<>();
+
+    /**
+     *
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsets5(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return null;
+        }
+        backtrack(nums, new ArrayList<>(), 0);
+        return ans;
+    }
+    private void backtrack(int[] nums, List<Integer> set, int start){
+        ans.add(new ArrayList<>(set));
+        for(int i = start; i < nums.length; ++i){
+            set.add(nums[i]);
+            backtrack(nums, set, i + 1);
+            set.remove(set.size() - 1);
+        }
+    }
+}

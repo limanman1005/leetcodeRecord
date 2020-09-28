@@ -10,13 +10,27 @@ import java.util.*;
  * @author liyh
  */
 public class SubSet2 {
+    public static void main(String[] args) {
+        HashSet<List<Integer>> lists = new HashSet<>();
+        ArrayList<Integer> one = new ArrayList<>();
+        one.add(1);
+        one.add(2);
+        ArrayList<Integer> two = new ArrayList<>();
+        two.add(1);
+        two.add(2);
+        lists.add(one);
+        lists.add(two);
+        System.out.println(lists.size());
+
+    }
 }
-class Solution {
+class Solution90 {
 
     public HashSet<List<Integer>> set = new HashSet<List<Integer>>();
     public List<List<Integer>> lists = new ArrayList<List<Integer>>();
     public LinkedList<Integer> curList = new LinkedList<Integer>();
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        //排序之后以便Set去重。
         Arrays.sort(nums);
         HashSet<List<Integer>> set = this.set;
         List<List<Integer>> lists = this.lists;

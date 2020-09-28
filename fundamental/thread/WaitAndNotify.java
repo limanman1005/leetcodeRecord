@@ -1,4 +1,4 @@
-package sort.thead;
+package thread;
 
 /**
  * ClassName: WaitAndNotify

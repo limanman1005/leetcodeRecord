@@ -17,22 +17,21 @@ public class MagicIndex {
 
 class Solution08_03 {
     public int findMagicIndex(int[] nums) {
-        int len = nums.length;
-        int left = 0;
-        int right = len - 1;
-        int mid = (left + right) >>> 1;
-        while(left < right){
-            if(nums[mid] == mid){
-                right = mid;
-            }
-            else if(nums[mid] < mid){
-                left = mid + 1;
-            }
-            else{
-                right = mid;
-            }
-            mid = (left + right) >>> 1;
+        //todo 还有一些其他的解法，等着分析一波吧。
+        return helper(nums, 0, nums.length - 1);
+    }
+    private int helper(int[] nums, int left, int right){
+        if(left > right){
+            return -1;
         }
-        return left;
+        int mid = (left + right) >>> 1;
+        int leftAnswer = helper(nums, left, mid - 1);
+        if(leftAnswer  != -1){
+            return leftAnswer;
+        }
+        else if(nums[mid] == mid){
+            return mid;
+        }
+        return helper(nums, mid + 1, right);
     }
 }

@@ -18,7 +18,7 @@ public class WordBreak {
         ArrayList<String> strings = new ArrayList<>();
         strings.add("leet");
         strings.add("code");
-        boolean ans = solution139.wordBreak4("leetcode", strings);
+        boolean ans = solution139.wordBreak3("leetcode", strings);
         System.out.println(ans);
 //        String test = "123";
 //        System.out.println(test.substring(0, 3));
@@ -26,42 +26,6 @@ public class WordBreak {
 }
 
 class Solution139 {
-
-
-    /**
-     * 从后往前好像不行啊。可能有些问题从后向前做就是比较困难吧，这个暂时放一放
-     * @param s
-     * @param wordDict
-     * @return
-     */
-    public boolean wordBreak4(String s, List<String> wordDict) {
-        if(s == null || s.length() == 0){
-            return true;
-        }
-        else if(wordDict.size() == 0){
-            return false;
-        }
-        //todo 查明这个从后向前为什么不行。
-        return dfs2(s, wordDict, s.length() - 1);
-    }
-
-    private boolean dfs2(String s, List<String> wordDict, int end){
-        if(end == 0){
-            if(wordDict.contains(s.substring(end , end + 1))){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        for(int i = end ; i >= 0; --i){
-            if(wordDict.contains(s.substring(i, end + 1)) && dfs2(s, wordDict, end - i)){
-                return true;
-            }
-        }
-        return false;
-    }
-
 
 
     /**
@@ -78,6 +42,7 @@ class Solution139 {
         else if(wordDict.size() == 0){
             return false;
         }
+        //todo 这题的从后向前还是能好好分析一波的。
         return dfs(s, wordDict, 0);
     }
     private boolean dfs(String s, List<String> wordDict, int start){
