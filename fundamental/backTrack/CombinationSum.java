@@ -51,7 +51,7 @@ class Solution39 {
             for(int i = start; i < candidates.length; ++i){
                 list.add(candidates[i]);
                 //我们使用一个参数来控制加进去数组里面的哪一个数？
-                //由于可以重复使用，于是我们传入1
+                //由于可以重复使用，于是我们传入i
                 dfs(candidates, target - candidates[i], list, i);
                 list.remove(list.size() - 1);
             }

@@ -15,7 +15,7 @@ import java.util.Stack;
 public class DecodeString {
     public static void main(String[] args) {
         Solution394 solution394 = new Solution394();
-        System.out.println(solution394.decodeString3("3[a]2[bc]"));
+        System.out.println(solution394.decodeString2("3[a2[c]]"));
     }
 }
 class Solution394 {
@@ -75,6 +75,7 @@ class Solution394 {
                 multiStack.addLast(multi);
                 ansStack.addLast(ans.toString());
                 multi = 0;
+                //这里将ans置空的操作也很必要
                 ans = new StringBuilder();
             }
             else if(c == ']'){
@@ -83,6 +84,7 @@ class Solution394 {
                 for(int i = 0; i < curMulti; ++i){
                     tmp.append(ans);
                 }
+                //比较关键的就在这，从栈中取出一个进行和已经重复好的进行拼接
                 ans = new StringBuilder(ansStack.removeLast() + tmp);
             }
             else if(c >= '0' && c <= '9'){
@@ -97,6 +99,11 @@ class Solution394 {
 
     private int index = 0;
 
+    /**
+     * 这个写法很六，index可以放到函数参数里面优点麻烦。有点坑的
+     * @param s
+     * @return
+     */
     public String decodeString3(String s) {
         return dfs2(s);
     }
@@ -126,6 +133,7 @@ class Solution394 {
         }
         return sb.toString();
     }
+
 }
 
 

@@ -6,6 +6,7 @@ import explore.recursion.ListNode;
 /**
  * ClassName: SortedList2BST
  * Description: 这里补一个链表转成二叉搜索树
+ * 还有一个甜姨的快慢指针法。
  * date: 2020/6/18 19:55
  *
  * @author liyh
