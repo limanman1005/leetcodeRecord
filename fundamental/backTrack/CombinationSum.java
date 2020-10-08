@@ -1,6 +1,8 @@
 package backTrack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,6 +13,10 @@ import java.util.List;
  * @author liyh
  */
 public class CombinationSum {
+    public static void main(String[] args) {
+        LinkedList<Integer> integers = new LinkedList<>();
+        integers.peekLast();
+    }
 }
 class Solution39 {
     private List<List<Integer>> ans = new ArrayList<>();
@@ -54,6 +60,46 @@ class Solution39 {
                 //由于可以重复使用，于是我们传入i
                 dfs(candidates, target - candidates[i], list, i);
                 list.remove(list.size() - 1);
+            }
+        }
+    }
+
+
+
+//    private List<List<Integer>> ans = new ArrayList<>();
+
+    /**
+     * 补充一个体现思考逻辑的解法，提前sort会省很多的事情。
+     * @param candidates
+     * @param target
+     * @return
+     */
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        if(candidates == null || candidates .length == 0 || target < 0){
+            return ans;
+        }
+        Arrays.sort(candidates);
+        List<Integer> list = new ArrayList<>();
+        dfs2(candidates, target, list, 0);
+        return ans;
+    }
+    public void dfs2(int[] candidates, int target, List<Integer> list, int start){
+        if(target < 0){
+            return ;
+        }
+        for(int i = start; i < candidates.length; ++i){
+            if(target == candidates[i]){
+                list.add(candidates[i]);
+                ans.add(new ArrayList<>(list));
+                list.remove(list.size() - 1);
+            }
+            else if(target > candidates[i]){
+                list.add(candidates[i]);
+                dfs(candidates, target - candidates[i], list, i);
+                list.remove(list.size() - 1);
+            }
+            else{
+                return;
             }
         }
     }

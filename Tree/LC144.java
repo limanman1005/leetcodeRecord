@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -10,6 +11,11 @@ import java.util.Stack;
  * @author liyh
  */
 public class LC144 {
+
+    public static void main(String[] args) {
+        Solution144 solution144 = new Solution144();
+        solution144.preorderTraversal(null);
+    }
 }
 
 
@@ -17,7 +23,7 @@ class Solution144 {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         TreeNode curNode = root;
-        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
         while(curNode != null || !stack.isEmpty()){
             while(curNode != null){
                 ans.add(curNode.val);

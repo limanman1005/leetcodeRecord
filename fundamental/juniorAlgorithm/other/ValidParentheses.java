@@ -1,5 +1,6 @@
 package juniorAlgorithm.other;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -20,7 +21,7 @@ class Solution20 {
      * @return
      */
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+        LinkedList<Character> stack = new LinkedList<>();
         for(char c : s.toCharArray()){
             if(c == '['){
                 stack.push(']');

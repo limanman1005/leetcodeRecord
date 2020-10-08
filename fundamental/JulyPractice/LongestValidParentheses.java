@@ -1,5 +1,6 @@
 package JulyPractice;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -23,7 +24,7 @@ class Solution32 {
      */
     public int longestValidParentheses(String s) {
         int max = 0;
-        Stack<Integer> stack = new Stack<>();
+        LinkedList<Integer> stack = new LinkedList<>();
         //设置一个-1是为了避免栈空的时候无法计算长度的情况
         stack.push(-1);
         for(int i = 0; i < s.length(); ++i){

@@ -3,6 +3,7 @@ package middleAlgorithm.TreeAndGraph;
 import Dfs.TreeNode;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Stack;
 
@@ -103,7 +104,7 @@ class Solution105 {
             return null;
         }
         TreeNode root = new TreeNode(preorder[0]);
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
         stack.push(root);
         int inorderIndex = 0;
         for (int i = 1; i < preorder.length; i++) {

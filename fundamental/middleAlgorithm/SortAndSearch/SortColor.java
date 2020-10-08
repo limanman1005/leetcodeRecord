@@ -41,7 +41,7 @@ class Solution75 {
                 swap(nums, i, p0++);
             }
             else if(nums[i] == 2){
-                //这里i--有点难理解。
+                //这里i--有点小细节。
                 swap(nums, i--, p2--);
             }
         }

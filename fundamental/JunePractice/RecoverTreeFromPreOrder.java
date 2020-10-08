@@ -151,7 +151,7 @@ class Solution1028 {
      */
     public TreeNode recoverFromPreorder4(String S) {
         int level, val;
-        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<TreeNode> stack = new LinkedList<>();
         for (int i = 0; i < S.length();) {
             //记录level信息
             for (level = 0; S.charAt(i) == '-'; i++) {

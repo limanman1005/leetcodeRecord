@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -17,7 +18,7 @@ class Solution94 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         //使用自己的栈来代替系统栈，暂存一些信息。
-        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<TreeNode> stack = new LinkedList<>();
         //另定义一个引用，使用这个东西追踪树
         TreeNode curNode = root;
         //循环终止条件就是树遍历完成了

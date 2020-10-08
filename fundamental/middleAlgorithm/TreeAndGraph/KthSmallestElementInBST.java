@@ -2,6 +2,7 @@ package middleAlgorithm.TreeAndGraph;
 
 import Dfs.TreeNode;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -48,7 +49,7 @@ class Solution230 {
      * @return
      */
     public int kthSmallest2(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<TreeNode> stack = new LinkedList<>();
         int num = 0;
         int ans = -1;
         TreeNode cur = root;
