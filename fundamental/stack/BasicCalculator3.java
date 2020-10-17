@@ -1,9 +1,6 @@
 package stack;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * ClassName: BasicCalculator3
@@ -15,7 +12,9 @@ import java.util.Stack;
 public class BasicCalculator3 {
     public static void main(String[] args) {
         Solution772 solution772 = new Solution772();
-        solution772.calculate("-1 * 2");
+        String expression = "1 * 2 + 1 * (3 - 2) / 1";
+        int a = solution772.calculate(expression);
+        System.out.println(a);
     }
 }
 class Solution772 {
@@ -35,14 +34,18 @@ class Solution772 {
         StringBuffer stringBuffer = new StringBuffer(s);
         //处理负数
         for(int i = 0;i<stringBuffer.length();i++) {
-            if(( stringBuffer.charAt(i) == '-' || stringBuffer.charAt(i) == '+' ) && (i==0 || stringBuffer.charAt(i-1) == '(')){
+            if((stringBuffer.charAt(i) == '-' || stringBuffer.charAt(i) == '+' ) && (i==0 || stringBuffer.charAt(i-1) == '(')){
                 stringBuffer.insert(i, "0");
-                i--;
+                //这个去掉也没有关系
+//                i--;
             }
         }
 
-        List<String> reversePolish = reversePolish(stringBuffer.toString());
-        Stack<Long> stack = new Stack<>();
+        List<String> reversePolish = reversePolish2(stringBuffer.toString());
+        List<String> strings = reversePolish2(stringBuffer.toString());
+        System.out.println(strings);
+        System.out.println(reversePolish);
+        LinkedList<Long> stack = new LinkedList<>();
         for (int i = 0;i<reversePolish.size();i++){
             String n = reversePolish.get(i);
             if (opMap.containsKey(n)){
@@ -84,7 +87,7 @@ class Solution772 {
                     str.add(String.valueOf(c));
                     bigger = true;
                 }else {
-                    str.set(str.size()-1,str.get(str.size()-1)+String.valueOf(c));
+                    str.set(str.size()-1,str.get(str.size()-1)+ c);
                 }
             }else {
                 bigger = false;
@@ -118,5 +121,72 @@ class Solution772 {
         }
         return str;
     }
-}
 
+    /**
+     * 自己仿着上面写的，终于没有问题了。
+     * @param expresion
+     * @return
+     */
+    public List<String> reversePolish2(String expresion){
+        //操作栈
+        LinkedList<Character> opStack = new LinkedList<>();
+        //答案数组
+        ArrayList<String> reversePolish = new ArrayList<>();
+        //转成charArray便于操作
+        char[] expressChars = expresion.toCharArray();
+        for(int i = 0; i < expressChars.length; ++i){
+            //跳过空格
+            if(expressChars[i] == ' '){
+                continue;
+            }
+            //处理数字
+            if(Character.isDigit(expressChars[i])){
+                StringBuilder num = new StringBuilder();
+                while(i < expresion.length() && Character.isDigit(expressChars[i])){
+                    num.append(expressChars[i]);
+                    ++i;
+                }
+                i--;
+                reversePolish.add(num.toString());
+            }
+            else{
+                //处理操作数的情况
+                if(expressChars[i] == '('){
+                    opStack.addFirst(expressChars[i]);
+                }
+                else if(expressChars[i] == ')'){
+                    while(opStack.peekFirst() != '('){
+                        reversePolish.add(String.valueOf(opStack.pollFirst()));
+                    }
+                    //处理掉最后一个'('
+                    opStack.pollFirst();
+                }
+                else{
+                    //处理时 + , - , * , /时候的情况
+                    if(opStack.isEmpty()){
+                        opStack.addFirst(expressChars[i]);
+                        continue;
+                    }
+                    Character opInStack = opStack.peekFirst();
+                    //根据优先级进行操纵，如果比栈中的优先级小于等于，栈中的元素出栈
+                    while(opMap.get(String.valueOf(opInStack)) >= opMap.get(String.valueOf(expressChars[i]))){
+                        reversePolish.add(String.valueOf(opStack.pollFirst()));
+                        if(opStack.isEmpty()){
+                            break;
+                        }
+                        opInStack = opStack.peekFirst();
+                    }
+                    opStack.addFirst(expressChars[i]);
+                }
+            }
+        }
+        //处理最后的未出栈的情况
+        while(!opStack.isEmpty()){
+            reversePolish.add(String.valueOf(opStack.pollFirst()));
+        }
+        return reversePolish;
+    }
+
+
+
+}
