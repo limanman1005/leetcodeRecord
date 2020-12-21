@@ -1,7 +1,5 @@
 package sort;
 
-import sort.Util;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 

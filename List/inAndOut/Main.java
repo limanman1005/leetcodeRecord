@@ -11,32 +11,55 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-        scanner.nextLine();
-        String s = scanner.nextLine();
-        String[] tokens = s.split(" ");
-        String s1 = tokens[0];
-        String s2 = tokens[1];
-        String s3 = tokens[2];
-        int K = Integer.parseInt(tokens[3]);
-        for(int i = 0; i < K; ++i){
-            System.out.println(dfs(s1, s2, s3, new StringBuilder(), K, 0, 0));
+        SolutionTest solutionTest = new SolutionTest();
+        int[] arr = {3, 1, 2, 4};
+        int i = solutionTest.reversePairs(arr);
+
+    }
+}
+class SolutionTest {
+    private int[] copy;
+    private int reverseNum;
+    public int reversePairs(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        copy = new int[len];
+        int width = 1;
+        while(width < len){
+            mergeWidth(nums, width);
+            width *= 2;
+        }
+        return reverseNum;
+    }
+    private void mergeWidth(int[] nums, int width){
+        int start = 0;
+        int mid = start + width - 1;
+        int end = start + 2 * width - 1;
+        while(end < nums.length){
+            mergeArr(nums, start, mid, end);
+        }
+        if(mid < nums.length){
+            mergeArr(nums, start, mid, nums.length - 1);
         }
     }
 
-//    public static int dfs(String s1, String s2, int p1, int p2, int k){
-//        if(p1 == 0)
-//    }
-    public static boolean dfs(String s1, String s2, String s3,StringBuilder append,int k, int p1, int p2){
-        if(k >= 0 && append.toString().equals(s3)){
-            return true;
+
+    private void mergeArr(int[] nums, int start, int mid, int end){
+        int lp = start, rp = mid + 1, cur = start;
+        System.arraycopy(nums, start, copy, start, end - start + 1);
+        while(lp <= mid && rp <= end){
+            if(copy[lp] <= copy[rp]){
+                nums[cur++] = copy[lp++];
+            }
+            else{
+                nums[cur++] = copy[rp++];
+                reverseNum += rp - mid + 1;
+            }
         }
-       for(int i = 0; i < s1.length(); ++i){
-
-       }
-        return false;
-
+        while(lp <= mid){
+            nums[cur++] = copy[lp++];
+        }
     }
-
 }

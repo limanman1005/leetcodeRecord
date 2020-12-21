@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ClassName: BasicCalculator3
@@ -15,6 +16,7 @@ public class BasicCalculator3 {
         String expression = "1 * 2 + 1 * (3 - 2) / 1";
         int a = solution772.calculate(expression);
         System.out.println(a);
+        new ConcurrentHashMap<>()
     }
 }
 class Solution772 {
@@ -150,7 +152,7 @@ class Solution772 {
                 reversePolish.add(num.toString());
             }
             else{
-                //处理操作数的情况
+                //处理括号的情况
                 if(expressChars[i] == '('){
                     opStack.addFirst(expressChars[i]);
                 }
@@ -186,7 +188,4 @@ class Solution772 {
         }
         return reversePolish;
     }
-
-
-
 }

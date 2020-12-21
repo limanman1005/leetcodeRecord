@@ -51,6 +51,51 @@ class Solution05 {
     }
 
 
+
+
+    public String longestPalindrome_3(String s) {
+        if(s == null || s.length() == 1){
+            return s;
+        }
+        int len = s.length();
+        boolean[][] dp = new boolean[len][len];
+        for(int i = 0 ; i < len; ++i){
+            dp[i][i] = true;
+        }
+        int maxLen = 1;
+        //这个数值可以随便的变。
+        int start = 0;
+        //打表的填充顺序需要注意。需要从动态转移方程中找到方向。
+        //dp[i][j] = (s[i] == s[j]) && (dp[i + 1][j - 1])  （这里需要注意的是 i > j, j < i 无意义。i == j 是边界）
+        //有了i + 1才能推出i，所以i从最后一行（len - 1）开始
+        //j是i + 1层的j所以无论从len-1出发还是i + 1都行。
+        for(int i = len - 1; i >= 0; --i){
+            for(int j = len - 1; j > i; --j){
+                if(s.charAt(i) == s.charAt(j)){
+                    if(j - i < 2){
+                        dp[i][j] = true;
+                    }
+                    else{
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                    // dp[i][j] = dp[i + 1][j - 1];
+                }
+                else{
+                    dp[i][j] = false;
+                }
+                if(dp[i][j] == true){
+                    int curLen = j - i + 1;
+                    if(curLen > maxLen){
+                        maxLen  = curLen;
+                        start = i;
+                    }
+                }
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
+
+
     /**
      * 中心扩散法，就是对每一字符，都向两边扩散，记录下长度
      * @param s
