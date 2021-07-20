@@ -10,6 +10,10 @@ import java.util.LinkedList;
  * @author liyh
  */
 public class RainWater {
+    public static void main(String[] args) {
+        int[] ans = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        new Solution42().trap2(ans);
+    }
 }
 class Solution42{
 

@@ -16,7 +16,7 @@ public class BasicCalculator3 {
         String expression = "1 * 2 + 1 * (3 - 2) / 1";
         int a = solution772.calculate(expression);
         System.out.println(a);
-        new ConcurrentHashMap<>()
+//        new ConcurrentHashMap<>()
     }
 }
 class Solution772 {
@@ -75,54 +75,54 @@ class Solution772 {
         return stack.pop().intValue();
     }
 
-    private List<String> reversePolish(String s) {
-        Stack<Character> opStack = new Stack<>();
-        List<String> str = new LinkedList<>();
-        boolean bigger = false;
-        for (int i = 0; i< s.length();i++){
-            Character c = s.charAt(i);
-            if (c == ' '){
-                continue;
-            }
-            if (!opMap.containsKey(String.valueOf(c))){
-                if (!bigger) {
-                    str.add(String.valueOf(c));
-                    bigger = true;
-                }else {
-                    str.set(str.size()-1,str.get(str.size()-1)+ c);
-                }
-            }else {
-                bigger = false;
-                if (c == '('){
-                    opStack.push(c);
-                }else if(c==')'){
-                    Character o = opStack.pop();
-                    while (o != '('){
-                        str.add(String.valueOf(o));
-                        o = opStack.pop();
-                    }
-                }else{
-                    if (opStack.isEmpty()){
-                        opStack.push(c);
-                        continue;
-                    }
-                    Character o = opStack.peek();
-                    while (opMap.get(String.valueOf(o))>=opMap.get(String.valueOf(c))){
-                        str.add(String.valueOf(opStack.pop()));
-                        if (opStack.isEmpty()){
-                            break;
-                        }
-                        o = opStack.peek();
-                    }
-                    opStack.push(c);
-                }
-            }
-        }
-        while (!opStack.isEmpty()){
-            str.add(String.valueOf(opStack.pop()));
-        }
-        return str;
-    }
+//    private List<String> reversePolish(String s) {
+//        Stack<Character> opStack = new Stack<>();
+//        List<String> str = new LinkedList<>();
+//        boolean bigger = false;
+//        for (int i = 0; i< s.length();i++){
+//            Character c = s.charAt(i);
+//            if (c == ' '){
+//                continue;
+//            }
+//            if (!opMap.containsKey(String.valueOf(c))){
+//                if (!bigger) {
+//                    str.add(String.valueOf(c));
+//                    bigger = true;
+//                }else {
+//                    str.set(str.size()-1,str.get(str.size()-1)+ c);
+//                }
+//            }else {
+//                bigger = false;
+//                if (c == '('){
+//                    opStack.push(c);
+//                }else if(c==')'){
+//                    Character o = opStack.pop();
+//                    while (o != '('){
+//                        str.add(String.valueOf(o));
+//                        o = opStack.pop();
+//                    }
+//                }else{
+//                    if (opStack.isEmpty()){
+//                        opStack.push(c);
+//                        continue;
+//                    }
+//                    Character o = opStack.peek();
+//                    while (opMap.get(String.valueOf(o))>=opMap.get(String.valueOf(c))){
+//                        str.add(String.valueOf(opStack.pop()));
+//                        if (opStack.isEmpty()){
+//                            break;
+//                        }
+//                        o = opStack.peek();
+//                    }
+//                    opStack.push(c);
+//                }
+//            }
+//        }
+//        while (!opStack.isEmpty()){
+//            str.add(String.valueOf(opStack.pop()));
+//        }
+//        return str;
+//    }
 
     /**
      * 自己仿着上面写的，终于没有问题了。
