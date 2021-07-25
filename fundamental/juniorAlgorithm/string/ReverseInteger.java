@@ -1,7 +1,7 @@
 package juniorAlgorithm.string;
 
 /**
- * ClassName: ReverseInteger
+ * ClassName: checkLost.ReverseInteger
  * Description: 整数反转，把一个整数个反转了
  * date: 2020/6/13 12:45
  *

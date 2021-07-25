@@ -39,6 +39,7 @@ class Solution02 {
             if(p2 != null){
                 p2 = p2.next;
             }
+            //这个虽然每次都会加上，但是除了最后一次都不影响
             if(carry != 0){
                 cur.next = new ListNode(carry);
             }
