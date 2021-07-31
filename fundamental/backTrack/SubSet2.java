@@ -52,4 +52,34 @@ class Solution90 {
         curList.removeLast();
         helper(n+1, nums, curList, lists, set);
     }
+
+
+
+    private List<List<Integer>> ans = new ArrayList<>();
+
+    /**
+     * 有重复元素的子集
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return ans;
+        }
+        //提前sort然后再和上一个元素比较进行去重的操作
+        Arrays.sort(nums);
+        dfs(nums, 0, new ArrayList<>());
+        return ans;
+    }
+    private void dfs(int[] nums, int start, List<Integer> curSet){
+        ans.add(new ArrayList<>(curSet));
+        for(int i = start; i < nums.length; ++i){
+            if(i > start && nums[i] == nums[i - 1]){
+                continue;
+            }
+            curSet.add(nums[i]);
+            dfs(nums, i + 1, curSet);
+            curSet.remove(curSet.size() - 1);
+        }
+    }
 }

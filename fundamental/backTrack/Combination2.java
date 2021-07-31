@@ -35,6 +35,8 @@ class Solution40{
                 return ;
             }
             //这个是为了元素相同重复
+            //这里还只能是i和i-1相比，才能保证后续一定会回溯减元素。
+            //和上个不一样才能加上去
             if(i > start && candidates[i] == candidates[i - 1]){
                 continue;
             }

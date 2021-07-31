@@ -32,6 +32,8 @@ class Solution39 {
         if(candidates == null || candidates .length == 0 || target < 0){
             return ans;
         }
+        //这里排序之后可以提前剪枝。
+        Arrays.sort(candidates);
         List<Integer> list = new ArrayList<>();
         dfs(candidates, target, list, 0);
         return ans;
@@ -78,6 +80,7 @@ class Solution39 {
         if(candidates == null || candidates .length == 0 || target < 0){
             return ans;
         }
+        //这里提前sort之后，后面可以提前减枝
         Arrays.sort(candidates);
         List<Integer> list = new ArrayList<>();
         dfs2(candidates, target, list, 0);

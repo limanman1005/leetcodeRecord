@@ -23,7 +23,6 @@ public class BSTNum {
         System.out.println(pq);
         pq.remove();
         System.out.println(pq);
-
     }
 }
 class Solution96 {

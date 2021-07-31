@@ -14,7 +14,7 @@ public class SubSet1 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3};
-        List<List<Integer>> lists = new Solution78().subsets4(arr);
+        List<List<Integer>> lists = new Solution78().subsets5(arr);
 
 
     }
@@ -148,10 +148,11 @@ class Solution78 {
         return ans;
     }
     private void backtrack(int[] nums, List<Integer> set, int start){
+        System.out.println(start);
         ans.add(new ArrayList<>(set));
         for(int i = start; i < nums.length; ++i){
             set.add(nums[i]);
-            backtrack(nums, set, i + 1);
+            backtrack(nums, set,i + 1);
             set.remove(set.size() - 1);
         }
     }
