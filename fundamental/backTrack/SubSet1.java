@@ -136,7 +136,7 @@ class Solution78 {
 //    private List<List<Integer>> ans = new ArrayList<>();
 
     /**
-     *
+     * 这个方法没有等决策完成就是添加到结果中了，有点不易理解。这个记下吧
      * @param nums
      * @return
      */
