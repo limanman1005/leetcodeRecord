@@ -26,10 +26,7 @@ class Solution673 {
                         lis[i] = lis[j] +1;
                         com[i] = com[j];
                     }
-                    //关键就在这个com数组里面，如果当前最长的在之前已经有了，那么需要累加上。
-                    //com数组里面就是以当前i结尾的最长上升子序列的个数
-                    //https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/solution/qiu-zui-chang-di-zeng-zi-xu-lie-de-ge-shu-by-qiyue/
-                    //上面那篇题解说的很明白
+                    //该条件是不可以省略的，会有其他情况出现，例如lis[i] > lis[j]的情况出现，此时不应做处理的
                     else if(lis[i] == lis[j]+1){
                         com[i] += com[j];
                     }

@@ -13,8 +13,12 @@ import java.util.List;
 public class SubSet1 {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3};
-        List<List<Integer>> lists = new Solution78().subsets5(arr);
+        int[] arr = new int[]{1, 2, 3,4};
+//        List<List<Integer>> lists = new Solution78().subsets5(arr);
+//        lists.forEach(System.out::println);
+        Solution78 solution78 = new Solution78();
+        List<List<Integer>> lists1 = solution78.subsets4(arr);
+        lists1.forEach(System.out::println);
 
 
     }
@@ -148,7 +152,6 @@ class Solution78 {
         return ans;
     }
     private void backtrack(int[] nums, List<Integer> set, int start){
-        System.out.println(start);
         ans.add(new ArrayList<>(set));
         for(int i = start; i < nums.length; ++i){
             set.add(nums[i]);

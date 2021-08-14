@@ -30,6 +30,12 @@ public class CoinChange {
 }
 
 class Solution322 {
+    /**
+     * dp写法
+     * @param coins
+     * @param amount
+     * @return
+     */
     public int coinChange(int[] coins, int amount) {
         int[] ans = new int[amount + 1];
         //这里使用amount + 1是后面会求min。使用-1就找不到最小值了
@@ -54,6 +60,13 @@ class Solution322 {
 
 
     private int[] memo;
+
+    /**
+     * 记忆化递归写法
+     * @param coins
+     * @param amount
+     * @return
+     */
     public int coinChange2(int[] coins, int amount) {
         if(coins == null || coins.length == 0){
             return -1;
@@ -61,7 +74,6 @@ class Solution322 {
         memo = new int[amount + 1];
         dfs(coins, amount);
         return memo[amount];
-
     }
 
     public int dfs(int[] coins, int amount){
@@ -101,6 +113,9 @@ class Solution322 {
             return -1;
         }
         dfs(coins, amount, 0);
+        if(ans == Integer.MAX_VALUE){
+            return -1;
+        }
         return  ans;
     }
 
@@ -112,9 +127,7 @@ class Solution322 {
             ans = Math.min(curSum, ans);
         }
         for(int coin : coins){
-            if(amount >= coin){
-                dfs(coins, amount - coin, curSum + 1);
-            }
+            dfs(coins, amount - coin, curSum + 1);
         }
     }
 }

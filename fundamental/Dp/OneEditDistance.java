@@ -24,7 +24,6 @@ class Solution161 {
         if(lent < lens){
             return isOneEditDistance(t, s);
         }
-        //todo 进行更详细的分析 0921
         //以下其实就是分类讨论，当长度相差超过一的时候是无论如何都不能只变一次
         if(lent - lens > 1){
             return false;

@@ -45,7 +45,7 @@ class Solution121 {
     }
 
     /**
-     * 自己想的一个版本，维护一个minPrice。然后每一天和这个减下就好了
+     * 这里dp指的是到当前这一天之前的股票的最低价格
      * @param prices
      * @return
      */

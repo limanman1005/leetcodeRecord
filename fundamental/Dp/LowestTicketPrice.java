@@ -12,7 +12,7 @@ public class LowestTicketPrice {
 
 class Solution983 {
     /**
-     * dp算法的思维方式没有掌握，暂时留个坑，以后再说
+     * dp[i]代表在i天最后的数目，
      * @param days
      * @param costs
      * @return
