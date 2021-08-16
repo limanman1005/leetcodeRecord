@@ -37,7 +37,7 @@ class Solution494 {
 
 
     /**
-     * dp方法求解。这里需要使用一个公式将问题转化称为01背包的问题
+     * dp方法求解。其中一个思路这里需要使用一个公式将问题转化称为01背包的问题
      * 在本题中就是转化成为了在数组选取一个子集其和为goalSum的01背包问题
      * @param nums
      * @param target
@@ -76,4 +76,6 @@ class Solution494 {
         }
         return dp[len][goalSum];
     }
+
+    //todo 此题的dp还有其他的思路，有机会了在详解
 }
