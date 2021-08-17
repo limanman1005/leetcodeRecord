@@ -8,6 +8,13 @@ package JulyPractice;
  * @author liyh
  */
 public class MinimumPathSum {
+    //todo 此题还有找出路径的进阶版，有时间学习一下
+    public static void main(String[] args) {
+        int m = 3;
+        int n = 2;
+        int[][] path = new int[m + n][2];
+        path[m + n - 1] = new int[]{m - 1, n- 1};
+    }
 }
 class Solution64 {
     /**

@@ -6,9 +6,7 @@ import java.util.List;
  * ClassName: Triangle
  * Description: 给一个下三角矩阵，找到从顶点到底点中最小路径和。
  * 这是到经典的动态规划的题目了。
- * 从顶到底，有点复杂，暂时不看了。
  * date: 2020/7/14 10:14
- *
  * @author liyh
  */
 public class Triangle {
@@ -16,7 +14,7 @@ public class Triangle {
 class Solution120 {
 
     /**
-     * dfs解法
+     * dfs解法，有边界条件，有转移方程，必然可以写一个dfs递归的方法。
      * @param triangle
      * @return
      */

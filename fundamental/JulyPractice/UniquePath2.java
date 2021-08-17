@@ -26,6 +26,7 @@ class Solution63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int[] dp = new int[obstacleGrid[0].length];
         //这里起点肯定应该是1。（加这个判断有点多余）
+        //其实也不多余，如果起点是障碍，那么所有的都将为0
         dp[0] = (obstacleGrid[0][0] == 0? 1: 0);
         //填充数组。
         for(int i =0; i < obstacleGrid.length; ++i){
