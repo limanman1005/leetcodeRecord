@@ -77,5 +77,5 @@ class Solution494 {
         return dp[len][goalSum];
     }
 
-    //todo 此题的dp还有其他的思路，有机会了在详解
+    //todo 此题的dp还有其他的思路，不过稍微有点复杂。有时间了在写下吧
 }
