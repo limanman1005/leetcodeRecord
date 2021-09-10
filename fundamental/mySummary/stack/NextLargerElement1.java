@@ -1,4 +1,4 @@
-package mySummary.sort.stack;
+package mySummary.stack;
 
 import java.util.*;
 
@@ -24,8 +24,9 @@ class Solution496 {
                 return new int[0];
             }
         }
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(nums2.length);
         Deque<Integer> stack = new LinkedList<>();
+        //这里可739题一摸一样，就是找nums2的下一个最大元素的下标，如果存在那么放进stack中
         for(int i = 0; i < nums2.length; ++i){
             while(!stack.isEmpty() && nums2[i] > nums2[stack.peek()]){
                 int calIndex = stack.pop();
@@ -34,6 +35,7 @@ class Solution496 {
             stack.push(i);
         }
         int[] ans = new int[nums1.length];
+        //从map中取回结果
         for(int i = 0; i < nums1.length; ++i){
             ans[i] = map.getOrDefault(nums1[i], -1);
         }

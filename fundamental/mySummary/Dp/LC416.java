@@ -2,7 +2,7 @@ package mySummary.Dp;
 
 /**
  * ClassName: LC416
- * Description: 此题为494的基础题，这个题也可以转化为一个背包问题。
+ * Description: 此题为494的基础题，这个题也可以转化为一个01背包问题。
  * date: 2021/8/6 23:00
  *
  * @author liyh
@@ -12,7 +12,7 @@ public class LC416 {
 class Solution416 {
     /**
      * dp方法将一个数组中找两个相等的子集，转化为一个求一个子集和为数组和的一半的问题。
-     * 利用01背包的思路即可解答
+     * 利用01背包的思路即可解答。
      * @param nums
      * @return
      */
@@ -32,7 +32,8 @@ class Solution416 {
         //子集的一半
         int goalSum = sum / 2;
         boolean[][] dp = new boolean[len + 1][goalSum + 1];
-        //初始化条件不要错
+        //初始化条件不要错，这里本质上利用了哨兵的思想，简化了对边界问题的探讨。
+        //0代表不考虑其他任何物品，当基本条件不好考虑的时候可以使用这个技巧。
         dp[0][0] = true;
         //通过状态转移方程进行转换即可
         for(int i = 1; i <= len; ++i){

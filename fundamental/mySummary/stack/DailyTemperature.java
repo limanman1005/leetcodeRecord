@@ -1,4 +1,4 @@
-package explore.microsoft.mySupplement;
+package mySummary.stack;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -22,7 +22,9 @@ class Solution739 {
         Deque<Integer> stack = new LinkedList<>();
         for(int i = 0; i < len; ++i){
             int temp = T[i];
+            //找下一个更大的元素，需要维护一个最小栈
             while(!stack.isEmpty() && temp > T[stack.peek()]){
+                //出栈计算
                 int idx = stack.pop();
                 ans[idx] = i - idx;
             }

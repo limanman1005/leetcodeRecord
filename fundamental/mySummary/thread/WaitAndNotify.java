@@ -16,7 +16,7 @@ public class WaitAndNotify {
         @Override
         public void run() {
             synchronized (lock){
-                for(int i = 0; i < 5; ++i){
+                for(int i = 0; i < 10; ++i){
                     System.out.println(i);
                     lock.notify();
                     try {
@@ -33,7 +33,7 @@ public class WaitAndNotify {
         @Override
         public void run() {
             synchronized (lock){
-                for(int i = 0; i < 5; ++i){
+                for(int i = 0; i < 10; ++i){
                     System.out.println(i);
                     lock.notify();
                     try {
