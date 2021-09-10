@@ -36,6 +36,7 @@ class Solution402 {
         LinkedList<Character> stack = new LinkedList<>();
         for(int i = 0; i < len; ++i){
             //这里使用一个栈记录下一个比栈顶元素小的，需要加上一个条件就是删除的次数大于零才能出栈
+            //这个循环不能保证一定删了k次，如果数字刚好是升序的那么可能一次也不删
             while(k > 0 && !stack.isEmpty() && num.charAt(i) <stack.peekLast()){
                 //出栈顶元素
                 stack.pollLast();
@@ -56,7 +57,7 @@ class Solution402 {
         while(sb.length() != 0 && sb.charAt(0) == '0'){
             sb.deleteCharAt(0);
         }
-        //如果只剩下0那么返回零
+        //如果删完了那么返回零
         if(sb.length() == 0){
             return "0";
         }
