@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  * ClassName: LC547
  * Description: 此题也可利用BFS和DFS写，不过暂略吧
+ * 此题是基础题，知识添加一个并查集的size属性
  * date: 2021/9/10 17:40
  *
  * @author liyh
