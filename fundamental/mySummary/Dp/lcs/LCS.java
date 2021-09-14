@@ -1,4 +1,4 @@
-package mySummary.Dp;
+package mySummary.Dp.lcs;
 
 /**
  * ClassName: LCS

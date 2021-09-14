@@ -1,11 +1,11 @@
-package mySummary.Dp;
+package mySummary.Dp.lis;
 
 
 import java.util.Arrays;
 
 /**
  * ClassName: LIS
- * Description:
+ * Description: 此题为一道经典题。后续还可以扩展为求个数（LC673）和所有的子序列（LC491）。
  * date: 2020/9/20 18:26
  *
  * @author liyh

@@ -62,12 +62,10 @@ public class HeapSort {
         System.out.println(Arrays.toString(randomArr));
         heapSort(randomArr);
         System.out.println(Arrays.toString(randomArr));
-        PriorityQueue<Integer> integers = new PriorityQueue<>(36, (l1, l2) -> l2 - l1);
-
     }
 
     /**
-     * ClassName: HeapSortPratice
+     * ClassName: HeapSortPractice
      * Description:
      * date: 2020/4/1 17:54
      *

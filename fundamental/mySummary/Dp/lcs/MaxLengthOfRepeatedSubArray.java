@@ -1,4 +1,4 @@
-package dailyPractice.JulyPractice;
+package mySummary.Dp.lcs;
 
 /**
  * ClassName: MaxLengthOfRepeatedSubArray
@@ -12,6 +12,7 @@ package dailyPractice.JulyPractice;
  * 长度最长的公共子数组是 [3, 2, 1]。
  *
  * 此题还有滑动窗口和二分查找+hash方法。暂时跳过
+ * 此题和LCS还是有区别的，数字必须连续
  * date: 2020/7/1 9:41
  *
  * @author liyh

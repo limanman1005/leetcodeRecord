@@ -104,7 +104,7 @@ class MergeSortLoop{
     }
 
     /**
-     * 这个mergerArr不够优雅，还是之之前写的比较优雅
+     * 这个mergerArr不够优雅，还是之前写的比较优雅
      * @param arr
      * @param start
      * @param mid
