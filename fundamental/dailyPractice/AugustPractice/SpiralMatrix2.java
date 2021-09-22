@@ -2,7 +2,7 @@ package dailyPractice.AugustPractice;
 
 /**
  * ClassName: SpiralMatrix2
- * Description:  和leetcode59题是相反的。
+ * Description: 此题和leetcode54题是相反的。
  * date: 2020/9/5 20:56
  *
  * @author liyh

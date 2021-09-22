@@ -4,7 +4,8 @@ import explore.recursion.ListNode;
 
 /**
  * ClassName: DeleteNthNodeInLinkedList
- * Description: 给一个链表和一个数n (n <len)删除节点得倒数第n个节点
+ * Description: 给一个链表和一个数n (n <len)
+ * 删除节点得倒数第n个节点
  * date: 2020/6/18 15:20
  *
  * @author liyh

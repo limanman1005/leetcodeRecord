@@ -24,6 +24,8 @@ class Solution150 {
         }
         int len = tokens.length;
         LinkedList<Integer> stack = new LinkedList<>();
+        //执行后最表达式很简单，碰到数字就进栈，碰到运算符就出栈两个元素进行运算。
+        //执行顺序是后面的操作前面的。
         for(String token : tokens){
             if(isDigit(token)){
                 stack.push(Integer.parseInt(token));

@@ -51,7 +51,7 @@ class Solution101 {
     }
 
     /**
-     * 这个方法是非递归的方法
+     * 这个方法是递归的方法
      * @param root1
      * @param root2
      * @return
@@ -64,7 +64,7 @@ class Solution101 {
             return false;
         }
         if(root1.val == root2.val){
-            return helper(root1.left, root2.right) && helper(root1.right, root2.left);
+            return helper2(root1.left, root2.right) && helper2(root1.right, root2.left);
         }
         else{
             return false;

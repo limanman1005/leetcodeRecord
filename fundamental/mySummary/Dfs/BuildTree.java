@@ -106,10 +106,10 @@ class Solution106{
         TreeNode node = new TreeNode(val);
         //因为递归顺序的原因post-1肯定是根节点
         post_index--;
-        int rootIndex = val2Index.get(val);
+        int rootIndexInInOrder = val2Index.get(val);
         //先右后左的顺序不能变。
-        node.right = helper(rootIndex + 1, r);
-        node.left = helper(l, rootIndex - 1);
+        node.right = helper(rootIndexInInOrder + 1, r);
+        node.left = helper(l, rootIndexInInOrder - 1);
         return node;
     }
 }

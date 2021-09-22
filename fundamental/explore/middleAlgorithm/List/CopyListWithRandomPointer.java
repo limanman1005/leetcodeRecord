@@ -26,7 +26,7 @@ class Node {
 }
 class Solution138 {
     /**
-     * 使用了一个map来存放随机指针的信息
+     * 使用了一个map来存放所有的新建链表节点，遍历克隆的时候从map中取。
      */
     private HashMap<Node, Node> map = new HashMap<>();
     public Node copyRandomList(Node head) {
