@@ -1,4 +1,6 @@
-package mySummary.Dp;
+package mySummary.Dp.bags;
+
+import java.sql.PseudoColumnUsage;
 
 /**
  * ClassName: TargetSum
@@ -8,6 +10,11 @@ package mySummary.Dp;
  * @author liyh
  */
 public class TargetSum {
+    public static void main(String[] args) {
+        Solution494 solution494 = new Solution494();
+        int[] arr = {1, 1, 1, 1, 1};
+        solution494.findTargetSumWays3(arr, 3);
+    }
 }
 
 class Solution494 {
@@ -55,6 +62,7 @@ class Solution494 {
         if(sum - target < 0 || (sum -target) % 2 != 0){
             return 0;
         }
+        //这里算的是-号的总大小
         int goalSum = (sum -target) / 2;
         int len = nums.length;
         //dp[i][j]代表前i个数相加和成为j的个数。
@@ -77,5 +85,36 @@ class Solution494 {
         return dp[len][goalSum];
     }
 
-    //todo 此题的dp还有其他的思路，不过稍微有点复杂。有时间了在写下吧
+
+    /**
+     * 一维数组版，这里的容量和上面的解法不同。求一个PSum。
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int findTargetSumWays3(int[] nums, int target) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int sum  = 0;
+        for(int num : nums){
+            sum += num;
+        }
+        //这里防止PSum为负数，直接返回
+        if((sum + target) % 2 != 0 || sum + target < 0){
+            return 0;
+        }
+        int PSum = (sum + target)/2;
+        int[] dp = new int[PSum + 1];
+        //求组合数时记得初始化
+        dp[0] = 1;
+        for(int i = 0; i < nums.length; ++i){
+            for(int j = PSum; j >= nums[i]; --j){
+                //状态转移为加法
+                dp[j] += dp[j - nums[i]];
+            }
+        }
+        return dp[PSum];
+    }
+
 }

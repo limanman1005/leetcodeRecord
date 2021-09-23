@@ -1,4 +1,4 @@
-package dailyPractice.JunePractice;
+package mySummary.Dp.bags;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -63,6 +63,8 @@ class Solution139 {
     /**
      * 动态规划算法
      * dp代表在i位置上是否能在字典表上出现
+     * 这个解法可以理解为完全背包问题，但是需要提前想好遍历的顺序
+     * 有一点难想，所以不按照背包的思路反而好理解。
      * @param s
      * @param wordDict
      * @return
@@ -72,8 +74,10 @@ class Solution139 {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         //这里从第一个位置i出发,填充dp
+        //背包容量必须在外
         for(int i = 1; i <= s.length(); ++i){
             //第二个循环用来使用判断下它前面的是否已经在字典表里面出现了。
+            //j到i的连续字串一一试探
             for(int j = 0; j < i; ++j){
                 if(dp[j] && set.contains(s.substring(j, i))){
                     dp[i] = true;

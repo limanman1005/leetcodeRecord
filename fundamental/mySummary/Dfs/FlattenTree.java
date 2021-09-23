@@ -12,9 +12,10 @@ public class FlattenTree {
 
 
 
-class Solution {
+class Solution114 {
     /**
      * 这个是标准的后序遍历做法，没有使用一个全局的指针。
+     * 就是将节点的右节点挂到左节点的最右边节点上，然后将左节点挂到右节点上。
      * @param root root
      */
     public void flatten(TreeNode root) {

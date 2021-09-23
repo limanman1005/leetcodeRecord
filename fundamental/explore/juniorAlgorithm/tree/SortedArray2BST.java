@@ -14,7 +14,7 @@ public class SortedArray2BST {
 class Solution108 {
 
     /**
-     * 典型的递归解法使用
+     * 就是建树的操作，每次找到中点之后创建节点，然后用递归建树
      * @param nums
      * @return
      */

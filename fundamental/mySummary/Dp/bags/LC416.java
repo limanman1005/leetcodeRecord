@@ -1,4 +1,4 @@
-package mySummary.Dp;
+package mySummary.Dp.bags;
 
 /**
  * ClassName: LC416
@@ -48,5 +48,34 @@ class Solution416 {
             }
         }
         return dp[len][goalSum];
+    }
+
+
+    /**
+     * 使用了01背包压缩空间的解法
+     * @param nums
+     * @return
+     */
+    public boolean canPartition2(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return false;
+        }
+        int len = nums.length;
+        int sum = 0;
+        for(int num : nums){
+            sum += num;
+        }
+        if(sum % 2 != 0){
+            return false;
+        }
+        int goalSum = sum / 2;
+        int[] dp = new int[goalSum + 1];
+        for(int i = 0; i < len; ++i){
+            //此处边界条件应记得
+            for(int j = goalSum; j >= nums[i]; --j){
+                dp[j] = Math.max(dp[j - nums[i]] + nums[i], dp[j]);
+            }
+        }
+        return dp[goalSum] == goalSum;
     }
 }

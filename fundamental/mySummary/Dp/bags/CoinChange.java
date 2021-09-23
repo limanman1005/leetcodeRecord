@@ -1,4 +1,4 @@
-package mySummary.Dp;
+package mySummary.Dp.bags;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +28,9 @@ public class CoinChange {
 
 class Solution322 {
     /**
-     * dp写法
+     * dp写法，也可以看作是一个背包问题。
+     * 只不过求的值不是最大价值、组合、排列等而是组成特定值的数组的长度最小
+     * 所有状态方程有一点特别。
      * @param coins
      * @param amount
      * @return
@@ -43,6 +45,8 @@ class Solution322 {
                 ans[coin] = 1;
             }
         }
+        //完全背包，每个硬币可以选择多次，所以使用从前向后。
+        //长度无关排列，组合所以内外循环的顺序没有变化
         for(int i = 1; i <= amount; ++i){
             for(int coin: coins){
                 if(i >= coin){
