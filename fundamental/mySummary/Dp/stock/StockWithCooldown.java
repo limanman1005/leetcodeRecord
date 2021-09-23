@@ -1,4 +1,4 @@
-package dailyPractice.JulyPractice;
+package mySummary.Dp.stock;
 
 /**
  * ClassName: StockWithCooldown
@@ -34,7 +34,8 @@ class Solution309 {
             //第i天的持有状态是第i - 1天的持有状态，i-1天的非持有且不处于冷冻期的状态 - 第i天的股票（买入股票的钱）
             //两个值的最大值
             dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][2] - prices[i]);
-            //第i天的不持有且处于冷冻期的状态是第i - 1的持有状态加上卖股票的钱。
+            //第i天的不持有且处于冷冻期的状态是第i - 1的持有状态加上卖今天股票的钱。
+            //这里dp[i][1]代表的是今天结束之后的收益，所以需要加的是今天的price数组中的值。
             dp[i][1] = dp[i - 1][0] + prices[i];
             //第i天的不持有且不处于冷冻期的状态是第i - 1天不持有但是处于冷冻期的状态（i-2天卖出了， i - 1天没有操作）
             //和第i - 1天的不持有且不处于冷冻期的最大值（i - 1天的没有操作）。

@@ -1,4 +1,4 @@
-package explore.juniorAlgorithm.array;
+package mySummary.Dp.stock;
 
 /**
  * ClassName: Stock2
