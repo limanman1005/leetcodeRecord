@@ -86,7 +86,7 @@ public void dp(int[] arr){
         maxValue[i] = Max(minValue[i - 1] * arr[i], maxValue[i - 1] * arr[i], arr[i]);
     }
     for(int i = 0; i < len; ++i){
-        ans = max(arr[i], ans);
+        ans = max(maxValue[i], ans);
     }
     return ans;
 }
@@ -283,17 +283,17 @@ public void dp(int[] arr){
 > 需要再次多加一个维度进行表示交易了多少次
 
 ```java
-public void dp(int[] arr){
-    int[][][] dp = new int[n][2][2];
+public void dp(int[] arr, int k){
+    int[][][] dp = new int[n][k][2];
     for(int i = 0; i < len; ++i){
-        for(int k = 2; k >=0; ++j){
+        for(int k = 2; k >=0; --k){
             if(i - 1 == -1){
                 //边界条件
                 dp[0][k][0] = 0;
                 dp[0][k][1] = -prices[i];
                 continue;
             }
-            dp[i][k][0]  = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+            dp[i][k][0]  = max(dp[i - 1][k][0], dp[i - 1][k ][1] + prices[i]);
             dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
         }
     }
