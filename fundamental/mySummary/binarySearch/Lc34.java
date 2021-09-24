@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * ClassName: Lc34
- * Description: 找一个范围
+ * Description: 直接看BinarySearchBasic中的总结吧
  * date: 2020/4/20 13:39
  *
  * @author liyh
@@ -121,7 +121,7 @@ class Solution34{
         int left = 0;
         int right = arr.length - 1;
         while (left < right){
-            //这个啊，就是由于这个mid的选取是偏左的，这时候，必须要有left+1才行，使用这样的方法使循环终结
+            //这个就是由于这个mid的选取是偏左的，这时候，必须要有left+1才行，使用这样的方法使循环终结
             int mid = (left + right) >>> 1;
             if(target > arr[mid]){
                 left = mid + 1;

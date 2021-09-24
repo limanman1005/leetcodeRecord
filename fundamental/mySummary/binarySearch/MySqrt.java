@@ -30,7 +30,7 @@ class Solution69 {
             } else if (square == x) {
                 return (int) mid;
             }
-            //这里不能些mid-1。因为mid排除不了
+            //这里不能些mid-1。因为mid排除不了，因为要向下取整所以不能写成mid - 1
             else {
                 left = mid;
             }
