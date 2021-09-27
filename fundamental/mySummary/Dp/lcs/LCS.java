@@ -16,7 +16,7 @@ public class LCS {
 }
 class Solution1143 {
     /**
-     * 这个边界条件的处理有各种不同的方法
+     * 这个边界条件的处理有各种不同的方法,见718
      * @param text1
      * @param text2
      * @return
@@ -27,6 +27,8 @@ class Solution1143 {
         }
         int len1 = text1.length();
         int len2 = text2.length();
+        //注意这里也是使用了哨兵的，下标范围是0-len之间的len + 1个位置
+        //初始化直接是dp[0][j]和dp[i][0] = 0,这里没有显式初始化罢了
         int[][] dp = new int[len1 + 1][len2 + 1];
         for(int i = 0; i < len1; ++i){
             for(int j = 0; j < len2; ++j){

@@ -40,6 +40,4 @@ class Solution515 {
         dfs(root.left, level + 1);
         dfs(root.right, level + 1);
     }
-
-
 }

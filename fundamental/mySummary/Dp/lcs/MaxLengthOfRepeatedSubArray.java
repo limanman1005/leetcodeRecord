@@ -27,7 +27,8 @@ class Solution718 {
      * 如果a[i]和b[j]相等。那么a[i :]和b[j: ]的最长公共前缀是a[i + 1 : ]和b[i + 1 : ]
      * 的最长公共前缀加一。否则为0.
      * 使用dp[i][j]表示a[i:]和b[j:]的最长公共前缀。进行状态转移即可。
-     * * @param A
+     * 此题是从后向前的状态定义。
+     * @param A
      * @param B
      * @return
      */
@@ -44,4 +45,57 @@ class Solution718 {
         }
         return ans;
     }
+
+    /**
+     * 使用了哨兵技巧的一种写法
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int findLength2(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        int ans = 0;
+        for(int i = 0; i < len1; ++i){
+            for(int j = 0; j < len2; ++j){
+                if(nums1[i] == nums2[j]){
+                    dp[i + 1][j + 1] = dp[i][j] + 1;
+                }
+                else{
+                    dp[i + 1][j + 1] = 0;
+                }
+                ans = Math.max(dp[i + 1][j + 1], ans);
+            }
+        }
+        return ans;
+    }
+
+
+    /**
+     * 使用了哨兵技巧的另一种写法
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int findLength3(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        int ans = 0;
+        for(int i = 1; i <= len1; ++i){
+            for(int j = 1; j <= len2; ++j){
+                if(nums1[i - 1] == nums2[j - 1]){
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                }
+                else{
+                    dp[i][j] = 0;
+                }
+                ans = Math.max(dp[i][j], ans);
+            }
+        }
+        return ans;
+    }
+
+
 }
