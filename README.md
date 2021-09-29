@@ -3,7 +3,7 @@
 ### 链表题目
 LC25\
 [k个一组反转链表](/dailyPractice/MayPratise/KthReverseList.java)\
-LC206\
+explore.juniorAlgorithm.list.LC206\
 [反转链表](/explore/juniorAlgorithm/list/ReverseList.java)\
 LC92\
 [反转链表2]()\

@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.List;
+package explore.juniorAlgorithm.list;
 
 /**
  * ClassName: No206

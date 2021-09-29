@@ -1,5 +1,7 @@
+package explore.juniorAlgorithm.list;
+
 /**
- * ClassName: ListNode
+ * ClassName: explore.juniorAlgorithm.list.ListNode
  * Description:
  * date: 2020/3/3 17:29
  *

@@ -2,6 +2,7 @@ package inAndOut.test;
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 /**
@@ -13,20 +14,19 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        int numOfArr = scanner.nextInt();
-//        int[] arr = new int[numOfArr];
-//        scanner.nextLine();
-//        String num = scanner.nextLine();
-//        for(int i = 0; i < numOfArr; ++i){
-//            arr[i] = num.charAt(i) - '0';
-//        }
-//        System.out.println(Arrays.toString(arr));
-
-//        Solution solution = new Solution();
-//        int jump = solution.jump(arr);
-//        System.out.println(jump);
-        int[] arr = {0, 1, 2, 1, 2};
+        Scanner scanner = new Scanner(System.in);
+        int numOfArr = scanner.nextInt();
+        int[] arr = new int[numOfArr];
+        scanner.nextLine();
+        String num = scanner.nextLine();
+        for(int i = 0; i < numOfArr; ++i){
+            arr[i] = num.charAt(i) - '0';
+        }
+        System.out.println(Arrays.toString(arr));
+        Solution solution = new Solution();
+        int jump = solution.jump(arr);
+        System.out.println(jump);
+        int[] arr2 = {0, 1, 2, 1, 2};
         Solution2 solution2 = new Solution2();
         System.out.println(solution2.jump(arr));
     }
