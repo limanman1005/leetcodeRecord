@@ -1,4 +1,4 @@
-package dailyPractice.MayPratise;
+package explore.juniorAlgorithm.list;
 
 import explore.recursion.ListNode;
 

@@ -1,4 +1,4 @@
-package explore.queueAndStack;
+package mySummary.stack;
 
 import java.util.LinkedList;
 

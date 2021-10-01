@@ -63,16 +63,18 @@ class UnionFind{
     public int find(int x){
         int root = x;
 
+        //找到最上面的根
         while(father.get(root) != null){
             root = father.get(root);
         }
 
+        //压缩路径，一致向上找到最顶层的root，然后将
         while(x != root){
-            int oFather = father.get(x);
-            if(root != oFather){
+            int preFather = father.get(x);
+            if(root != preFather){
                 father.put(x, root);
             }
-            x = oFather;
+            x = preFather;
         }
         return root;
     }

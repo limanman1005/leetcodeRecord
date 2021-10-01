@@ -1,4 +1,4 @@
-package explore.queueAndStack;
+package mySummary.stack;
 
 import java.util.LinkedList;
 
@@ -17,10 +17,6 @@ public class RainWater {
     }
 }
 class Solution42{
-
-
-
-
 
     /**
      * 此解法可过，但是意义不明显，有点难想
