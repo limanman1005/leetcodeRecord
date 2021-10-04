@@ -41,7 +41,7 @@ class Solution215 {
         }
         else{
             //如果不是那么判断下大小然后中它的左边或者右边继续寻找。
-            return q < index? quickSelect(a, q + 1, r, index) : quickSelect(a, l, q - 1, index);
+            return q < index ? quickSelect(a, q + 1, r, index) : quickSelect(a, l, q - 1, index);
         }
     }
     public int randomPartition(int[] a, int l, int r){

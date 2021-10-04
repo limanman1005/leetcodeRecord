@@ -1,4 +1,4 @@
-package explore.juniorAlgorithm.tree;
+package mySummary.tree;
 
 /**
  * ClassName: LC1382

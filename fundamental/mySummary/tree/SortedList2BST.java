@@ -1,4 +1,4 @@
-package explore.juniorAlgorithm.tree;
+package mySummary.tree;
 
 import mySummary.Dfs.TreeNode;
 import explore.recursion.ListNode;
