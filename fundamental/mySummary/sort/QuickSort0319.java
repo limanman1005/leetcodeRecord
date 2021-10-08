@@ -43,7 +43,7 @@ public class QuickSort0319 {
                 Util.swap(nums, lp, rp);
             }
         }
-        //这里交换rp是因为lp可能会超出范围吗？
+        //交换rp是因为左边必须的比pivot小，而lp指向的是大于pivot的值
         Util.swap(nums, left, rp);
         return rp;
     }
@@ -53,5 +53,7 @@ public class QuickSort0319 {
         quickSort(randomArr, 0, randomArr.length-1);
         System.out.println(Arrays.toString(randomArr));
         System.out.println(Util.isOrdered(randomArr));
+        int[] nums = {5, 1,2, 3, 6, 7, 8};
+
     }
 }
