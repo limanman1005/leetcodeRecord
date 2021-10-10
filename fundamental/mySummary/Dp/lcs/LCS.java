@@ -11,7 +11,9 @@ public class LCS {
     public static void main(String[] args) {
         Solution1143 solution1143 = new Solution1143();
         int i = solution1143.longestCommonSubsequence2("abcde", "ace");
-        System.out.println(i);
+        String lcsString = solution1143.getLCSString("abcde", "abcde");
+
+        System.out.println(lcsString);
     }
 }
 class Solution1143 {
@@ -41,6 +43,50 @@ class Solution1143 {
             }
         }
         return dp[len1][len2];
+    }
+
+
+    public int[][] geDpArr(String text1, String text2) {
+        if(text1.length() == 0 || text2.length() == 0){
+            return null;
+        }
+        int len1 = text1.length();
+        int len2 = text2.length();
+        //注意这里也是使用了哨兵的，下标范围是0-len之间的len + 1个位置
+        //初始化直接是dp[0][j]和dp[i][0] = 0,这里没有显式初始化罢了
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        for(int i = 0; i < len1; ++i){
+            for(int j = 0; j < len2; ++j){
+                if(text1.charAt(i) == text2.charAt(j)){
+                    dp[i + 1][j + 1] = dp[i][j] + 1;
+                }
+                else{
+                    dp[i + 1][j + 1] = Math.max(dp[i][j + 1], dp[i + 1][j]);
+                }
+            }
+        }
+        return dp;
+    }
+
+
+    public String getLCSString(String text1, String text2){
+        int[][] dp = geDpArr(text1, text2);
+        int i = text1.length(), j = text2.length();
+        StringBuilder sb = new StringBuilder();
+        while(i > 0 && j > 0){
+            if(text1.charAt(i - 1) == text2.charAt(j - 1)){
+                sb.append(text1.charAt(i - 1));
+                i--;
+                j--;
+            }
+            else if(dp[i][j] == dp[i - 1][j]){
+                i--;
+            }
+            else if(dp[i][j] == dp[i][j - 1]){
+                j--;
+            }
+        }
+        return sb.reverse().toString();
     }
 
     private Integer[][] memo;
