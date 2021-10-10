@@ -1,4 +1,4 @@
-package explore.microsoft.mySupplement;
+package mySummary.designpattern;
 
 import java.util.HashMap;
 import java.util.Map;

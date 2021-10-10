@@ -11,54 +11,68 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author liyh
  */
 public class ReentrantLockTest {
-    private java.util.concurrent.locks.ReentrantLock lock = new ReentrantLock();
-    private Condition condition1 = lock.newCondition();
-    private Condition condition2 = lock.newCondition();
-    private volatile int num = 1;
-
-    public void print1(){
-        lock.lock();
-        try {
-            while(num < 10){
-                System.out.println(Thread.currentThread() + "" + num);
-                num++;
-                condition2.signal();
-                condition1.await();
-            }
-        }
-        catch (Exception e){
-
-        }
-        finally {
-            lock.unlock();
-        }
-    }
-
-    public void print2(){
-        lock.lock();
-        try {
-            while(num < 10){
-                System.out.println(Thread.currentThread() + "" + num);
-                num++;
-                condition2.await();
-                condition1.signal();
-
-            }
-        }
-        catch (Exception e){
-
-        }
-        finally {
-            lock.unlock();
-        }
-    }
-
-
     public static void main(String[] args) {
-        ReentrantLockTest reentrantLockTest = new ReentrantLockTest();
+        ReentrantLock lock = new ReentrantLock();
+        // 使用ReentrantLock的newCondition()方法创建三个Condition
+        // 分别对应A、B、C三个线程
+        Condition conditionA = lock.newCondition();
+        Condition conditionB = lock.newCondition();
+        Condition conditionC = lock.newCondition();
 
-        new Thread(() -> reentrantLockTest.print1(), "thread1").start();
-        new Thread(() -> reentrantLockTest.print2(), "thread2").start();
+        // A线程
+        new Thread(() -> {
+            try {
+                lock.lock();
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(Thread.currentThread().getName());
+                    // 叫醒B线程
+                    // 本线程阻塞
+                    conditionB.signal();
+                    conditionA.await();
+                }
+                // 这里有个坑，要记得在循环之后调用signal()，否则线程可能会一直处于
+                // wait状态，导致程序无法结束
+                conditionB.signal();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                // 在finally代码块调用unlock方法
+                lock.unlock();
+            }
+        }, "A").start();
+        // B线程
+        new Thread(() -> {
+            try {
+                lock.lock();
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(Thread.currentThread().getName());
+                    conditionC.signal();
+                    conditionB.await();
+                }
+                conditionC.signal();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+        }, "B").start();
+        // C线程
+        new Thread(() -> {
+            try {
+                lock.lock();
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(Thread.currentThread().getName());
+                    conditionA.signal();
+                    conditionC.await();
+                }
+                conditionA.signal();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+        }, "C").start();
     }
+
 }
 
