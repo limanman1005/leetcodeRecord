@@ -55,5 +55,3 @@ class Solution124 {
         return node.val + Math.max(leftGain, rightGain);
     }
 }
-
-

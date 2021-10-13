@@ -1,6 +1,10 @@
 package mySummary.sort;
 
+import mySummary.thread.FabricGateway;
+import mySummary.thread.FabricThreadPoolExecutor;
+
 import java.util.Arrays;
+import java.util.concurrent.*;
 
 /**
  * ClassName: MaximumGap
@@ -9,6 +13,15 @@ import java.util.Arrays;
  * @author liyh
  */
 public class MaximumGap {
+
+
+
+    public static void main(String[] args) {
+        FabricThreadPoolExecutor fabricThreadPoolExecutor = new FabricThreadPoolExecutor(4, 4,
+                4, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(16));
+        FabricGateway fabricGateway = new FabricGateway();
+        fabricThreadPoolExecutor.execute(fabricGateway);
+    }
 }
 
 class Solution164{

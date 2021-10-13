@@ -9,7 +9,7 @@ package dailyPractice.AugustPractice;
  */
 public class AddString {
 }
-class Solution {
+class Solution415 {
     public String addStrings(String num1, String num2) {
         int p1 = num1.length() - 1;
         int p2 = num2.length() - 1;
