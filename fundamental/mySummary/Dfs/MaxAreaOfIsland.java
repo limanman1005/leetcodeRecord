@@ -7,5 +7,8 @@ package mySummary.Dfs;
  *
  * @author liyh
  */
-public class LC695 {
+public class MaxAreaOfIsland {
+}
+class Solution695{
+
 }

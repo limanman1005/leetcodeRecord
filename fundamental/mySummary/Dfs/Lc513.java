@@ -1,5 +1,8 @@
 package mySummary.Dfs;
 
+import java.util.LinkedList;
+import java.util.TreeMap;
+
 /**
  * ClassName: Lc513
  * Description: 找到树上的最下层的最靠左的节点
@@ -16,6 +19,18 @@ package mySummary.Dfs;
  * @author liyh
  */
 public class Lc513 {
+
+    public static void main(String[] args) {
+        Solution513_1 solution513_1 = new Solution513_1();
+        TreeNode leftNode = new TreeNode(1);
+        TreeNode root = new TreeNode(2);
+        TreeNode rightNode = new TreeNode(3);
+        root.left = leftNode;
+        root.right = rightNode;
+        int bottomLeftValue2 = solution513_1.findBottomLeftValue2(root);
+        System.out.println(bottomLeftValue2);
+
+    }
 }
 
 /**
@@ -45,5 +60,29 @@ class Solution513_1 {
         }
         dfs(root.left, level + 1);
         dfs(root.right, level + 1);
+    }
+
+
+    public int findBottomLeftValue2(TreeNode root) {
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        int ans = root.val;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; ++i){
+                TreeNode curNode = queue.pollFirst();
+                if(i == 0){
+                    ans = curNode.val;
+                }
+                if(curNode.left != null){
+                    queue.addLast(curNode.left);
+                }
+                if(curNode.right != null){
+                    queue.addLast(curNode.right);
+                }
+            }
+        }
+        return ans;
     }
 }

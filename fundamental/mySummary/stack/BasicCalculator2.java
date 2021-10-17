@@ -17,8 +17,11 @@ public class BasicCalculator2 {
         Solution227 solution227 = new Solution227();
 
         String expression = " 3+5 / 2 ";
-        int calculate = solution227.calculate(expression);
-        System.out.println(calculate);
+        String s = expression.replaceAll(" ", "");
+        char[] chars = s.toCharArray();
+        System.out.println(chars.length);
+//        int calculate = solution227.calculate(expression);
+//        System.out.println(calculate);
     }
 }
 class Solution227{
@@ -40,7 +43,7 @@ class Solution227{
         int len = chars.length;
         LinkedList<Integer> numStack = new LinkedList<>();
         LinkedList<Character> opsStack = new LinkedList<>();
-        //避免边界讨论
+        //避免边界讨论，第一个数是负数，会方便很多
         numStack.addLast(0);
         for(int i = 0; i < len; ++i){
             //先讨论左右括号，左括号进栈，右括号出栈计算直到碰到左括号为止

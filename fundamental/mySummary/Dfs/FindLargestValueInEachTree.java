@@ -3,6 +3,7 @@ package mySummary.Dfs;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * ClassName: Lc515
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author liyh
  */
-public class Lc515 {
+public class FindLargestValueInEachTree {
     public static void main(String[] args) {
         ArrayList<Object> objects = new ArrayList<>();
     }
@@ -39,5 +40,35 @@ class Solution515 {
         }
         dfs(root.left, level + 1);
         dfs(root.right, level + 1);
+    }
+
+    /**
+     * 层序便利的的写法
+     * @param root
+     * @return
+     */
+    public List<Integer> largestValues2(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if(root == null){
+            return ans;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int max = Integer.MIN_VALUE;
+            int size = queue.size();
+            for(int i = 0; i < size; ++i){
+                TreeNode cur = queue.poll();
+                max = Math.max(max, cur.val);
+                if(cur.left != null){
+                    queue.offer(cur.left);
+                }
+                if(cur.right != null){
+                    queue.offer(cur.right);
+                }
+            }
+            ans.add(max);
+        }
+        return ans;
     }
 }

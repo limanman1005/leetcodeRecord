@@ -1,5 +1,7 @@
 package mySummary.thread;
 
+import java.util.HashMap;
+
 /**
  * ClassName: VolatileTest
  * Description:
@@ -15,6 +17,7 @@ public class VolatileTest {
         new Thread(new ThreadA()).start();
         Thread.sleep(100);
         new Thread(new ThreadB()).start();
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
     }
 
     static class ThreadA implements Runnable{
