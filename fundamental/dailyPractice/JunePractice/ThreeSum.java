@@ -2,6 +2,7 @@ package dailyPractice.JunePractice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,6 +17,23 @@ import java.util.List;
  * @author liyh
  */
 public class ThreeSum {
+    public static void main(String[] args) {
+        HashSet<List<Integer>> lists = new HashSet<>();
+        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+//        list2.addAll(list1);
+
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
+        lists.add(list2);
+        lists.add(list1);
+        System.out.println(lists.size());
+
+    }
 }
 class Solution15 {
     /**

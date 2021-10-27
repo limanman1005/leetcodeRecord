@@ -8,7 +8,10 @@ import java.util.List;
  * ClassName: Combination2
  * Description:
  * date: 2020/10/2 22:43
- *
+ * 给定一个数组 candidates 和一个目标数 target ，
+ * 找出 candidates 中所有可以使数字和为 target 的组合。
+ * candidates 中的每个数字在每个组合中只能使用一次。
+ * 注意：解集不能包含重复的组合。
  * @author liyh
  */
 public class Combination2 {
@@ -34,15 +37,13 @@ class Solution40{
             if(target < candidates[i]){
                 return ;
             }
-            //这个是为了元素相同重复
-            //这里还只能是i和i-1相比，才能保证后续一定会回溯减元素。
-            //和上个不一样才能加上去
+            //此步是为了防止元素重复使用
             if(i > start && candidates[i] == candidates[i - 1]){
                 continue;
             }
             //加入待选序列
             oneResult.add(candidates[i]);
-            //进行下一个解析
+            //进行下一个添加
             dfs(candidates, target - candidates[i], oneResult, i + 1);
             //恢复现场
             oneResult.remove(oneResult.size() - 1);

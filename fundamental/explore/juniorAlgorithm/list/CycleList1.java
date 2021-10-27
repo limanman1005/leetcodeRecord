@@ -6,7 +6,7 @@ import explore.recursion.ListNode;
  * ClassName: CycleList
  * Description: 判断下链表是否有环
  * date: 2020/6/18 16:01
- * 两种思路，一个是hash表i另一个就是快慢指针
+ * 两种思路，一个是hash表，另一个就是快慢指针
  * @author liyh
  */
 public class CycleList1 {

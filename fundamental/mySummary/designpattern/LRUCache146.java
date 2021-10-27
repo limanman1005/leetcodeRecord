@@ -1,6 +1,7 @@
 package mySummary.designpattern;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
@@ -14,6 +15,14 @@ import java.util.Map;
  * @author liyh
  */
 public class LRUCache146 {
+    public static void main(String[] args) {
+        LinkedList<Integer> integers = new LinkedList<>();
+        boolean contains = integers.contains(1);
+        System.out.println(contains);
+        integers.addLast(1);
+        System.out.println(integers.contains(1));
+    }
+
     class DLinkedNode {
         int key;
         int value;

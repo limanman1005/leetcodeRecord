@@ -83,7 +83,7 @@ class SolutionBags{
      * @return
      */
     public int bags01Compress2(int[] value, int[] weight, int num, int volume){
-        //这里的dp数据没有进行初始化，因为无意义，也没法进行初始化。
+        //这里的dp数和上一维压缩之后是相同的
         int[] dp = new int[volume + 1];
         for(int i = 0; i < num; ++i){
             //这里倒着遍历是为了避免上一行的小的数据被覆盖

@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class VolatileTest {
 
-    private static volatile int signal = 0;
+    private static volatile int signal =  0;
 
     public static void main(String[] args) throws InterruptedException {
         new Thread(new ThreadA()).start();

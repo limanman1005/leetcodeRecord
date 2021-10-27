@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * ClassName: IslandNum
- * Description:
+ * Description: 还有一个深搜的解法
  * date: 2020/8/6 16:07
  *
  * @author liyh

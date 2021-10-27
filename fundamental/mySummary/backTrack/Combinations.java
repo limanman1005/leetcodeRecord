@@ -7,6 +7,16 @@ import java.util.List;
  * ClassName: Combinations
  * Description: 给一个n和一个k。找出数字1-n之间选择k个数的所有组合
  * 从选择一个数的状态到选择两个数的状态不断的转移，到选择了k个状态的组合。这个题会有很多无效的状态，要提前剪枝。
+ * 输入：n = 4, k = 2
+ * 输出：
+ * [
+ *   [2,4],
+ *   [3,4],
+ *   [2,3],
+ *   [1,2],
+ *   [1,3],
+ *   [1,4],
+ * ]
  * date: 2020/5/22 15:49
  *
  * @author liyh
@@ -33,8 +43,8 @@ class Solution77 {
             ans.add(new ArrayList<>(list));
             return;
         }
-        //这里存在一个搜索的上界，超过这个上界再开始收缩无意义，不会凑够k个数的
-        //改成n也可以通过，但是会比较的满，无剪枝
+        //这里存在一个搜索的上界，超过这个上界再开始搜索无意义，不会凑够k个数的
+        //改成n也可以通过，但是会比较的慢，无剪枝
         for(int i = start; i <= n - (k - list.size()) + 1; ++i){
             list.add(i);
             dfs(n, k, i + 1, list);

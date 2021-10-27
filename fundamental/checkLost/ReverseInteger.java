@@ -1,5 +1,7 @@
 package checkLost;
 
+import java.util.ArrayList;
+
 /**
  * ClassName: checkLost.ReverseInteger
  * Description:
@@ -8,6 +10,9 @@ package checkLost;
  * @author liyh
  */
 public class ReverseInteger {
+    public static void main(String[] args) {
+        ArrayList<Object> objects = new ArrayList<>();
+    }
 }
 class Solution07{
     public int reverse(int x) {

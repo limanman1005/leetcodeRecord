@@ -12,6 +12,15 @@ public class LongestCommonPrefix {
         Solution14 solution14 = new Solution14();
         String[] str = new String[]{"aa", "a"};
         System.out.println(solution14.longestCommonPrefixDebug2(str));
+
+        one: for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if(i == 2){
+                    break one;
+                }
+                System.out.print(i);
+            }
+        }
     }
 }
 

@@ -19,8 +19,6 @@ public class SubSet1 {
         Solution78 solution78 = new Solution78();
         List<List<Integer>> lists1 = solution78.subsets4(arr);
         lists1.forEach(System.out::println);
-
-
     }
 }
 
