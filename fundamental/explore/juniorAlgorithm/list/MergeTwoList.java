@@ -60,6 +60,5 @@ class Solution21 {
             l2.next = mergeTwoLists2(l1, l2.next);
             return l2;
         }
-
     }
 }

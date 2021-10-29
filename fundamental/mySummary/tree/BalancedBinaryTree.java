@@ -3,13 +3,13 @@ package mySummary.tree;
 import mySummary.Dfs.TreeNode;
 
 /**
- * ClassName: LC110
+ * ClassName:
  * Description:
  * date: 2021/9/21 11:19
  *
  * @author liyh
  */
-public class LC110 {
+public class BalancedBinaryTree {
 }
 class Solution110 {
     public boolean isBalanced(TreeNode root) {

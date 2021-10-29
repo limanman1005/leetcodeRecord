@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @author liyh
  */
-public class LC547 {
+public class NumOfProvinces {
 }
 class Solution {
     public int findCircleNum(int[][] isConnected) {

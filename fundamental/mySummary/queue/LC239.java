@@ -10,6 +10,14 @@ import java.util.LinkedList;
  * @author liyh
  */
 public class LC239 {
+    public static void main(String[] args) {
+        Solution239 solution239 = new Solution239();
+        int[] arr = {1,3,-1,-3,5,3,6,7};
+        int[] ints = solution239.maxSlidingWindow(arr, 3);
+        for (int i = 0; i < ints.length; i++) {
+            System.out.print(ints[i] + " ");
+        }
+    }
 }
 class Solution239 {
 
@@ -30,7 +38,7 @@ class Solution239 {
         int[] ans = new int[len - k + 1];
         LinkedList<Integer> queue = new LinkedList<>();
         for(int i = 0; i < len; ++i){
-            //1.只要队列不空，那么维护一个从左向右的递增队列
+            //1.只要队列不空，那么维护一个从左至右的递减队列
             //当待塞进去的数比队尾的数大的时候，队尾元素出队
             while(!queue.isEmpty() && nums[queue.peekLast()] <= nums[i]){
                 queue.removeLast();

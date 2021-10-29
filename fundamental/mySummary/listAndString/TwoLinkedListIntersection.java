@@ -1,4 +1,4 @@
-package explore.middleAlgorithm.List;
+package mySummary.listAndString;
 
 import explore.recursion.ListNode;
 
