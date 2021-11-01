@@ -1,3 +1,5 @@
+package mySummary.tree;
+
 /**
  * ClassName: LC572
  * Description: 给两个树s, t 判定t是否是s的子树。
@@ -5,7 +7,7 @@
  * date: 2020/3/3 17:38
  * @author liyh
  */
-public class LC572 {
+public class SubtreeOfAnotherTree {
 }
 class Solution572{
     public boolean subTree(TreeNode s, TreeNode t){

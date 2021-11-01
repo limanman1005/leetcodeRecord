@@ -1,7 +1,7 @@
 package mySummary.Dfs;
 
 /**
- * ClassName: TreeNode
+ * ClassName: mySummary.tree.TreeNode
  * Description:
  * date: 2020/2/27 14:35
  *
@@ -9,9 +9,9 @@ package mySummary.Dfs;
  */
 
 public class TreeNode {
-      public int val;
+      public Integer val;
       public TreeNode left;
       public TreeNode right;
-      public TreeNode(int x) { val = x; }
+      public TreeNode(Integer x) { val = x; }
 }
 

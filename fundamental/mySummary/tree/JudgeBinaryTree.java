@@ -1,3 +1,5 @@
+package mySummary.tree;
+
 /**
  * ClassName: LC98
  * Description: 判断一个树是否是二叉搜索树
@@ -5,7 +7,7 @@
  *
  * @author liyh
  */
-public class LC98 {
+public class JudgeBinaryTree {
 
     public static void main(String[] args) {
         System.out.println(Double.MAX_VALUE);

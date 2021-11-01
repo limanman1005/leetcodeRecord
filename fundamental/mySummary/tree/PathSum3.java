@@ -1,3 +1,7 @@
+package mySummary.tree;
+
+import mySummary.Dfs.TreeNode;
+
 /**
  * ClassName: LC437
  * Description: 给一个树，找一个路径，该路径可以从任何一个节点出发，到达任意一个节点
@@ -6,7 +10,7 @@
  *
  * @author liyh
  */
-public class LC437 {
+public class PathSum3 {
 }
 
 

@@ -1,3 +1,5 @@
+package mySummary.tree;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.Stack;
  *
  * @author liyh
  */
-public class LC94 {
+public class InorderTraversal {
 }
 
 //这个非递归算法有的还是直接记住化的事件
@@ -25,7 +27,6 @@ class Solution94 {
         //什么时候树遍历完了？
         //就是当前指针走完了树的结构
         //就是当前指针并且栈为空则说明树的节点都已经在应该访问的时机访问完了。
-        //在应该访问的时机访问完了
         //在应该访问的时机访问完了
         while(curNode != null  || !stack.isEmpty()){
             //要先访问左节点的数据，如果有左节点的数据就压栈

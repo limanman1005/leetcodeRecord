@@ -13,7 +13,7 @@ import java.util.List;
 public class SubSet1 {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3,4};
+        int[] arr = new int[]{1, 2, 3, 4};
 //        List<List<Integer>> lists = new Solution78().subsets5(arr);
 //        lists.forEach(System.out::println);
         Solution78 solution78 = new Solution78();

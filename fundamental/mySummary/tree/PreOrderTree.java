@@ -1,7 +1,8 @@
+package mySummary.tree;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * ClassName: LC144
@@ -10,7 +11,7 @@ import java.util.Stack;
  *
  * @author liyh
  */
-public class LC144 {
+public class PreOrderTree {
 
     public static void main(String[] args) {
         Solution144 solution144 = new Solution144();
