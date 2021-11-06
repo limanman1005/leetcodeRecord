@@ -33,6 +33,4 @@ class Solution701{
         }
         return root;
     }
-
-
 }

@@ -33,6 +33,9 @@ class Solution98 {
                 tempMin = root.val;
                 return isValidBST(root.right);
             }
+            else{
+                return false;
+            }
         }
         return false;
     }

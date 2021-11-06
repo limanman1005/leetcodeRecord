@@ -1,4 +1,4 @@
-package dailyPractice.JulyPractice;
+package mySummary.tree;
 
 import mySummary.Dfs.TreeNode;
 import java.util.LinkedList;

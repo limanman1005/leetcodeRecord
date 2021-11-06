@@ -34,7 +34,40 @@ class Solution437_1{
         sum -= root.val;
         return (sum == 0? 1: 0) + judgePathSum(root.left, sum) + judgePathSum(root.right, sum);
     }
+
+
+
+
+    public int pathSum2(TreeNode root, int targetSum) {
+        if(root == null){
+            return 0;
+        }
+        int leftNum = pathSum2(root.left, targetSum);
+        int rightNum = pathSum2(root.right, targetSum);
+        int curRootNum = judge(root, targetSum);
+        return leftNum + rightNum + curRootNum;
+    }
+
+    public int judge(TreeNode root, int sum){
+        if(root == null){
+            return 0;
+        }
+        sum -= root.val;
+        int left = judge(root.left, sum);
+        int right = judge(root.right, sum);
+        if(sum == 0){
+            return left + right + 1;
+        }
+        else{
+            return left + right;
+        }
+    }
 }
 //还有一种前缀和的解法。暂时略
+
+
+
+
+
 
 

@@ -7,7 +7,7 @@ package mySummary.Dfs;
  * 这个其实没有太想通
  * @author liyh
  */
-public class Lc979 {
+public class DistributeCoinsInBinaryTree {
 }
 
 class Solution979 {

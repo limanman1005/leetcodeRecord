@@ -27,6 +27,13 @@ import mySummary.Dfs.TreeNode;
  */
 public class BinaryTreeMaximumPathSum {
 }
+/**
+ * 这个解题技巧还是蛮经典的。递归函数定义的是算上根节点的最大路径。
+ * 然后遍历所有节点信息，利用一个全局变量进行处理。
+ *
+ *
+ *
+ */
 class Solution124 {
     int maxSum = Integer.MIN_VALUE;
 

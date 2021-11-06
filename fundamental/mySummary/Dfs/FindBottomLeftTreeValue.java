@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.TreeMap;
 
 /**
- * ClassName: Lc513
+ * ClassName: FindBottomLeftTreeValue
  * Description: 找到树上的最下层的最靠左的节点
  * date: 2020/4/29 18:12
  * e.m.
@@ -18,7 +18,7 @@ import java.util.TreeMap;
  * 输出 7
  * @author liyh
  */
-public class Lc513 {
+public class FindBottomLeftTreeValue {
 
     public static void main(String[] args) {
         Solution513_1 solution513_1 = new Solution513_1();

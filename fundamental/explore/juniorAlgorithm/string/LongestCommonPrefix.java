@@ -10,17 +10,8 @@ package explore.juniorAlgorithm.string;
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         Solution14 solution14 = new Solution14();
-        String[] str = new String[]{"aa", "a"};
-        System.out.println(solution14.longestCommonPrefixDebug2(str));
-
-        one: for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if(i == 2){
-                    break one;
-                }
-                System.out.print(i);
-            }
-        }
+        String[] str = new String[]{"ab", "a"};
+        solution14.longestCommonPrefix4(str);
     }
 }
 
@@ -156,5 +147,32 @@ class Solution14 {
             }
         }
         return ans;
+    }
+
+
+    public String longestCommonPrefix4(String[] strs) {
+        if(strs == null || strs.length == 0){
+            return "";
+        }
+        String ans = strs[0];
+        int len = ans.length();
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < len; ++i){
+            char curChar = ans.charAt(i);
+            boolean flag = true;
+            for(int j = 1; j < strs.length; ++j){
+                if(i == strs[j].length() || curChar != strs[j].charAt(i)){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                sb.append(curChar);
+            }
+            else{
+                break;
+            }
+        }
+        return sb.toString();
     }
 }
