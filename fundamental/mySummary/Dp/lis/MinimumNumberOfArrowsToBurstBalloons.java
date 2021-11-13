@@ -7,7 +7,7 @@ package mySummary.Dp.lis;
  *
  * @author liyh
  */
-public class LC452 {
+public class MinimumNumberOfArrowsToBurstBalloons {
     public static void main(String[] args) {
         System.out.println("1");
     }

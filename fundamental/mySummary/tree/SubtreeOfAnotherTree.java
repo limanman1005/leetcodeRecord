@@ -11,7 +11,7 @@ public class SubtreeOfAnotherTree {
 }
 class Solution572{
     public boolean subTree(TreeNode s, TreeNode t){
-        //出口 s为空相当于判断完了
+        //出口s为空相当于判断完了
         if(s == null){
             return false;
         }

@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * @author liyh
  */
-public class LC354 {
+public class RussianDollEnvelopes {
     public static void main(String[] args) {
         int[][] test = {{1, 3}, {3, 5}, {2, 3}};
 

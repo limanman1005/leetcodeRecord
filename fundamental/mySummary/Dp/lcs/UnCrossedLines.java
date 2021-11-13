@@ -7,5 +7,5 @@ package mySummary.Dp.lcs;
  *
  * @author liyh
  */
-public class LC1035 {
+public class UnCrossedLines {
 }

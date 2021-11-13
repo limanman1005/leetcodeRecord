@@ -1,16 +1,17 @@
-package mySummary.Recursive;
+package mySummary.tree;
 
 
+import mySummary.Recursive.TreeNode;
 
 /**
- * ClassName: Lc938
+ * ClassName: RangeSumOfBST
  * Description: 在一个二叉搜索树中找到在一定范围内的节点值之和。
  * 这个关键就在练习使用标准的递归形式以及去掉不必要的搜索，dfs剪枝其实也可以
  * date: 2020/4/27 16:20
  *
  * @author liyh
  */
-public class Lc938 {
+public class RangeSumOfBST {
 }
 
 class Solution938 {
@@ -21,7 +22,7 @@ class Solution938 {
      * @param R
      * @return
      */
-    public int rangeSumBST(TreeNode root, int L, int R) {
+    public int rangeSumBST(mySummary.Recursive.TreeNode root, int L, int R) {
         //如果树为空，直接返回零
         if(root == null){
             return 0;
@@ -46,7 +47,7 @@ class Solution938 {
      * @param R
      * @return
      */
-    public int useDfs(TreeNode root, int L, int R){
+    public int useDfs(mySummary.Recursive.TreeNode root, int L, int R){
         if(root == null){
             return ans;
         }

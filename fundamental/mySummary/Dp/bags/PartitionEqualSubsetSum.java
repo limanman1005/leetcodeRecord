@@ -7,7 +7,7 @@ package mySummary.Dp.bags;
  *
  * @author liyh
  */
-public class LC416 {
+public class PartitionEqualSubsetSum {
 }
 class Solution416 {
     /**

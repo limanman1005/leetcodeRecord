@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * @author liyh
  */
-public class LC646 {
+public class MaximumLengthOfPairChain {
 }
 class Solution646 {
     /**

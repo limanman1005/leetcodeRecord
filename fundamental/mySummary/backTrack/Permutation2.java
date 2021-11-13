@@ -11,7 +11,7 @@ public class Permutation2 {
 }
 
 /**
- * 这个去重,还是没有看懂啊,但是不重要,这个考的少.
+ * 这个去重,还是没有看懂啊,但是不重要,这个考的少。
  */
 class Solution47{
 

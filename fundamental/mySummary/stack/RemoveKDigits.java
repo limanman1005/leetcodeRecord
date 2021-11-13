@@ -9,7 +9,7 @@ import java.util.LinkedList;
  *
  * @author liyh
  */
-public class LC402 {
+public class RemoveKDigits {
     public static void main(String[] args) {
         Solution402 solution402 = new Solution402();
         String s = solution402.removeKdigits("10001", 4);

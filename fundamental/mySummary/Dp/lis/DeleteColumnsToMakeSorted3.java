@@ -11,7 +11,7 @@ import java.util.Arrays;
  *
  * @author liyh
  */
-public class LC960 {
+public class DeleteColumnsToMakeSorted3 {
     public static void main(String[] args) {
         String[] strs = {"baabab"};
         Solution960 solution960 = new Solution960();

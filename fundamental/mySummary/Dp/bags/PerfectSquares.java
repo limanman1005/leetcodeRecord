@@ -11,7 +11,7 @@ import java.util.Arrays;
  * n的范围为0-10e4
  * @author liyh
  */
-public class LC279 {
+public class PerfectSquares {
 }
 class Solution279{
 

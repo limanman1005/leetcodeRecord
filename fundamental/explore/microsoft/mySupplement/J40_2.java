@@ -10,16 +10,16 @@ import java.util.Arrays;
  *
  * @author liyh
  */
-public class Main {
+public class J40_2 {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionJ40_2 solution = new SolutionJ40_2();
         int[] arr = {3, 2, 1};
         int[] leastNumbers = solution.getLeastNumbers(arr, 2);
         System.out.println(Arrays.toString(leastNumbers));
     }
 }
 
-class Solution {
+class SolutionJ40_2 {
     public int[] getLeastNumbers(int[] arr, int k) {
         if(k <= 0 || k > arr.length){
             return new int[0];

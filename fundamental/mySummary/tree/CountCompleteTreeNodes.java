@@ -1,5 +1,7 @@
 package mySummary.tree;
 
+import java.util.Arrays;
+
 /**
  * ClassName: LC222
  * Description: 计算一个完全二叉树的叶子节点个数
@@ -8,6 +10,8 @@ package mySummary.tree;
  * @author liyh
  */
 public class CountCompleteTreeNodes {
+    public static void main(String[] args) {
+    }
 
 
 }

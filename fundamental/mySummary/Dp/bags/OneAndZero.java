@@ -7,7 +7,7 @@ package mySummary.Dp.bags;
  *
  * @author liyh
  */
-public class LC474 {
+public class OneAndZero {
 }
 class Solution474 {
     /**

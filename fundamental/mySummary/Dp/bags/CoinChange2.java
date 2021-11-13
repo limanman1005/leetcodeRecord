@@ -7,7 +7,7 @@ package mySummary.Dp.bags;
  *
  * @author liyh
  */
-public class LC518 {
+public class CoinChange2 {
 }
 class Solution {
     /**

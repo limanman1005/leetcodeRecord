@@ -17,7 +17,7 @@ import java.util.Arrays;
  *
  * @author liyh
  */
-public class LC435 {
+public class NonOverlappingIntervals {
     public static void main(String[] args) {
         Solution435 solution435 = new Solution435();
         int[][] arr = {{1,2}, {2, 3}};

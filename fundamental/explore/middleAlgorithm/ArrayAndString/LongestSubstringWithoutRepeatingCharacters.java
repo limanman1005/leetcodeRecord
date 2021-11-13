@@ -1,5 +1,7 @@
 package explore.middleAlgorithm.ArrayAndString;
 
+import java.util.Arrays;
+
 /**
  * ClassName: LongestSubstringWithoutRepeatingCharacters
  * Description: 给一个字符串，找到子串中不含重复字符的子串的最大长度
@@ -10,4 +12,14 @@ package explore.middleAlgorithm.ArrayAndString;
  * @author liyh
  */
 public class LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        int[] copy = Arrays.copyOf(arr, arr.length);
+        for (int i = 0; i < copy.length; i++) {
+            System.out.println("copy[i] = " + copy[i]);
+        }
+    }
+}
+class Solution03{
+
 }

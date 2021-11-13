@@ -7,7 +7,7 @@ package mySummary.Dp.bags;
  *
  * @author liyh
  */
-public class LC1049 {
+public class LastStoneWeight2 {
 }
 class Solution1049 {
     /**

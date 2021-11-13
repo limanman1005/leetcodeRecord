@@ -10,4 +10,7 @@ package explore.middleAlgorithm.ArrayAndString;
  */
 public class ThreeSum {
 }
+class Solution15{
+
+}
 

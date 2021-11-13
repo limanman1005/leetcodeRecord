@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author liyh
  */
-public class Lc784 {
+public class LetterCasePermutation {
     public static void main(String[] args) {
 //        Logger logger = Logger.getLogger(Lc784.class.getName());
 //        logger.warning("123");

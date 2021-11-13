@@ -7,7 +7,7 @@ package mySummary.binarySearch;
  *
  * @author liyh
  */
-@Deprecated
+
 public class Lc33 {
 }
 class Solution33 {

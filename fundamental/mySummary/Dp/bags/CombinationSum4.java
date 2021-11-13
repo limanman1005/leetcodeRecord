@@ -7,7 +7,7 @@ package mySummary.Dp.bags;
  *
  * @author liyh
  */
-public class LC377 {
+public class CombinationSum4 {
 }
 class Solution377 {
     /**

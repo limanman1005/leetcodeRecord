@@ -10,7 +10,7 @@ package mySummary.binarySearch;
  */
 public class FindDuplicateNum {
     public static void main(String[] args) {
-        int[] arr = {1, 3,4 , 2, 2};
+        int[] arr = {1, 3, 4, 2, 2};
         System.out.println(new Solution287().findDuplicate2(arr));
     }
 }
