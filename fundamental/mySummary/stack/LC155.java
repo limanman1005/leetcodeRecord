@@ -1,8 +1,8 @@
-package mySummary.queue;
+package mySummary.stack;
 
 /**
  * ClassName: LC155
- * Description:
+ * Description: 最小栈
  * date: 2021/8/25 14:25
  *
  * @author liyh

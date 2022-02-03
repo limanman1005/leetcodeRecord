@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class LetterCasePermutation {
     public static void main(String[] args) {
-//        Logger logger = Logger.getLogger(Lc784.class.getName());
-//        logger.warning("123");
         char[] str = "1a2b".toCharArray();
         List<String> strings = new Solution784().letterCasePermutation2("1a2b");
         strings.forEach(System.out::println);

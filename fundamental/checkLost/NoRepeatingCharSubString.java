@@ -13,7 +13,7 @@ import java.util.Set;
 public class NoRepeatingCharSubString {
     public static void main(String[] args) {
         Solution03 solution03 = new Solution03();
-        int abcabcbb = solution03.lengthOfLongestSubstring("abcabcbb");
+        int abcabcbb = solution03.noRepeatingChar("pwwkew");
         System.out.println(abcabcbb);
     }
 }
@@ -60,6 +60,28 @@ class Solution03{
                 right++;
             }
             ans = Math.max(ans, right - left);
+        }
+        return ans;
+    }
+
+    public int noRepeatingChar(String s){
+        HashSet<Character> set = new HashSet<>();
+        int ans = 0;
+        int left = 0;
+        int right = 0;
+        for( ; left < s.length(); ++left){
+            if(left != 0){
+                set.remove(s.charAt(left - 1));
+            }
+            for(; right < s.length(); ++right){
+                if(set.contains(s.charAt(right))){
+                    break;
+                }
+                else {
+                    set.add(s.charAt(right));
+                }
+            }
+            ans = Math.max(ans, set.size());
         }
         return ans;
     }

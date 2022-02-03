@@ -12,8 +12,12 @@ import java.util.LinkedList;
 public class RemoveKDigits {
     public static void main(String[] args) {
         Solution402 solution402 = new Solution402();
-        String s = solution402.removeKdigits("10001", 4);
+        String test = "1432219";
+        int k = 3;
+        String s = solution402.removeKDigits2(test, k);
+        String right = solution402.removeKdigits(test, k);
         System.out.println(s);
+        System.out.println("right = " + right);
     }
 }
 class Solution402 {
@@ -62,5 +66,35 @@ class Solution402 {
             return "0";
         }
         return sb.toString();
+    }
+
+
+    public String removeKDigits2(String num, int k){
+        if(num == null || num.length() == 0){
+            return "0";
+        }
+        if(num.length() == k){
+            return "0";
+        }
+        LinkedList<Character> stack = new LinkedList<>();
+        for (int i = 0; i < num.length(); i++) {
+            while(k > 0 && !stack.isEmpty() && num.charAt(i) < stack.peekLast()){
+                k--;
+                stack.removeLast();
+            }
+            stack.addLast(num.charAt(i));
+        }
+        StringBuilder sb = new StringBuilder();
+        while(!stack.isEmpty()){
+            sb.append(stack.pollFirst());
+        }
+        if(sb.length() == 0){
+            return "0";
+        }
+        if(k > 0){
+            sb.setLength(sb.length() - k);
+        }
+        return sb.toString();
+
     }
 }

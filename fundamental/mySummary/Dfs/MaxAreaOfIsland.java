@@ -70,12 +70,12 @@ class Solution695{
             for(int j = 0; j < grid[0].length; ++j){
                 int curArea = 0;
                 LinkedList<Integer> queueI = new LinkedList<>();
-                LinkedList<Integer> ququeJ = new LinkedList<>();
+                LinkedList<Integer> queueJ = new LinkedList<>();
                 queueI.addLast(i);
-                ququeJ.addLast(j);
+                queueJ.addLast(j);
                 while(!queueI.isEmpty()){
                     int curI = queueI.pollFirst();
-                    int curJ = ququeJ.pollFirst();
+                    int curJ = queueJ.pollFirst();
                     if(!isInIsland(grid, curI, curJ) || grid[curI][curJ] == 0){
                         continue;
                     }
@@ -85,7 +85,7 @@ class Solution695{
                     int[] dy = {1, -1, 0, 0};
                     for(int idx = 0; idx < 4; ++idx){
                         queueI.addLast(curI + dx[idx]);
-                        ququeJ.addLast(curJ + dy[idx]);
+                        queueJ.addLast(curJ + dy[idx]);
                     }
                 }
                 ans = Math.max(ans, curArea);

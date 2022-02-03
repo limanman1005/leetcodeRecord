@@ -4,12 +4,12 @@ import java.util.LinkedList;
 
 /**
  * ClassName: LC239
- * Description:
+ * Description: 此题和剑指Offer59一摸一样
  * date: 2021/8/25 13:54
  * 此题就是利用单调队列维护一个区间内的最大值，同理也可以维护一个最小值。
  * @author liyh
  */
-public class LC239 {
+public class SlidingWindowMaximum {
     public static void main(String[] args) {
         Solution239 solution239 = new Solution239();
         int[] arr = {1,3,-1,-3,5,3,6,7};
@@ -17,6 +17,7 @@ public class LC239 {
         for (int i = 0; i < ints.length; i++) {
             System.out.print(ints[i] + " ");
         }
+        //todo 将offer59与59_2都做了吧
     }
 }
 class Solution239 {

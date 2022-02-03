@@ -15,6 +15,10 @@ public class KthReverseList {
         Solution25 solution25 = new Solution25();
         ListNode aTestList = solution25.getATestList();
         ListNode listNode = solution25.reverseKGroup(aTestList, 2);
+        while (listNode != null){
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
     }
 }
 
@@ -43,8 +47,8 @@ class Solution25{
             b = b.next;
         }
         ListNode reverseHead = reverse(a, b);
-        //逆转过后a已经变成了当前组的尾节点。接上下一组的头节点
         a.next = reverseKGroup(b, k);
+        //逆转过后a已经变成了当前组的尾节点。接上下一组的头节点
         return reverseHead;
     }
 
@@ -136,5 +140,44 @@ class Solution25{
             arr[i].next = arr[i + 1];
         }
         return arr[1];
+    }
+
+
+    /**
+     * 删减了一些不必要的条件
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode reverseKGroup3(ListNode head, int k) {
+        if(head == null){
+            return head;
+        }
+        ListNode a, b;
+        a = b = head;
+        for(int i = 0; i < k; ++i){
+            if(b == null){
+                return head;
+            }
+            else{
+                b = b.next;
+            }
+        }
+        ListNode preKHead = reverseKGroup(b, k);
+        ListNode reverseKHead = reverseList2(a, b);
+        a.next = preKHead;
+        return reverseKHead;
+    }
+
+
+    public ListNode reverseList2(ListNode a, ListNode b){
+        if(a.next == b){
+            return a;
+        }
+        ListNode reverseHead = reverseList2(a.next, b);
+        ListNode next = a.next;
+        next.next = a;
+        a.next = null;
+        return reverseHead;
     }
 }
