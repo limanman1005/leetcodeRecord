@@ -13,8 +13,8 @@ import java.util.Set;
 public class NoRepeatingCharSubString {
     public static void main(String[] args) {
         Solution03 solution03 = new Solution03();
-        int abcabcbb = solution03.noRepeatingChar("pwwkew");
-        System.out.println(abcabcbb);
+        int ans = solution03.noRepeatingChar("pwwkew");
+        System.out.println(ans);
     }
 }
 class Solution03{

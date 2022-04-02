@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * ClassName: GenerateParentheses
  * Description:给定一个数字n生成所有n对括号的合法组合
- * 这个状态是什么状态？？？
  * 这个状态是由left和right决定的。
  * 此题不只回溯一种解法，其他算法也值得一看。
  * date: 2020/5/22 16:08

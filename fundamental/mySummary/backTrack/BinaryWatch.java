@@ -1,5 +1,7 @@
 package mySummary.backTrack;
 
+import java.math.BigInteger;
+
 /**
  * ClassName: BinaryWatch
  * Description:
@@ -9,8 +11,10 @@ package mySummary.backTrack;
  */
 public class BinaryWatch {
     public static void main(String[] args) {
-        int x = 14;
-        System.out.println(x &( -x));
+        Integer x = 14;
+        BigInteger bigInteger = new BigInteger("14");
+        int lowestSetBit = bigInteger.getLowestSetBit();
+        System.out.println(lowestSetBit);
     }
 }
 

@@ -14,10 +14,20 @@ public class LetterCasePermutation {
     public static void main(String[] args) {
         char[] str = "1a2b".toCharArray();
         List<String> strings = new Solution784().letterCasePermutation2("1a2b");
-        strings.forEach(System.out::println);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("0123");
+        ArrayList<String> lists = new ArrayList<>();
+        lists.add(stringBuilder.toString());
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        System.out.println(lists.get(0));
+        System.out.println(stringBuilder.toString());
+//        strings.forEach(System.out::println);
     }
 }
 class Solution784 {
+
+
+
     public List<String> letterCasePermutation(String S) {
         List<String> ans = new ArrayList<>();
         if(S.length() == 0){
@@ -30,6 +40,10 @@ class Solution784 {
         }
         return ans;
     }
+
+
+
+
 
     /**
      * 这个当然是回溯，有状态树就算。
