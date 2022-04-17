@@ -19,6 +19,7 @@ public class LowestCommonAncestorInBST {
 class Solution235 {
     /**
      * 这个是递归解法。
+     * 有点尾递归的意思了
      * @param root
      * @param p
      * @param q

@@ -13,11 +13,11 @@ import java.util.List;
 public class SubSet1 {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 4};
+        int[] arr = new int[]{1, 2, 3};
 //        List<List<Integer>> lists = new Solution78().subsets5(arr);
 //        lists.forEach(System.out::println);
         Solution78 solution78 = new Solution78();
-        List<List<Integer>> lists1 = solution78.subsets4(arr);
+        List<List<Integer>> lists1 = solution78.subsets6(arr);
         lists1.forEach(System.out::println);
     }
 }
@@ -154,6 +154,34 @@ class Solution78 {
         for(int i = start; i < nums.length; ++i){
             set.add(nums[i]);
             backtrack(nums, set,i + 1);
+            set.remove(set.size() - 1);
+        }
+    }
+
+
+    /**
+     * 这个回溯就比较的舒服了易理解了，清楚的回溯树。
+     * 递归的意义或许很难想，但是画出清晰的递归树还是不难的。
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsets6(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return null;
+        }
+        backtrack2(nums, new ArrayList<>(), 0);
+        ans.add(new ArrayList<>());
+        return ans;
+    }
+
+    private void backtrack2(int[] nums, List<Integer> set, int start){
+        if(start >= nums.length){
+            return ;
+        }
+        for(int i = start; i < nums.length; ++i){
+            set.add(nums[i]);
+            ans.add(new ArrayList<>(set));
+            backtrack2(nums, set,i + 1);
             set.remove(set.size() - 1);
         }
     }

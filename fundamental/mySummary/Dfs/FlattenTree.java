@@ -32,7 +32,7 @@ class Solution114 {
             }
             //然后把根节点的右边子树挂到pre的右子树上
             pre.right = root.right;
-            //root的left节点挂到root的左节点上
+            //root的left节点挂到root的右节点上
             root.right = root.left;
             //最后将root的左节点置为null。
             root.left = null;
