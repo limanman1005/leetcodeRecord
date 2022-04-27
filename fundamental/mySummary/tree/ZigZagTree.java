@@ -15,7 +15,9 @@ import java.util.List;
  */
 public class ZigZagTree {
     public static void main(String[] args) {
-        LinkedList<Integer> integers = new LinkedList<>();
+        ArrayList<Integer> integers = new ArrayList<>();
+        int[] arr = {3, 5, 1};
+
     }
 }
 class Solution103 {

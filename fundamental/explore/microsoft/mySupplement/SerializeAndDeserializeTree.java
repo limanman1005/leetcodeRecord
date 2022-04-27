@@ -23,9 +23,9 @@ public class SerializeAndDeserializeTree {
 //        TreeNode deserialize = solution297.deserialize(serialize);
         Solution297_2 solution297_2 = new Solution297_2();
         TreeNode trNode = solution297_2.getTrNode();
-        String serialize = solution297_2.serialize(trNode);
+        String serialize = solution297_2.serialize3(trNode);
         System.out.println(serialize);
-        TreeNode deserialize = solution297_2.deserialize(serialize);
+        TreeNode deserialize = solution297_2.deserialize4(serialize);
         System.out.println(deserialize.val);
 
 
@@ -150,6 +150,156 @@ class Solution297_2{
         TreeNode right = deri(strings);
         root.left = left;
         root.right = right;
+        return root;
+    }
+
+
+    // Encodes a tree to a single string.
+    public String serialize2(TreeNode root) {
+        if(root == null){
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; ++i){
+                TreeNode node = queue.pollFirst();
+                if(node != null){
+                    sb.append(node.val + ",");
+                    queue.addLast(node.left);
+                    queue.addLast(node.right);
+                }
+                else{
+                    sb.append("null,");
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+
+    public TreeNode deserialize2(String data) {
+        String[] split = data.split(",");
+        if(split.length == 0){
+            return null;
+        }
+        int idx = 0;
+        TreeNode root = new TreeNode(Integer.parseInt(split[idx++]));
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            TreeNode node = queue.pollFirst();
+            if("null".equals(split[idx])){
+                node.left = null;
+            }
+            else{
+                node.left = new TreeNode(Integer.parseInt(split[idx]));
+                queue.addLast(node.left);
+            }
+            idx++;
+            if("null".equals(split[idx])){
+                node.right = null;
+            }
+            else{
+                node.right = new TreeNode(Integer.parseInt(split[idx]));
+                queue.addLast(node.right);
+            }
+            idx++;
+        }
+        return root;
+    }
+
+
+    public String serialize3(TreeNode root) {
+        if(root == null){
+            return "null";
+        }
+        StringBuilder sb = new StringBuilder();
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        while(!queue.isEmpty()){
+            TreeNode node = queue.pollFirst();
+            if(node != null){
+                sb.append(node.val + ",");
+                queue.addLast(node.left);
+                queue.addLast(node.right);
+            }
+            else{
+                sb.append("null,");
+            }
+
+        }
+        return sb.toString();
+    }
+
+    public TreeNode deserialize3(String data) {
+        if(data == null){
+            return null;
+        }
+        String[] splits = data.split(",");
+        if(splits.length == 0){
+            return null;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        int idx = 0;
+        TreeNode root = new TreeNode(Integer.parseInt(splits[idx++]));
+        queue.add(root);
+        while(!queue.isEmpty()){
+            TreeNode node = queue.pollFirst();
+            if("null".equals(splits[idx])){
+                node.left = null;
+            }
+            else{
+                node.left = new TreeNode(Integer.parseInt(splits[idx]));
+                queue.addLast(node.left);
+            }
+            idx++;
+            if("null".equals(splits[idx])){
+                node.right = null;
+            }
+            else{
+                node.right = new TreeNode(Integer.parseInt(splits[idx]));
+                queue.addLast(node.right);
+            }
+            idx++;
+        }
+        return root;
+    }
+
+    /**
+     * 这个写法还是需要在思考一下的
+     * @param data
+     * @return
+     */
+    public TreeNode deserialize4(String data) {
+        if(data == null){
+            return null;
+        }
+        String[] splits = data.split(",");
+        if(splits.length == 0){
+            return null;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        int idx = 0;
+        TreeNode root = new TreeNode(Integer.parseInt(splits[idx++]));
+        queue.add(root);
+        while(!queue.isEmpty()){
+            TreeNode node = queue.pollFirst();
+            if(node != null){
+                if(!"null".equals(splits[idx])){
+                    node.left = new TreeNode(Integer.parseInt(splits[idx]));
+                    queue.addLast(node.left);
+                }
+                idx++;
+                if(!"null".equals(splits[idx])){
+                    node.right = new TreeNode(Integer.parseInt(splits[idx]));
+                    queue.addLast(node.right);
+                }
+                idx++;
+            }
+        }
         return root;
     }
 

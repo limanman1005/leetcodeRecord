@@ -8,7 +8,16 @@ package mySummary.binarySearch;
  * @author liyh
  */
 
-public class Lc33 {
+public class SearchInRotatedSortedArray {
+    public static void main(String[] args) {
+        Solution33 solution33 = new Solution33();
+        int[] arr = {4, 5, 6, 7, 0, 1, 2};
+        int target = 4;
+        int ans2 = solution33.search2(arr, target);
+        System.out.println(ans2);
+        int ans3 = solution33.search3(arr, target);
+        System.out.println(ans3);
+    }
 }
 class Solution33 {
 
@@ -80,5 +89,39 @@ class Solution33 {
             }
         }
         return -1;
+    }
+
+
+
+    public int search3(int[] nums, int target) {
+        if(nums == null || nums.length == 0){
+            return -1;
+        }
+        int left = 0;
+        int right = nums.length - 1;
+        int mid = -1;
+        while(left <= right){
+            mid = (left + right) >>> 1;
+            if(nums[mid] == target){
+                break;
+            }
+            if(nums[left] <= nums[mid]){
+                if(nums[left] <= target && target < nums[mid]){
+                    right = mid - 1;
+                }
+                else{
+                    left = mid + 1;
+                }
+            }
+            else{
+                if(nums[mid] < target && target <= nums[right]){
+                    left = mid + 1;
+                }
+                else{
+                    right = mid - 1;
+                }
+            }
+        }
+        return target == nums[mid]? mid: -1;
     }
 }

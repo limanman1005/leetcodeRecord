@@ -11,6 +11,18 @@ import java.util.Queue;
  * @author liyh
  */
 public class IslandNum {
+    public static void main(String[] args) {
+        char[][] chars = new char[][]{
+                {'1', '1', '1', '1', '0'},
+                {'1', '1', '0', '1', '0'},
+                {'1', '1', '0', '0', '0'},
+                {'0', '0', '0', '0', '0'},
+        };
+
+        Solution200 solution200 = new Solution200();
+        int i = solution200.numIslands2(chars);
+        System.out.println(i);
+    }
 }
 
 class Solution200 {
@@ -58,6 +70,53 @@ class Solution200 {
     }
     private boolean inArea(int x, int y, char[][] grid){
         if(x >= 0 && x <grid.length && y >=0 && y <grid[0].length){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public int numIslands2(char[][] grid) {
+        if(grid == null || grid.length == 0 || grid[0].length == 0){
+            return -1;
+        }
+        int row = grid.length;
+        int col = grid[0].length;
+        int islandNum = 0;
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
+        for(int i = 0; i < row; ++i){
+            for(int j = 0; j < col; ++j){
+                if(grid[i][j] == '0'){
+                    continue;
+                }
+                else{
+                    islandNum++;
+                    grid[i][j] = '0';
+                    LinkedList<Integer> queue = new LinkedList<>();
+                    queue.addLast(i * col + j);
+                    while(!queue.isEmpty()){
+                        int cur = queue.pollFirst();
+                        for(int k = 0; k < 4; k++){
+                            int nx = cur / col + dx[k];
+                            int ny = cur % col + dy[k];
+                            if(isLand(nx, ny, row, col) && grid[nx][ny] == '1'){
+                                queue.addLast(nx * col + ny);
+                                grid[nx][ny] = '0';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return islandNum;
+    }
+
+
+    private boolean isLand(int x, int y, int row, int col){
+        if(x >= 0 && x < row && y >= 0 && y < col){
             return true;
         }
         else{

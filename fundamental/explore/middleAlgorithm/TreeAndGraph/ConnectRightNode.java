@@ -80,10 +80,12 @@ class Solution116 {
         while(!queue.isEmpty()){
             int size = queue.size();
             Node tmp = queue.get(0);
+            //将该层的节点连接起来
             for(int i = 1; i < queue.size(); ++i){
                 tmp.next = queue.get(i);
                 tmp = queue.get(i);
             }
+            //在队列中填充下一层
             for(int i = 0; i < size; ++i){
                 tmp = queue.poll();
                 if(tmp.left != null){

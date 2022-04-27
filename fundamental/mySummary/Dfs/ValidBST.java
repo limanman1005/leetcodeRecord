@@ -1,5 +1,7 @@
 package mySummary.Dfs;
 
+import java.util.Base64;
+
 /**
  * ClassName: ValidBST
  * Description: 验证二叉搜索树
@@ -9,9 +11,9 @@ package mySummary.Dfs;
  */
 public class ValidBST {
     public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
-        System.out.println(-Double.MIN_VALUE);
+        byte[] decode = Base64.getDecoder().decode("d3g6MjgzNDIwNQ==");
+        String s = new String(decode);
+        System.out.println(s);
     }
 }
 

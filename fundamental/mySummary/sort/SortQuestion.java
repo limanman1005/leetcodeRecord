@@ -31,10 +31,10 @@ public class SortQuestion {
         int lp = left + 1;
         int rp = right;
         while(lp <= rp){
-            while (left <= right && nums[lp] <= nums[pivotIndex]){
+            while (lp <= rp && nums[lp] <= nums[pivotIndex]){
                 lp++;
             }
-            while(left <= right && nums[rp] > nums[pivotIndex]){
+            while(lp <= rp && nums[rp] > nums[pivotIndex]){
                 rp--;
             }
             //这一步不添加是要出错的

@@ -47,4 +47,36 @@ class Solution142 {
         }
         return fast;
     }
+
+
+    /**
+     * 补充一个写法
+     * @param head
+     * @return
+     */
+    public ListNode detectCycle2(ListNode head) {
+        if(head == null || head.next == null){
+            return null;
+        }
+        ListNode fast = head;
+        ListNode solw = head;
+        boolean isCycle = false;
+        while(fast.next != null && fast.next.next != null){
+            fast = fast.next.next;
+            solw = solw.next;
+            if(fast == solw){
+                isCycle = true;
+                break;
+            }
+        }
+        if(isCycle){
+            fast = head;
+            while(fast != solw){
+                fast = fast.next;
+                solw = solw.next;
+            }
+            return fast;
+        }
+        return null;
+    }
 }

@@ -19,9 +19,6 @@ public class BasicSort {
 //        mergeSort.mergeSort(test);
         System.out.println(Arrays.toString(test));
 //        System.out.println(mergeSort.reverseNum);
-        while(true){
-
-        }
     }
 }
 class SimpleSort{

@@ -198,7 +198,7 @@ class Solution215 {
 
     /**
      * 使用堆的做法，对的各种操作很重要，要牢记在心。
-     * 建立一个全部元素的小顶堆，然后再删除k-1次，在栈顶的就是第k大的元素
+     * 建立一个全部元素的大顶堆，然后再删除nums.length - k + 1次，在栈顶的就是第k大的元素
      * @param nums
      * @param k
      * @return
@@ -233,4 +233,72 @@ class Solution215 {
             maxHeapify(a, largest, heapSize);
         }
     }
+}
+
+class Solution215P{
+
+    public int findKthInArray(int[] nums, int k){
+        if(k < 0 || k > nums.length){
+            return -1;
+        }
+        int idx = partition(nums, k, 0, nums.length - 1);
+        while(idx != k - 1){
+            if(idx < k - 1){
+                idx = partition(nums, k, idx + 1, nums.length - 1);
+            }
+            else if(idx > k - 1){
+                idx = partition(nums, k, 0, idx - 1);
+            }
+        }
+        return idx;
+    }
+
+    /**
+     * 一个比较成熟的实践，看之前写的吧
+     * @param nums
+     * @param k
+     * @param left
+     * @param right
+     * @return
+     */
+    private int partition(int[] nums, int k, int left, int right) {
+        int pivotIdx = (left + right) >>> 1;
+        int tmp = nums[pivotIdx];
+        nums[pivotIdx] = nums[left];
+        nums[left] = tmp;
+
+        return 0;
+    }
+
+
+    public int findKthInArrayWithHeap(int[] nums, int k){
+
+        makeMinHeap(nums);
+        for(int i = 0; i < k; ++i){
+            swap(nums, 0, nums.length - i);
+            fixMinHeap(nums, 0);
+        }
+        return nums[0];
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    private void makeMinHeap(int[] nums) {
+
+        for(int i = nums.length/2 - 1; i >= 0; --i){
+            fixMinHeap(nums, i);
+        }
+
+
+    }
+
+    private void fixMinHeap(int[] nums, int i) {
+
+    }
+
+
 }
