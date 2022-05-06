@@ -11,6 +11,14 @@ import java.util.Map;
  * @author liyh
  */
 public class ImplementTrieTree208 {
+    public static void main(String[] args) {
+        Trie trie = new Trie();
+        trie.insert("abc");
+        trie.insert("xyz");
+        trie.insert("abd");
+        boolean find = trie.search("ab");
+        System.out.println("find = " + find);
+    }
 }
 class Trie {
     class TrieNode{

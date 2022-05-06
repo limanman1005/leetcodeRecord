@@ -43,6 +43,5 @@ class Solution814 {
             root.right = null;
         }
         return allZeroInRight && allZeroInLeft && root.val == 0;
-
     }
 }
