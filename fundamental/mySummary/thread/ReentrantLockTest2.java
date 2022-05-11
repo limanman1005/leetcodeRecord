@@ -25,7 +25,7 @@ public class ReentrantLockTest2 {
                     //这里使用await，太坑了，找bug1小时。
                     conditionA.await();
                 }
-                conditionB.signal();
+//                conditionB.signal();
             }catch (InterruptedException e){
                 System.out.println(e);
             }
@@ -42,7 +42,7 @@ public class ReentrantLockTest2 {
                     conditionA.signal();
                     conditionB.await();
                 }
-                conditionA.signal();
+//                conditionA.signal();
             }catch (InterruptedException e){
                 System.out.println(e);
             }

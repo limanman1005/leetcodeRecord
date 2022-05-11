@@ -1,4 +1,4 @@
-package offer;
+package offer.str;
 
 /**
  * ClassName: CheckInclusion

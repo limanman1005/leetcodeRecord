@@ -1,4 +1,4 @@
-package offer;
+package offer.list;
 
 import explore.juniorAlgorithm.list.ListNode;
 
@@ -12,14 +12,17 @@ import explore.juniorAlgorithm.list.ListNode;
 public class Offer021 {
 }
 class SolutionOffer021And19{
+    //这种题，感觉某些点需要记住。才能一次AC
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
         ListNode pNode = dummyHead;
         ListNode pre = dummyHead;
+        //这里就是走了n步
         for(int i = 0; i < n; ++i){
             pNode = pNode.next;
         }
+        //走到最后一个节点而不是null
         while(pNode.next != null){
             pNode = pNode.next;
             pre = pre.next;

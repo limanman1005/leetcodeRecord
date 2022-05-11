@@ -33,7 +33,7 @@ class Solution40{
             return ;
         }
         for(int i = start; i < candidates.length; ++i){
-            //这个是后序的都不需要判断了
+            //这个是后续的都不需要判断了
             if(target < candidates[i]){
                 return ;
             }

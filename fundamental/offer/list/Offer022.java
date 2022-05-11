@@ -1,4 +1,4 @@
-package offer;
+package offer.list;
 
 import explore.juniorAlgorithm.list.ListNode;
 
