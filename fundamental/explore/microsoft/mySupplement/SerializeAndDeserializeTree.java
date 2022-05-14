@@ -214,13 +214,13 @@ class Solution297_2{
 
     public String serialize3(TreeNode root) {
         if(root == null){
-            return "null";
-        }
-        StringBuilder sb = new StringBuilder();
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.addLast(root);
-        while(!queue.isEmpty()){
-            TreeNode node = queue.pollFirst();
+                return "null";
+            }
+            StringBuilder sb = new StringBuilder();
+            LinkedList<TreeNode> queue = new LinkedList<>();
+            queue.addLast(root);
+            while(!queue.isEmpty()){
+                TreeNode node = queue.pollFirst();
             if(node != null){
                 sb.append(node.val + ",");
                 queue.addLast(node.left);
@@ -303,4 +303,39 @@ class Solution297_2{
         return root;
     }
 
+}
+
+
+class Codec {
+
+    private int idx = 0;
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        if(root == null){
+            return "null,";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(root.val);
+        sb.append(",");
+        String left = serialize(root.left);
+        String right = serialize(root.right);
+        return sb.append(left).append(right).toString();
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        String[] strs = data.split(",");
+        return dfs(strs);
+    }
+
+    private TreeNode dfs(String[] strs){
+        if("null".equals(strs[idx])){
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(strs[idx++]));
+        root.left = dfs(strs);
+        root.right = dfs(strs);
+        return root;
+    }
 }
