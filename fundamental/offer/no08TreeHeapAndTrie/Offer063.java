@@ -42,6 +42,7 @@ class SolutionOffer063 {
     private TrieNode BuildTrie(List<String> dictionary){
         TrieNode root = new TrieNode();
         for(String curStr : dictionary){
+            //这行的指针需要注意下，每次插入一个word需要复位
             TrieNode pNode = root;
             for(int i = 0; i < curStr.length(); ++i){
                 char curInsertChar = curStr.charAt(i);

@@ -9,7 +9,7 @@ package mySummary.Dp.bags;
  */
 public class CoinChange2 {
 }
-class Solution {
+class Solution518 {
     /**
      * 此题代码较少，但需要注意的时本题要求的时组成的组合数，不是排列数
      * 内外循环不可变，必须要外层硬币，内层总数

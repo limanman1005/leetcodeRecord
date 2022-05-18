@@ -1,9 +1,7 @@
 package offer.no08TreeHeapAndTrie;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
+import java.util.stream.Collector;
 
 /**
  * ClassName: Offer060
@@ -21,8 +19,6 @@ public class Offer060 {
         }
         PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
                 (e1, e2) -> e1.getValue() - e2.getValue());
-
-
     }
 }
 class SolutionOffer060{

@@ -10,7 +10,8 @@ package mySummary.Dp.lcs;
 public class LCS {
     public static void main(String[] args) {
         Solution1143 solution1143 = new Solution1143();
-        int i = solution1143.longestCommonSubsequence2("abcde", "ace");
+        int i = solution1143.longestCommonSubsequence("abcde", "ace");
+        System.out.println("i = " + i);
         String lcsString = solution1143.getLCSString("abcde", "abcde");
 
         System.out.println(lcsString);

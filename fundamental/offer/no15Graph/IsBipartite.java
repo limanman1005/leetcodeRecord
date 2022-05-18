@@ -1,4 +1,4 @@
-package offer.no14Graph;
+package offer.no15Graph;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -50,7 +50,9 @@ class SolutionOffer106{
         while(!queue.isEmpty()){
             int vetex = queue.pollFirst();
             for(int neighbor : graph[vetex]){
+                //已经有涂过色了
                 if(colors[neighbor] >= 0){
+                    //且和当前节点颜色相同，则返回false
                     if(colors[neighbor] == colors[vetex]){
                         return false;
                     }

@@ -1,4 +1,4 @@
-package offer.no015dp;
+package offer.no014dp;
 
 /**
  * ClassName: Offer090
@@ -22,6 +22,7 @@ class SolutionOffer090 {
             return nums[0];
         }
         int len = nums.length;
+        //这个其实就是分类，dp1记录的是偷第一间房
         int[] dp1 = new int[len];
         dp1[0] = nums[0];
         dp1[1] = nums[0];
@@ -29,6 +30,7 @@ class SolutionOffer090 {
             dp1[i] = Math.max(dp1[i - 1], dp1[i - 2] + nums[i]);
         }
         dp1[len - 1] = dp1[len - 2];
+        //dp2记录的是不偷第一间房的选择
         int[] dp2 = new int[len];
         dp2[0] = 0;
         dp2[1] = nums[1];

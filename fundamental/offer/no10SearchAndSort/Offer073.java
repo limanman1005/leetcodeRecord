@@ -64,6 +64,7 @@ class SolutionOffer073 {
             if(curNeedHour > h){
                 left = mid + 1;
             }
+            //无论是否刚好等于h，总可以在尝试下更小的速度
             else{
                 right = mid - 1;
             }

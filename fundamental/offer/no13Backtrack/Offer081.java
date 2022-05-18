@@ -40,4 +40,28 @@ class SolutionOffer081 {
             oneSet.remove(oneSet.size() - 1);
         }
     }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> oneResut = new ArrayList<>();
+        backTrack2(candidates, target, 0, oneResut, ans);
+        return ans;
+    }
+
+    private void backTrack2(int[] candidates, int target, int idx, List<Integer> oneResut, List<List<Integer>> ans){
+        if(target < 0){
+            return ;
+        }
+        if(target == 0){
+            ans.add(new ArrayList<>(oneResut));
+            return ;
+        }
+        for(int i = idx; i < candidates.length; ++i){
+            oneResut.add(candidates[i]);
+            backTrack(candidates, target - candidates[i], i, oneResut, ans);
+            oneResut.remove(oneResut.size() - 1);
+            //这一行是不能加的，这个for循环，暗含了跳过这个数字的情况了
+            // backTrack(candidates, target, i + 1, oneResut, ans);
+        }
+    }
 }
