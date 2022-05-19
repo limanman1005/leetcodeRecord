@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author liyh
  */
-public class LC1301 {
+public class NumberOfPathWithMaxScore {
     public static void main(String[] args) {
         ConcurrentHashMap<String, String> stringStringConcurrentHashMap = new ConcurrentHashMap<>(32);
     }

@@ -2,7 +2,7 @@ package offer.no014dp;
 
 /**
  * ClassName: Offer094
- * Description:
+ * Description: 最少回文分割
  * date: 18/5/2022 上午12:40
  *
  * @author liyh

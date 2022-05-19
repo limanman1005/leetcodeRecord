@@ -7,7 +7,7 @@ package mySummary.Dp;
  *
  * @author liyh
  */
-public class LC931 {
+public class MinimumFailingPathSum {
 }
 
 class Solution931 {

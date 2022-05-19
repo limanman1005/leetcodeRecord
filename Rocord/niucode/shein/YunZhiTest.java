@@ -1,4 +1,4 @@
-package niucode;
+package niucode.shein;
 
 /**
  * ClassName: YunZhiTest

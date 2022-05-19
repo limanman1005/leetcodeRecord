@@ -51,6 +51,7 @@ class Solution188 {
         }
         int len = prices.length;
         int[][][] dp = new int[len][k + 1][2];
+        //这个一次之后，没有了物理意义，纯粹是为了为了初始话赋的值
         for(int i = 0; i <= k; ++i){
             dp[0][i][0] = 0;
             dp[0][i][1] = -prices[0];

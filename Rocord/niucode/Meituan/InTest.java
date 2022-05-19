@@ -1,7 +1,6 @@
-package niucode;
+package niucode.Meituan;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * ClassName: InTest

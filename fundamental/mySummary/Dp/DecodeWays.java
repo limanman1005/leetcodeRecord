@@ -9,7 +9,12 @@ package mySummary.Dp;
  */
 public class DecodeWays {
 }
-class Solution{
+class Solution91{
+    /**
+     * 这个解法还是个错的，不能通过所有用例
+     * @param s
+     * @return
+     */
     public int numDecodings(String s) {
         if(s == null || s.length() == 0){
             return 0;

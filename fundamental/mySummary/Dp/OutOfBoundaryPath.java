@@ -7,7 +7,7 @@ package mySummary.Dp;
  *
  * @author liyh
  */
-public class LC576 {
+public class OutOfBoundaryPath {
 }
 class Solution576 {
     /**

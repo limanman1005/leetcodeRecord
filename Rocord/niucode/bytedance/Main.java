@@ -1,15 +1,16 @@
-package niucode;
+package niucode.bytedance;
 
 /**
- * ClassName: QuNaTest
+ * ClassName: Main
  * Description:
- * date: 2021/10/13 15:22
+ * date: 2021/10/22 13:56
  *
  * @author liyh
  */
-public class QuNaTest {
+public class Main {
     public static void main(String[] args) {
 
     }
-
 }
+
+

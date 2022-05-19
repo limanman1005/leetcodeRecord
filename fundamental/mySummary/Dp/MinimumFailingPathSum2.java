@@ -7,7 +7,7 @@ package mySummary.Dp;
  *
  * @author liyh
  */
-public class LC1289 {
+public class MinimumFailingPathSum2 {
 }
 class Solution1289 {
     private int MAX = Integer.MAX_VALUE;

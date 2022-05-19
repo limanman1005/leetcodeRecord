@@ -123,6 +123,7 @@ class Solution05 {
             int lenOdd = expandAroundCenter(s, i, i);
             int lenEven = expandAroundCenter(s, i, i + 1);
             int len = Math.max(lenEven, lenOdd);
+            //这个下标还是有难度的。使用另一个人的直接返回下标会好一些
             if(len > end - start){
                 start = i - (len - 1)/2;
                 end = i + len/2;
@@ -156,6 +157,9 @@ class Solution05 {
         for(int i = len - 1; i >= 0; --i){
             for(int j = i; j < len; ++j){
                 if(s.charAt(i) == s.charAt(j)){
+                    //需要初始化的范围
+                    // j - 1 - (i + 1)  = j - i - 2 >= i + 1 - i - 2 >= -1
+                    //即需要初始化的 j - i >= -1 范围内的值，才能向下推到
                     if(j - i < 2){
                         dp[i][j] = true;
                     }

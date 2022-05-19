@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author liyh
  */
 
-public class LC1575 {
+public class CountAllPossibleRoutes {
 }
 class Solution1575 {
     private int mod = 1000000007;

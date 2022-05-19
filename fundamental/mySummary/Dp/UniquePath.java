@@ -7,7 +7,7 @@ package mySummary.Dp;
  *
  * @author liyh
  */
-public class LC62 {
+public class UniquePath {
 }
 class Solution62 {
     /**
