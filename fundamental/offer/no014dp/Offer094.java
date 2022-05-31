@@ -13,6 +13,15 @@ public class Offer094 {
 /**
  * 这个也是状态定义倒是不难想，但是也挺难写的。
  */
-class SolutionOffer094{
+class SolutionOffer094And132{
+
+    public int minCut(String s) {
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        int[] dp = new int[s.length()];
+        return dp[s.length() - 1];
+    }
+
 
 }

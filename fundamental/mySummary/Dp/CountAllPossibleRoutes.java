@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class CountAllPossibleRoutes {
 }
+
+//蛮有意思的一道题，多看看能扩展下思路
 class Solution1575 {
     private int mod = 1000000007;
 

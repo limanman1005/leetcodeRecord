@@ -14,6 +14,10 @@ public class MergeNLists {
     }
 }
 class Solution23 {
+
+
+
+
     /**
      * 合并K个链表
      * @param lists

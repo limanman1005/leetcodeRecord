@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class RainWater {
     public static void main(String[] args) {
         int[] ans = {0,1,0,2,1,0,1,3,2,1,2,1};
-        int trap = new Solution42().trap(ans);
+        int trap = new Solution42().trap3(ans);
 
     }
 }
@@ -73,6 +73,48 @@ class Solution42{
             ans += curRain;
         }
         return ans;
+    }
+
+
+    /**
+     * 这个解法不知道哪里有问题
+     * @param height
+     * @return
+     */
+    public int trap3(int[] height) {
+        if(height == null || height.length == 0){
+            return 0;
+        }
+        int len = height.length;
+        int leftMax = height[0];
+        int rightMax = height[len - 1];
+        int left = 0;
+        int right = len - 1;
+        int sum = 0;
+        for(int i = 1; i < len - 1; ++i){
+            if(leftMax <= rightMax){
+                if(leftMax > height[left]){
+                    //需要计算的是left和right而不是i下标
+                    int curRain = leftMax - height[left];
+//                    System.out.println("i " + i);
+                    System.out.println(curRain);
+                    sum += leftMax - height[left];
+                }
+                left++;
+                leftMax = Math.max(leftMax, height[left]);
+            }
+            else{
+                if(rightMax > height[right]){
+//                    System.out.println("i = " + i);
+                    int curRain = rightMax - height[right];
+                    System.out.println(curRain);
+                    sum += rightMax - height[right];
+                }
+                right--;
+                rightMax = Math.max(rightMax, height[right]);
+            }
+        }
+        return sum;
     }
 
 

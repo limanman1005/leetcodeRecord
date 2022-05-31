@@ -20,7 +20,7 @@ public class MaxLengthOfPalindromicSubString {
     }
 }
 
-class Solution5 {
+class Solution05 {
     public String longestPalindrome(String s) {
         if(s == null || s.length() < 1){
             return "";

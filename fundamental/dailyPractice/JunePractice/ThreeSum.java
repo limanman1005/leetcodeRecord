@@ -49,11 +49,11 @@ class Solution15 {
             if(nums[i] > 0){
                 break;
             }
-            //重复的数字去掉
+            //重复的数字，确定第一个数字
             if(i > 0 && nums[i] == nums[i - 1]){
                 continue;
             }
-            //找到左右边界
+            //找到左右边界，因为拍过序了所以
             int L = i + 1;
             int R = len - 1;
             while(L < R){

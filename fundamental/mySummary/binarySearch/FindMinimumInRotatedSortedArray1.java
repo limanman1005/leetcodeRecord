@@ -7,6 +7,9 @@ package mySummary.binarySearch;
  *
  * @author liyh
  */
-public class Lc153 {
+public class FindMinimumInRotatedSortedArray1 {
+
+}
+class Solution153{
 
 }

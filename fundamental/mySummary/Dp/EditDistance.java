@@ -10,8 +10,8 @@ package mySummary.Dp;
 public class EditDistance {
     public static void main(String[] args) {
         Solution72 solution72 = new Solution72();
-        String word1 = "horse";
-        String word2 = "ros";
+        String word1 = "sea";
+        String word2 = "eat";
 //        solution72.minDistance2("", "");
         System.out.println(solution72.minDistance2(word1, word2));
         System.out.println(solution72.minDistance3(word1, word2));
@@ -74,7 +74,7 @@ class Solution72 {
                 dp[i][j] = min;
             }
         }
-        return dp[len1 - 1][len2 - 1];
+        return dp[len1][len2];
     }
 
     public int minDistance3(String word1, String word2) {
@@ -95,6 +95,64 @@ class Solution72 {
                 else{
                     int insert = dp[i - 1][j]  + 1;
                     int delete = dp[i][j - 1] + 1;
+                    int replace = dp[i - 1][j - 1] + 1;
+                    int min = Math.min(insert, Math.min(delete, replace));
+                    dp[i][j] = min;
+                }
+            }
+        }
+        return dp[len1][len2];
+    }
+
+
+    /**
+     * 这题有点意思的，不用哨兵技巧，边界条件有点难以初始化啊
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public int minDistance4(String word1, String word2) {
+        if(word1 == null || word2 == null){
+            return 0;
+        }
+        if(word1.length() == 0 && word2.length() == 0){
+            return 0;
+        }
+        else if(word1.length() == 0){
+            return word2.length();
+        }
+        else if(word2.length() == 0){
+            return word1.length();
+        }
+        int len1 = word1.length();
+        int len2 = word2.length();
+        int[][] dp = new int[len1][len2];
+        dp[0][0] = (word1.charAt(0) == word2.charAt(0)? 0: 1);
+        //这个的确就是边界情况比较的难搞，直接用哨兵还是蛮省心的
+        for(int i = 1; i < len1; ++i){
+            if(word1.charAt(i) == word2.charAt(0)){
+                dp[i][0] = i;
+            }
+            else{
+                dp[i][0] = dp[i - 1][0] + 1;
+            }
+        }
+        for(int i = 1; i < len2; ++i){
+            if(word1.charAt(0) == word2.charAt(i)){
+                dp[0][i] = i;
+            }
+            else{
+                dp[0][i] = dp[0][i - 1] + 1;
+            }
+        }
+        for(int i = 1; i < len1; ++i){
+            for(int j = 1; j < len2; ++j){
+                if(word1.charAt(i) == word2.charAt(j)){
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+                else{
+                    int insert = dp[i][j - 1] + 1;
+                    int delete = dp[i - 1][j] + 1;
                     int replace = dp[i - 1][j - 1] + 1;
                     int min = Math.min(insert, Math.min(delete, replace));
                     dp[i][j] = min;

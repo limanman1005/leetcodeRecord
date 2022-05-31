@@ -15,6 +15,7 @@ public class LCS {
         String lcsString = solution1143.getLCSString("abcde", "abcde");
 
         System.out.println(lcsString);
+        int[][] arr = new int[2][3];
     }
 }
 class Solution1143 {
@@ -113,6 +114,52 @@ class Solution1143 {
             memo[len1 - 1][len2 - 1] = Math.max(dfs(text1, text2, len1 - 1, len2), dfs(text1, text2, len1, len2 - 1));
         }
         return memo[len1 - 1][len2 - 1];
+    }
+
+
+    /**
+     * 不适用哨兵的边界情况可太难处理了
+     * @param text1
+     * @param text2
+     * @return
+     */
+    public int longestCommonSubsequence3(String text1, String text2) {
+        if(text1 == null || text2 == null){
+            return 0;
+        }
+        int len1 = text1.length();
+        int len2 = text2.length();
+        int[][] dp = new int[len1][len2];
+        if(text1.charAt(0) == text2.charAt(0)){
+            dp[0][0] = 1;
+        }
+        for(int i = 1; i < len1; ++i){
+            if(text1.charAt(i) == text2.charAt(0)){
+                dp[i][0] = 1;
+            }
+            else{
+                dp[i][0] = Math.max(dp[i][0], dp[i - 1][0]);
+            }
+        }
+        for(int i = 1; i < len2; ++i){
+            if(text1.charAt(0) == text2.charAt(i)){
+                dp[0][i] = 1;
+            }
+            else{
+                dp[0][i] = Math.max(dp[0][i - 1], dp[0][i]);
+            }
+        }
+        for(int i = 1; i < len1; ++i){
+            for(int j = 1; j < len2; ++j){
+                if(text1.charAt(i) == text2.charAt(j)){
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                }
+                else{
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[len1 - 1][len2 - 1];
     }
 
 

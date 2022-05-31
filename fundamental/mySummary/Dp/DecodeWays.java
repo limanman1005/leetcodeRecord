@@ -1,5 +1,7 @@
 package mySummary.Dp;
 
+import java.util.Arrays;
+
 /**
  * ClassName: DecodeWays
  * Description:
@@ -8,10 +10,19 @@ package mySummary.Dp;
  * @author liyh
  */
 public class DecodeWays {
+    public static void main(String[] args) {
+        String s = "01234";
+        String substring = s.substring(0, 8);
+        System.out.println(substring);
+    }
 }
+
+
 class Solution91{
+    private int[] memo;
+
     /**
-     * 这个解法还是个错的，不能通过所有用例
+     * 边界条件有点丑的一个示例
      * @param s
      * @return
      */
@@ -20,34 +31,77 @@ class Solution91{
             return 0;
         }
         int len = s.length();
-        if(s.charAt(0) == '0'){
+        int[] dp = new int[len];
+        dp[0] = s.charAt(0) == '0'? 0: 1;
+        if(dp[0] == 0){
             return 0;
         }
-        int[] dp = new int[len];
-        dp[0] = 1;
-        for(int i = 1; i < len; ++i){
-            if(check(i - 1, i, s)){
-                dp[i] = dp[i - 1] + 1;
-            }
-            else{
+        if(s.length() == 1){
+            return dp[0];
+        }
+        if(s.charAt(1) > '0' && s.charAt(1) <= '9'){
+            dp[1] = dp[0];
+        }
+        if(twoNumInRange(s.charAt(0), s.charAt(1))){
+            dp[1]++;
+        }
+        for(int i = 2; i < len; ++i){
+            int num1 = s.charAt(i) - '0';
+            if(num1 > 0){
                 dp[i] = dp[i - 1];
+            }
+            int num2 = (s.charAt(i - 1) - '0') * 10 + num1;
+            if(num2 >= 10 && num2 <= 26){
+                dp[i] += dp[i - 2];
             }
         }
         return dp[len - 1];
     }
 
-    public boolean check(int pre, int cur, String s){
-        int sum = 0;
-        sum += s.charAt(pre) - '0';
-        if(sum == 0){
-            return false;
-        }
-        sum = sum*10 + s.charAt(cur) - '0';
-        if(sum < 27 && sum %10 != 0){
+    private boolean twoNumInRange(char c1, char c2){
+        int num = (c1 - '0') * 10 + c2 - '0';
+        if(num >= 10 && num <= 26){
             return true;
         }
         else{
             return false;
         }
     }
+
+    /**
+     * 用了记忆化搜索的一个方法
+     * @param s
+     * @return
+     */
+    public int numDecodings2(String s) {
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        int len = s.length();
+        memo = new int[len];
+        Arrays.fill(memo, -1);
+        return dfs(s, 0);
+    }
+    private int dfs(String s, int idx){
+        if(idx >= s.length()){
+            return 1;
+        }
+        if(memo[idx] != -1){
+            return memo[idx];
+        }
+        int count = 0;
+        if(s.charAt(idx) > '0' && s.charAt(idx) <= '9'){
+            count += dfs(s, idx + 1);
+        }
+        if(idx + 2 <= s.length()){
+            int numOfTwoPosition = Integer.parseInt(s.substring(idx, idx + 2));
+            if(numOfTwoPosition >= 10 && numOfTwoPosition <= 26){
+                count += dfs(s, idx + 2);
+            }
+        }
+        memo[idx] = count;
+        return count;
+    }
 }
+
+

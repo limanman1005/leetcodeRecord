@@ -10,6 +10,11 @@ import java.util.Arrays;
  * @author liyh
  */
 public class MinimumSizeSubarraySum {
+    public static void main(String[] args) {
+        int[] arr = {1, 2,  4, 5, 6, 7, 8};
+        int i = Arrays.binarySearch(arr, 9);
+        System.out.println("i = " + i);
+    }
 }
 class Solution209 {
     /**
