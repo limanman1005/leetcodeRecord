@@ -28,7 +28,7 @@ class SolutionOffer076Debug {
                 idx = partition(nums, idx + 1, len - 1);
             }
         }
-        return nums[idx + 1];
+        return nums[idx];
     }
 
     /**

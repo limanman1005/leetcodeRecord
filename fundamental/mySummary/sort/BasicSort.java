@@ -1,6 +1,7 @@
 package mySummary.sort;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * ClassName: BasicSort
@@ -13,12 +14,11 @@ public class BasicSort {
     public static void main(String[] args) {
         MergeSort mergeSort = new MergeSort();
         MergeSortLoop mergeSortLoop = new MergeSortLoop();
-        int[] test = new int[]{1, 5, 2,13, 14, 1, 2,  9, 6, 3, 10, 4, 7, 8, 11};
-        mergeSortLoop.mergeSort2(test);
-
-//        mergeSort.mergeSort(test);
+        int[] test = new int[]{7,5 ,6, 4};
+        Integer[] test2 = new Integer[5];
+        mergeSort.mergeSort(test);
         System.out.println(Arrays.toString(test));
-//        System.out.println(mergeSort.reverseNum);
+        System.out.println(mergeSort.reverseNum);
     }
 }
 class SimpleSort{

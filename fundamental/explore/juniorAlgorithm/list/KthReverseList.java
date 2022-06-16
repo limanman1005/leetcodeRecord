@@ -47,8 +47,8 @@ class Solution25{
             b = b.next;
         }
         ListNode reverseHead = reverse(a, b);
-        a.next = reverseKGroup(b, k);
         //逆转过后a已经变成了当前组的尾节点。接上下一组的头节点
+        a.next = reverseKGroup(b, k);
         return reverseHead;
     }
 

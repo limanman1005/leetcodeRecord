@@ -77,46 +77,35 @@ class Solution42{
 
 
     /**
-     * 这个解法不知道哪里有问题
+     * 这个思路就是当我们使用两个指针同时计算的时候
+     * 我们不需要同时知道左右的最大值。我们从左向右计算的时候左边的最大值是可信的，再加上如果此时他比右边的某个值小
+     * 那么我们可以确信的是当前位置可以计算的值取决于左边的最大值。
+     *
+     *
      * @param height
      * @return
      */
     public int trap3(int[] height) {
-        if(height == null || height.length == 0){
-            return 0;
-        }
-        int len = height.length;
-        int leftMax = height[0];
-        int rightMax = height[len - 1];
-        int left = 0;
-        int right = len - 1;
-        int sum = 0;
-        for(int i = 1; i < len - 1; ++i){
-            if(leftMax <= rightMax){
-                if(leftMax > height[left]){
-                    //需要计算的是left和right而不是i下标
-                    int curRain = leftMax - height[left];
-//                    System.out.println("i " + i);
-                    System.out.println(curRain);
-                    sum += leftMax - height[left];
-                }
+        //两个指针直接计算1到len - 2的位置就可以了
+        int left = 1;
+        int right = height.length - 2;
+        //记录当下的左边最大值和右边的最大值
+        int leftMax = 0;
+        int rightMax = 0;
+        int ans = 0;
+        //一个循环计算出所有的值
+        while(left <= right){
+            if(height[left - 1] < height[right + 1]){
+                leftMax = Math.max(height[left - 1], leftMax);
+                ans += (leftMax > height[left]? leftMax - height[left]: 0);
                 left++;
-                leftMax = Math.max(leftMax, height[left]);
             }
             else{
-                if(rightMax > height[right]){
-//                    System.out.println("i = " + i);
-                    int curRain = rightMax - height[right];
-                    System.out.println(curRain);
-                    sum += rightMax - height[right];
-                }
+                rightMax = Math.max(height[right + 1], rightMax);
+                ans += (rightMax > height[right]? rightMax - height[right]: 0);
                 right--;
-                rightMax = Math.max(rightMax, height[right]);
             }
         }
-        return sum;
+        return ans;
     }
-
-
-
 }

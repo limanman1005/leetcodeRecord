@@ -1,4 +1,4 @@
-package mySummary.array;
+package mySummary.graph;
 
 import java.util.*;
 

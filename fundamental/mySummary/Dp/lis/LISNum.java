@@ -44,4 +44,40 @@ class Solution673 {
         }
         return count;
     }
+
+
+    /**
+     * 非哨兵版本
+     * @param nums
+     * @return
+     */
+    public int findNumberOfLIS2(int[] nums) {
+        int len = nums.length;
+        int[] lenDp = new int[len];
+        int[] numDp = new int[len];
+        Arrays.fill(lenDp, 1);
+        Arrays.fill(numDp, 1);
+        int maxLen = 1;
+        for(int i = 0; i < len; ++i){
+            for(int j = 0; j < i; ++j){
+                if(nums[i] > nums[j]){
+                    if(lenDp[i] < lenDp[j] + 1){
+                        lenDp[i] = lenDp[j] + 1;
+                        numDp[i] = numDp[j];
+                    }
+                    else if(lenDp[i] == lenDp[j] + 1){
+                        numDp[i] += numDp[j];
+                    }
+                }
+            }
+            maxLen = Math.max(maxLen, lenDp[i]);
+        }
+        int ans = 0;
+        for(int i = 0; i < len; ++i){
+            if(maxLen == lenDp[i]){
+                ans += numDp[i];
+            }
+        }
+        return ans;
+    }
 }

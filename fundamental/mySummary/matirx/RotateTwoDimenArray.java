@@ -75,6 +75,22 @@ class Solution48 {
             }
         }
     }
+
+
+    public void rotate4(int[][] matrix) {
+        int n = matrix.length;
+        //n为奇数和n为偶数，分类讨论找到两层循环的边界。
+        for(int i = 0; i < n/2; ++i){
+            for(int j = 0; j < (n + 1) / 2; ++j){
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[n - j - 1][i];
+                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+                matrix[j][n - i - 1] = tmp;
+            }
+        }
+        return ;
+    }
 }
 
 

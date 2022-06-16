@@ -6,14 +6,11 @@ import mySummary.Dfs.TreeNode;
  * ClassName: Offer049
  * Description: 根节点到叶节点的路径数字之和
  * date: 14/5/2022 上午10:18
- *
  * @author liyh
  */
 public class Offer049 {
 }
 class SolutionOffer049{
-
-
     public int sumNumbers(TreeNode root) {
         if(root == null){
             return 0;
@@ -42,5 +39,28 @@ class SolutionOffer049{
         dfs(root.left, sb, ans);
         dfs(root.right, sb, ans);
         sb.deleteCharAt(sb.length() - 1);
+    }
+
+
+
+
+    public int sumNumbers2(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode root, int pathSum){
+        if(root == null){
+            return 0;
+        }
+        int curSum = pathSum * 10 + root.val;
+        if(root.left == null && root.right == null){
+            return curSum;
+        }
+        int leftSum = dfs(root.left, curSum);
+        int rightSum = dfs(root.right, curSum);
+        return leftSum + rightSum;
     }
 }

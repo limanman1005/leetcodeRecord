@@ -100,4 +100,38 @@ class Solution209 {
         }
         return ans == Integer.MAX_VALUE? 0: ans;
     }
+
+
+    public int minSubArrayLen4(int target, int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int len = nums.length;
+        int[] prefixSum = new int[len + 1];
+        for(int i = 1; i <= len; ++i){
+            prefixSum[i] = prefixSum[i - 1] + nums[i - 1];
+        }
+        int minLength = len + 1;
+        for(int i = 1; i <= len; ++i){
+            //找到prefixSum里的小于等于targetNum的最大值。
+            //在0到i这个区间里面找
+            int targetNum = prefixSum[i] - target;
+            int left = 0;
+            int right = i;
+            while(left < right){
+                int mid = (left + right + 1) >>> 1;
+                if(prefixSum[mid] <= targetNum){
+                    left = mid;
+                }
+                else{
+                    right = mid - 1;
+                }
+            }
+            //判断下是否满足条件
+            if(prefixSum[left] <= targetNum){
+                minLength = Math.min(minLength, i - left);
+            }
+        }
+        return minLength == len + 1? 0: minLength;
+    }
 }

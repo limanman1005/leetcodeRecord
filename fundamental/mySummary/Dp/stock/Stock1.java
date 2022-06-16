@@ -17,7 +17,6 @@ public class Stock1 {
         System.out.println(Integer.toBinaryString(-4));
         System.out.println(Integer.toBinaryString(- 4 >>> 1));
         ArrayList<Object> objects = new ArrayList<>();
-
     }
 }
 class Solution121 {

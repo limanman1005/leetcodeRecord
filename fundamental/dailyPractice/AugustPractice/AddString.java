@@ -25,7 +25,7 @@ class Solution415 {
             p2--;
         }
         if(carry != 0){
-            ans.append(1);
+            ans.append(carry);
         }
         return ans.reverse().toString();
     }

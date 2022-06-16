@@ -37,10 +37,10 @@ class QuickSort{
         int p1 = left + 1;
         int p2 = right;
         while(p1 <= p2){
-            while(p1 <= p2 && nums[p1] < nums[pivotIdx]){
+            while(p1 <= p2 && nums[p1] >= nums[pivotIdx]){
                 p1++;
             }
-            while(p1 <= p2 && nums[p2] > nums[pivotIdx]){
+            while(p1 <= p2 && nums[p2] <= nums[pivotIdx]){
                 p2--;
             }
             if(p1 < p2){
@@ -49,7 +49,6 @@ class QuickSort{
         }
         swap(nums, pivotIdx, p2);
         return p2;
-
     }
 
     private void swap(int[] nums, int i, int j){

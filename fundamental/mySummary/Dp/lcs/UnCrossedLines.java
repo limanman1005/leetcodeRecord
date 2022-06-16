@@ -10,7 +10,7 @@ package mySummary.Dp.lcs;
 public class UnCrossedLines {
 }
 class Solution1035{
-    //最长上升子序列换皮题，简单轻松
+    //最长公共子序列换皮题，简单轻松
     public int maxUncrossedLines(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
         int len2 = nums2.length;

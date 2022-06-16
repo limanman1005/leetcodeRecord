@@ -9,5 +9,8 @@ package mySummary.union;
  * date: 2021/9/11 10:10
  * @author liyh
  */
+//todo mark以下，这题用并查集做一下
 public class LC130 {
 }
+
+

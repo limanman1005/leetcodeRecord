@@ -15,7 +15,7 @@ import java.util.Queue;
 public class CourseSchedule1 {
 }
 
-class Solution210{
+class Solution210_2{
     private List<List<Integer>> edges;
     private int[] indeg;
     private int[] ans;

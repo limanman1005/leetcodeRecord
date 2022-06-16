@@ -33,6 +33,7 @@ class Solution039And84{
         stack.addLast(-1);
         for(int i = 0; i < len; ++i){
             while(stack.peekLast() != -1 && heights[i] < heights[stack.peekLast()]){
+                //必须先取出idx，再算宽度。因为在栈中的不一定是相邻的。取出后才能找到正确的左边界值
                 int curHeightIdx = stack.pollLast();
                 int width = i - stack.peekLast() - 1;
                 ans = Math.max(ans, heights[curHeightIdx] * width);

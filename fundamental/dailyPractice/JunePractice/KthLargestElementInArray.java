@@ -1,5 +1,6 @@
 package dailyPractice.JunePractice;
 
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
@@ -14,6 +15,7 @@ public class KthLargestElementInArray {
     public static void main(String[] args) {
         Solution215 solution215 = new Solution215();
         int[] arr = {4, 1, 7, 5};
+        PriorityQueue<Integer> integers = new PriorityQueue<>();
         System.out.println(solution215.findKthLargest2(arr, 1));
     }
 }
