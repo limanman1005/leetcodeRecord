@@ -1,5 +1,7 @@
 package explore.juniorAlgorithm.string;
 
+import java.util.Arrays;
+
 /**
  * ClassName: LongestCommonPrefix
  * Description: 给一个字符数组，找到这些字符数组的公共前缀
@@ -168,6 +170,36 @@ class Solution14 {
             }
             if(flag){
                 sb.append(curChar);
+            }
+            else{
+                break;
+            }
+        }
+        return sb.toString();
+    }
+
+
+    /**
+     * 这个自己写的，思路还是蛮清晰的
+     * @param strs
+     * @return
+     */
+    public String longestCommonPrefix5(String[] strs) {
+        int len = strs.length;
+        StringBuilder sb = new StringBuilder();
+        Arrays.sort(strs, (s1, s2)->{
+            return s1.length() - s2.length();
+        });
+        for(int i = 0; i < strs[0].length(); ++i){
+            boolean canAppend = true;
+            for(int j = 1; j < strs.length; ++j){
+                if(i< strs[j].length() && strs[0].charAt(i) != strs[j].charAt(i)){
+                    canAppend = false;
+                    break;
+                }
+            }
+            if(canAppend){
+                sb.append(strs[0].charAt(i));
             }
             else{
                 break;

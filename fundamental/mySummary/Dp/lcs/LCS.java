@@ -161,7 +161,4 @@ class Solution1143 {
         }
         return dp[len1 - 1][len2 - 1];
     }
-
-
-
 }
