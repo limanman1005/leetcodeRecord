@@ -1,9 +1,6 @@
 package mySummary.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * ClassName: CourseSchedule2
@@ -13,6 +10,15 @@ import java.util.List;
  * @author liyh
  */
 public class CourseSchedule2 {
+    public static void main(String[] args) {
+        HashMap<Integer, Integer> integerIntegerHashMap = new HashMap<>();
+        Set<Map.Entry<Integer, Integer>> entries = integerIntegerHashMap.entrySet();
+        for(Map.Entry<Integer, Integer> entry: entries){
+            if(entry.getValue() == 0){
+
+            }
+        }
+    }
 }
 
 class Solution210{

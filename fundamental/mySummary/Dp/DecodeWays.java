@@ -11,9 +11,14 @@ import java.util.Arrays;
  */
 public class DecodeWays {
     public static void main(String[] args) {
-        String s = "01234";
-        String substring = s.substring(0, 8);
-        System.out.println(substring);
+        int digits = Integer.MAX_VALUE;
+        System.out.println(1 << 30);
+        StringBuilder sb = new StringBuilder();
+        while(digits != 0){
+            sb.append(digits  & 1);
+            digits = digits >>> 1;
+        }
+        System.out.println(sb.reverse().toString());
     }
 }
 

@@ -71,5 +71,41 @@ class Solution128 {
         return ans;
     }
 
+    /**
+     * 这个思路非常的有意思
+     * @param nums
+     * @return
+     */
+    public int longestConsecutive3(int[] nums) {
+        int len = nums.length;
+        HashSet<Integer> set = new HashSet<>();
+        for(int i = 0; i < len; ++i){
+            set.add(nums[i]);
+        }
+        int ans = 0;
+        //直接使用set通过一个数，向两边扩展。通过hashset判断边界在不在数组内。
+        //使用cnt直接记录当前扩展结果。
+        for(int i = 0; i < len; ++i){
+            int num = nums[i];
+            int left = num - 1;
+            int right = num + 1;
+            int cnt = 1;
+            while(set.contains(left)){
+                set.remove(left);
+                left--;
+                cnt++;
+            }
+            while(set.contains(right)){
+                set.remove(right);
+                right++;
+                cnt++;
+            }
+            if(cnt > ans){
+                ans = cnt;
+            }
+        }
+        return ans;
+    }
+
 
 }

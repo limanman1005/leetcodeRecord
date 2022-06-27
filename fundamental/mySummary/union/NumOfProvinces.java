@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class NumOfProvinces {
 }
-class Solution {
+class Solution547 {
     public int findCircleNum(int[][] isConnected) {
         UnionFind union = new UnionFind();
         for(int i = 0; i < isConnected.length; ++i){

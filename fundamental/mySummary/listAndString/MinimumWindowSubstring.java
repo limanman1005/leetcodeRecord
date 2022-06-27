@@ -10,8 +10,10 @@ package mySummary.listAndString;
 public class MinimumWindowSubstring {
     public static void main(String[] args) {
         Solution76 solution76 = new Solution76();
-        String s = "ADOBECODEBANC";
-        String t = "ABC";
+//        String s = "ADOBECODEBANC";
+//        String t = "ABC";
+        String s = "a";
+        String t = "a";
         String minSubString = solution76.minWindow(s, t);
         System.out.println(minSubString);
     }

@@ -1,5 +1,6 @@
 package explore.queueAndStack;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,11 +13,18 @@ import java.util.Queue;
  */
 public class WallAndDoor {
     public static void main(String[] args) {
-        switch ("0"){
-            case "+" :  int val = 1 + 1; break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + "0");
-        }
+        Solution286 solution286 = new Solution286();
+        int[][] rooms = {{2147483647,-1,0,2147483647},
+                         {2147483647,2147483647,2147483647,-1},
+                         {2147483647,-1,2147483647,-1},
+                         {0,-1,2147483647,2147483647}};
+        solution286.wallsAndGates2(rooms);
+        for (int i = 0; i < rooms.length; i++) {
+            for (int j = 0; j < rooms[0].length; j++) {
+                System.out.printf(rooms[i][j] + ",");
+            }
+            System.out.println();
+        };
     }
 }
 class Solution286 {
@@ -58,4 +66,46 @@ class Solution286 {
     }
 
 
+    public void wallsAndGates2(int[][] rooms) {
+        int rows = rooms.length;
+        int cols = rooms[0].length;
+        LinkedList<int[]> queue = new LinkedList<>();
+        int[] dx = new int[]{0, 0, 1, -1};
+        int[] dy = new int[]{1, -1, 0, 0};
+        boolean[][] visited;
+        for(int i = 0; i < rows; ++i){
+            for(int j = 0; j < cols; ++j){
+                if(rooms[i][j] == 0){
+                    visited = new boolean[rows][cols];
+                    queue.addLast(new int[]{i, j});
+                    int curMinDistance = 0;
+                    visited[i][j] = true;
+                    while(!queue.isEmpty()){
+                        int size = queue.size();
+                        curMinDistance++;
+                        for(int n = 0; n < size; ++n){
+                            int[] curPos = queue.pollFirst();
+                            for(int k = 0; k < 4; ++k){
+                                int nx = curPos[0] + dx[k];
+                                int ny = curPos[1] + dy[k];
+                                if(isInArea(nx, ny, rooms) && !visited[nx][ny] && rooms[nx][ny] != -1 && rooms[nx][ny] != 0){
+                                    rooms[nx][ny] = Math.min(rooms[nx][ny], curMinDistance);
+                                    queue.addLast(new int[]{nx, ny});
+                                    visited[nx][ny] = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ;
+    }
+
+    private boolean isInArea(int nx, int ny, int[][] rooms){
+        if(nx >= 0 && nx < rooms.length && ny >= 0 && ny < rooms[0].length){
+            return true;
+        }
+        return false;
+    }
 }

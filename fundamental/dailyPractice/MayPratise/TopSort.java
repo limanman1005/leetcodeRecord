@@ -25,7 +25,7 @@ public class TopSort {
     }
 }
 
-class Solution201 {
+class Solution210 {
     private List<List<Integer>> edges;
     private int[] indeg;
     private int[] ans;

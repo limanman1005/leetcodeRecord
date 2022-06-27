@@ -10,6 +10,13 @@ package explore.juniorAlgorithm.dp;
  * @author liyh
  */
 public class MaxSubArray {
+    public static void main(String[] args) {
+        String s = "123";
+        StringBuilder sb  = new StringBuilder("123");
+        sb.insert(1, '.');
+        System.out.println(sb);
+    }
+
 }
 
 class Solution53 {
